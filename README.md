@@ -68,6 +68,8 @@ In LoaderDEMO.ipynb, it is shown how to read the images and extract them in Niif
 
 # Actions in ProCanLoad
 
+Check the LoaderDEMO.ipynb in how to utilize the package.
+
 ## Ordering image slices
 
 ProCanLoad main purpose was to pick and set the image slices in the right order. For this, DICOM tag Image Position (Patient) (0020,0032) is been used. This tag is necessary for any image transformation (e.g. resample)
