@@ -11,7 +11,7 @@ setup(
 
     author_email='xkalantzopoulos@gmail.com',
 
-    packages=['ProcancerSeriesLoader'],
+    packages=['ProCanLoad'],
 
     url='',
 
