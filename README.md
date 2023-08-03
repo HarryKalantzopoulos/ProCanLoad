@@ -1,5 +1,4 @@
 # ProCanLoad
-HarryKalantzopoulos/ProCanLoad
 
 ![ProCAncer-I](https://www.procancer-i.eu/wp-content/uploads/2020/07/logo.png)
 
