@@ -13,7 +13,7 @@ setup(
 
     packages=['ProCanLoad'],
 
-    url='',
+    url='https://github.com/HarryKalantzopoulos/ProCanLoad',
 
     install_requires=[
         'SimpleITK==2.2.1',
