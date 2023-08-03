@@ -133,9 +133,11 @@ For now logger may return these warnings/ issues:
 
 Kalantzopoulos Charalampos, xkalantzopoulos@gmail.com
 
-Zaridis Dimitris
+Zaridis Dimitrios dimzaridis@gmail.com
 
-Nikolaos Tachos
+Mylona Eugenia mylona.eugenia@gmail.com
+
+Nikolaos Tachos ntachos@gmail.com
 
 # Thank you
 
