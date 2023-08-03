@@ -133,10 +133,6 @@ For now logger may return these warnings/ issues:
 
 Kalantzopoulos Charalampos, xkalantzopoulos@gmail.com
 
-Kalokyri Valia
-
-Kassiotis Thomas
-
 Zaridis Dimitris
 
 Nikolaos Tachos
