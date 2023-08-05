@@ -110,7 +110,7 @@ For label segmentations, pydicom is utilized. First, we take the name of the seg
 
 To put the slices on the correct position (0008,0018) SOP Instance UID from T2w and (0008,1155) Referenced SOP Instance UID is been used.
 
-## Logger messages.
+## Logger messages
 
 For now logger may return these warnings/ issues:
 
