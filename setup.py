@@ -17,6 +17,7 @@ setup(
 
     install_requires=[
         'SimpleITK==2.2.1',
-        'pydicom'
+        'pydicom',
+        'tqdm'
     ]
 )
