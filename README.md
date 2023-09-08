@@ -84,9 +84,9 @@ Some ADCs were found to have a very low voxel value (e.g. max voxel intensity va
 From :
 https://radiopaedia.org/articles/apparent-diffusion-coefficient-1 and
 
-dicom tag Rescale Type (0028,1054) returning value "10^-3 mm^2/s"
+dicom tag Rescale Type (0028,1054) returning value "10<sup>-3</sup> mm<sup>2</sup>/s" on some occasions.
 
-It is clear that ADC having thousand value are stored in 10^-6 mm^2/s and unit values are are 10^-3 mm^2/s.
+It is clear that ADC having thousand value are stored in 10<sup>-6</sup> mm<sup>2</sup>/s and unit values are are 10<sup>-3</sup> mm<sup>2</sup>/s.
 
 So, if an ADC's max voxel intensity value is unit value, then it is multiplied by 1000 before it is stored in .nii.gz. This transformation is logged in issues.
 
@@ -98,9 +98,9 @@ According to the consortium, the highest b-values are prefered.
 
 However, there might be situations where multi-series' b-values are unknown. 
 
-In this scenario, according to the formula S_DWI = S_b<sup>0</sup> * e^(-b * D) https://radiopaedia.org/articles/diffusion-weighted-imaging-2
+In this scenario, according to the formula S<sub>DWI</sub> = S<sub>b=0</sub> * e<sup>(-b * D)</sup> https://radiopaedia.org/articles/diffusion-weighted-imaging-2
 
-Assuming for the same patient, with unknown b-values, S_b=0 and D are constants, then if the b becomes larger, then S_DWI becomes smaller, for the slice in the same location.
+Assuming for the same patient, with unknown b-values, S<sub>b=0</sub> and D are constants, then if the b becomes larger, then S_DWI becomes smaller, for the slice in the same location.
 
 Another ordering is performed. For each slice position found in dcm files, the max and mean slice's intensity value is found. Then we order the slices by larger to smaller. This results in 'Unknown' having the slices with smaller be value, followed by Unknown-X which will have smaller max_mean value, thus higher b-value.
 
