@@ -86,7 +86,7 @@ https://radiopaedia.org/articles/apparent-diffusion-coefficient-1 and
 
 dicom tag Rescale Type (0028,1054) returning value "10<sup>-3</sup> mm<sup>2</sup>/s" on some occasions.
 
-It is clear that ADC having thousand value are stored in 10<sup>-6</sup> mm<sup>2</sup>/s and unit values are are 10<sup>-3</sup> mm<sup>2</sup>/s.
+It is clear that ADC values in the thousands are 10<sup>-6</sup>, with unit values are 10<sup>-3</sup> mm<sup>2</sup>/s.
 
 So, if an ADC's max voxel intensity value is unit value, then it is multiplied by 1000 before it is stored in .nii.gz. This transformation is logged in issues.
 
