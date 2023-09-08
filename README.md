@@ -98,9 +98,9 @@ According to the consortium, the highest b-values are prefered.
 
 However, there might be situations where multi-series' b-values are unknown. 
 
-In this scenario, according to the formula S<sub>DWI</sub> = S<sub>b=0</sub> * e<sup>(-b * D)</sup> https://radiopaedia.org/articles/diffusion-weighted-imaging-2
+In this scenario, according to the formula S<sub>DWI</sub> = S<sub>b<sub>0</sub></sub> * e<sup>(-b * D)</sup> https://radiopaedia.org/articles/diffusion-weighted-imaging-2
 
-Assuming for the same patient, with unknown b-values, S<sub>b=0</sub> and D are constants, then if the b becomes larger, then S_DWI becomes smaller, for the slice in the same location.
+Assuming for the same patient, with unknown b-values, S<sub>b<sub>0</sub></sub> and D are constants, then if the b becomes larger, then S<sub>DWI</sub> becomes smaller, for the slice in the same location.
 
 Another ordering is performed. For each slice position found in dcm files, the max and mean slice's intensity value is found. Then we order the slices by larger to smaller. This results in 'Unknown' having the slices with smaller be value, followed by Unknown-X which will have smaller max_mean value, thus higher b-value.
 
