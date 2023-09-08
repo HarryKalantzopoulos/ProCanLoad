@@ -98,7 +98,7 @@ According to the consortium, the highest b-values are prefered.
 
 However, there might be situations where multi-series' b-values are unknown. 
 
-In this scenario, according to the formula S_DWI = S_b0 * e^(-b * D) https://radiopaedia.org/articles/diffusion-weighted-imaging-2
+In this scenario, according to the formula S_DWI = S_b<sup>0</sup> * e^(-b * D) https://radiopaedia.org/articles/diffusion-weighted-imaging-2
 
 Assuming for the same patient, with unknown b-values, S_b=0 and D are constants, then if the b becomes larger, then S_DWI becomes smaller, for the slice in the same location.
 
