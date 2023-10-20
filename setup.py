@@ -16,7 +16,7 @@ setup(
     url='https://github.com/HarryKalantzopoulos/ProCanLoad',
 
     install_requires=[
-        'simpleitk>=2.2.1',
+        'simpleitk>=2.1',
         'pydicom',
         'tqdm'
     ]
