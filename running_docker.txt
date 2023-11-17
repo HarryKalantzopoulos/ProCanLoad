@@ -1,0 +1,5 @@
+docker build -t DETLPro .
+
+## Configure params.yaml (already configured)
+
+docker run --name dowm -it -v $PWD/:/app/ DELTPro

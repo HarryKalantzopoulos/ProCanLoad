@@ -1,0 +1,3 @@
+series_df: data/ecrfs-series.parquet
+segments_df: data/segments.parquet
+images_dir: DICOM_images

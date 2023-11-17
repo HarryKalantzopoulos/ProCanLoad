@@ -37,7 +37,32 @@ class SegmentationLoader():
             name = sed_id[0x0062,0x0005].value
             label_dictionary[id] = name
 
-        return label_dictionary
+        return dict( sorted ( label_dictionary.items() ) )
+    
+    def CorrectLabelDict2Ref(self, seg: pydicom.Dataset, label_dict: dict):
+        '''
+        Segmentation dcm files give a one-hot-encoded value (DICOM tag [0062,0004]) for each label, however from 1 Aug version for some segmentation files,
+        there are some bad encodement in Referenced Segment Number of each slice (DICOM tag [ 0x0062, 0x000b] ). Thus the new addition in this case. 
+        '''
+
+        available_reference_codes = list ( set( [ ref[0x0062, 0x000a][0][ 0x0062, 0x000b].value for ref in seg[0x5200, 0x9230] ] ) )
+        label_names = [ name for name in label_dict.values() ]
+        encoded_labels = list(label_dict.keys())
+
+        if available_reference_codes == encoded_labels:
+            pass
+        
+        elif  len(available_reference_codes)  == len(encoded_labels):
+            
+            label_dict = { code : name for code, name in zip(available_reference_codes, label_names) }
+            self.logger.LogIssue( 'EncodingMismatch', {f'{self.seg_series}':f'Warning: Encoded labels in [0062,0004] does not much the one or more reference(s) [ 0x0062, 0x000b]'} )
+
+        else:
+            label_dict = {available_reference_codes[i]:label_names[i]
+                for i in range( len(available_reference_codes) ) }
+            self.logger.LogIssue( 'LabelMismatch', {f'{self.seg_series}':f'Warning: The number of Encoded labels in [0062,0004] does not much the reference [ 0x0062, 0x000b]. This means that something might be missing or the extracted files might not be named with the correct label'} )
+        
+        return label_dict
 
     def MatchSliceIDSeg2Img(self, series_dict):
 
@@ -76,6 +101,7 @@ class SegmentationLoader():
         seg_im = seg.pixel_array
 
         labels = self.CreateLabelDict(seg)
+        labels = self.CorrectLabelDict2Ref(seg, labels)
 
         #Find the segmentation from reference and type of segmentation
         self.segment_dict = {}
@@ -88,20 +114,26 @@ class SegmentationLoader():
 
             label_name = labels[ref_seg_encoded]
 
-            loc_in_image = sop_uid_list.index(ref_sop_uid) #Find location of reference seg's slice inside source image's slices
+            if ref_sop_uid in sop_uid_list:
 
-            if label_name not in self.segment_dict:
-                
-                self.segment_dict[label_name] = np.zeros(xyzsize,dtype=np.uint8) #Initialize mask for the corresponding label
+                loc_in_image = sop_uid_list.index(ref_sop_uid) #Find location of reference seg's slice inside source image's slices
 
-            if seg_im.ndim == 2:
+                if label_name not in self.segment_dict:
+                    
+                    self.segment_dict[label_name] = np.zeros(xyzsize,dtype=np.uint8) #Initialize mask for the corresponding label
 
-                self.segment_dict[label_name][loc_in_image] = seg_im.copy()
-                self.logger.LogIssue( 'OneSliceSegmentation', {f'{self.seg_series}_{label_name}':f'Has only 1 2D slice'} )
+                if seg_im.ndim == 2:
 
-            elif seg_im.ndim == 3:
+                    self.segment_dict[label_name][loc_in_image] = seg_im.copy()
+                    self.logger.LogIssue( 'OneSliceSegmentation', {f'{self.seg_series}_{label_name}':f'Has only 1 2D slice'} )
 
-                self.segment_dict[label_name][loc_in_image] = seg_im[slice_seg].copy()
+                elif seg_im.ndim == 3:
+
+                    self.segment_dict[label_name][loc_in_image] = seg_im[slice_seg].copy()
+
+            else:
+
+                self.logger.LogIssue( 'SegmentationSliceReferenceNotFound', {f'{self.seg_series}':f'The reference slice id (SOP UID) did not match the T2 ones. Unable to extract segmentations for {self.patient}'} )
 
     def WriteSegmentation(self):
 

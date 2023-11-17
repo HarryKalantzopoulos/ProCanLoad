@@ -1,11 +1,11 @@
-# ProCanLoad
+# ProCAnLoad
 
 ![ProCAncer-I](https://www.procancer-i.eu/wp-content/uploads/2020/07/logo.png)
 
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-dd4814?logo=ubuntu&logoColor=white&style=flat-square)](https://ubuntu.com/)
 [![Windows](https://img.shields.io/badge/Windows-11-0078d4?logo=windows&logoColor=white&style=flat-square)](https://www.microsoft.com/en-us/windows/)
 
-ProCanLoad is an image loader for ProCAncer-I dataset and segmentation files. After you filtered the .parquet file on which series to keep, and drop out the unnecessary ones. You can input the modified parquet to:
+ProCAnLoad is an image loader for ProCAncer-I dataset and segmentation files. After you filtered the .parquet file on which series to keep, and drop out the unnecessary ones. You can input the modified parquet to:
 
 i) Create a dictionary with all the patients, stored as image_loader.json.
 
@@ -17,25 +17,29 @@ iv) Provides a logger to catch any warning, for the user to check, stored in iss
 
 The package makes use of SimpleITK and pydicom.
 
-# Install repository:
+# Requirements
+- simpleitk>=2.1
+- pydicom
+- tqdm
 
+
+# Install repository:
 run 
 ```bash
-    pip install git+https://github.com/HarryKalantzopoulos/ProCanLoad.git
+pip install git+https://github.com/HarryKalantzopoulos/ProCAnLoad.git
 ```
-
 # Demonstration
 
-In data directory, in UC1FilterData.ipynb, you can see the followed process to filter the ecrfs-series-20230801.parqet (MD5: e337672d2c2b9dacfcc0577a527882be) & segments-20230801.parquet (MD5: bc214112612fb1ac25e299a9df83734a).
+<span style="background-color:orange; color:black; font-weight:bold"> 
+!Notice: It is required to give the "ecrfs-series.parquet" and image directory paths. It is not required to give the path to segments.parquet, if segmentations are not needed.
+</span>
 
-This will create UseCase1-v1.parquet and Seg_UseCase1-v1.parquet which will be fed to this package.
-
-In LoaderDEMO.ipynb, it is shown how to read the images and extract them in Niifty format.
-
-# Image directory organization
+<span style="background-color:red; color:black; font-weight:bold"> 
+Make sure the series in parquet files exists inside the image directory following the directory tree as seen bellow!
+</span>
 
 ```
-{your-directory}
+{image directory}
         ├─  patient_id
         |   ├─  study_uid
         │   |   ├─  series_uid
@@ -49,6 +53,11 @@ In LoaderDEMO.ipynb, it is shown how to read the images and extract them in Niif
         .
         └─  ...
 ```
+
+parquet files "ecrfs-series.parquet" and "segments.parquet" have the patients, studies and series found inside the image directory named "DICOM_images"
+
+In **LoaderDEMO.ipynb**, it is shown how to read the images and extract them in Niifty format.
+
 # SimpleITK VS Pydicom
 
 - SimpleITK misses encoded b-values in DWI:
@@ -65,13 +74,11 @@ In LoaderDEMO.ipynb, it is shown how to read the images and extract them in Niif
 
   Pydicom is been used for loading segmentation. Also, it is easier to detect to put the segmentation slice on the right location.
 
-# Actions in ProCanLoad
-
-Check the LoaderDEMO.ipynb in how to utilize the package.
+# Actions in ProCAnLoad
 
 ## Ordering image slices
 
-ProCanLoad main purpose was to pick and set the image slices in the right order. For this, DICOM tag Image Position (Patient) (0020,0032) is been used. This tag is necessary for any image transformation (e.g. resample)
+ProCAnLoad main purpose was to pick and set the image slices in the right order. For this, DICOM tag Image Position (Patient) (0020,0032) is been used. This tag is necessary for any image transformation (e.g. resample)
 
 Other alternatives were found not to work for all the cases ( Slice Location (0020,1041), Instance Number (0020,0013) ), as they were missing or did not change between the slices. Although, this could be an issue of older versions of parquet.
 
@@ -128,6 +135,33 @@ For now logger may return these warnings/ issues:
 * MultiplePlanesFound: The series is Multi-Planar
 * ZeroMaskFound: A given labeled segmentation is zeroes
 
+v1.1-beta, after version 1 August 2023
+
+* EncodingMismatch: Has to do with the DICOM tags, segmentation files contains various labels encoded in [ 0062, 0004 ]. Afterwards, each slice contains this code [ 0062, 0004 ], thus we know the name of the segmentation. If this warning appear, the encoded values did not match the slice's reference one. In this case, the codes from reference are used in order with the label names. Check the files if there is any bad labeled niifty file.
+* LabelMismatch: Similar case with the above, but the labels in [ 0062, 0004 ] do not have the same number with [ 0062, 0004 ]. It would be wise to check the resulted files.
+* SegmentationSliceReferenceNotFound: The reference unique slice IDs (reference SOP UID) for one or more slices in segmentation file did not match any slice in the T2 sequence. Failed to extract segmentation file.
+
+# Docker
+```bash
+docker build -t ProCAnLoad .
+```
+parameters can be set either by params.yaml or argparse
+
+params.yaml example: 
+```yaml
+series_df: data/ecrfs-series.parquet
+segments_df: data/segments.parquet
+images_dir: DICOM_images
+```
+```bash
+docker run --name dicom2nifti -it -v $PWD/:/app/ procanload
+```
+argparse example: 
+```bash
+docker run --name dicom2nifti -it -v $PWD/:/app/ procanload python \
+./ProCAnLoad/main.py --series 'data/ecrfs-series.parquet' \
+--segments 'data/segments.parquet' --image-dir 'DICOM_images'
+```
 
 # Authors
 
@@ -138,7 +172,3 @@ Zaridis Dimitrios dimzaridis@gmail.com
 Mylona Eugenia mylona.eugenia@gmail.com
 
 Nikolaos Tachos ntachos@gmail.com
-
-# Thank you
-
-Me and my team, we will like to thank you for using AIPassport. You can send any message to xkalantzopoulos@gmail.com.

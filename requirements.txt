@@ -1,0 +1,7 @@
+simpleitk>=2.1
+pydicom
+tqdm
+pyyaml
+pandas
+numpy
+pyarrow

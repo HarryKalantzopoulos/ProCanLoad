@@ -4,7 +4,6 @@ import numpy as np
 import SimpleITK as sitk
 from collections import OrderedDict
 from pathlib import Path
-import json
 from tqdm.auto import tqdm
 import copy
 
@@ -655,7 +654,10 @@ class DICOM2NII():
                 T2_list_path = [T2dict[pos]['path'] for pos in T2dict]
                 T2 = SitkUtils.LoadImageByFolder(T2_list_path, 'LPS')
 
-                segment_dict = stval['SEG']
+                if 'SEG' in stval:
+                    segment_dict = stval['SEG']
+                else:
+                    segment_dict = {}
                 
                 if  not segment_dict:
                     self.missing_seg_list.append([patient, study])
