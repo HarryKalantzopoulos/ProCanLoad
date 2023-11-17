@@ -18,10 +18,13 @@ iv) Provides a logger to catch any warning, for the user to check, stored in iss
 The package makes use of SimpleITK and pydicom.
 
 # Requirements
-- simpleitk>=2.1
-- pydicom
-- tqdm
-
+simpleitk>=2.1
+pydicom
+tqdm
+pyyaml
+pandas
+numpy
+pyarrow
 
 # Install repository:
 run 
