@@ -28,8 +28,12 @@ jobs:
       run: python -c "import sys; print(sys.version)"
     - name: Install dependencies
       run: |
-        pip install --upgrade pip setuptools wheel
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        python -m pip install --upgrade pip setuptools wheel
+        if [[ $(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))') == "3.7" ]]; then
+          pip install -r requirements_py37.txt
+        else
+          pip install -r requirements.txt
+        fi
         pip install .
     - name: Execute ProCAnLoad
       run: python ProCanLoad/main.py
