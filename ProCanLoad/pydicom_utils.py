@@ -26,9 +26,8 @@ class DCMUtils():
 
         if '\\x' in str(bval):
 
-            # This was tricy but you will need to struct to decode the value (uses IEEE 754:1985 according to Philips Achieve manual) AND reverse the byte sequence!!!
-            b_rev = bval[::-1]
-            val = struct.unpack('!d',b_rev)[0]
+            # Undecoded values, little endian
+            val = struct.unpack('<d',b_val)[0]
             return str(int(val)),'DecodedInt'
         
         elif '\\' in str(bval):
