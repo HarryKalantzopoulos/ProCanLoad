@@ -19,11 +19,17 @@ The package makes use of SimpleITK and pydicom.
 
 # Requirements
 simpleitk>=2.1
+
 pydicom
+
 tqdm
+
 pyyaml
+
 pandas
+
 numpy
+
 pyarrow
 
 # Install repository:
