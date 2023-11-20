@@ -181,3 +181,14 @@ Zaridis Dimitrios dimzaridis@gmail.com
 Mylona Eugenia mylona.eugenia@gmail.com
 
 Nikolaos Tachos ntachos@gmail.com
+
+```
+@misc{Kalantzopoulos2023,
+  author = {Kalantzopoulos, Charalampos},
+  title = {ProCAncer-I, DICOM to NIfTI conversion},
+  year = {2023},
+  version = {1.1},
+  publisher = {github},
+  howpublished = {\url{https://github.com/HarryKalantzopoulos/ProCanLoad}},
+}
+```
