@@ -27,7 +27,7 @@ class DCMUtils():
         if '\\x' in str(bval):
 
             # Undecoded values, little endian
-            val = struct.unpack('<d',b_val)[0]
+            val = struct.unpack('<d',bval)[0]
             return str(int(val)),'DecodedInt'
         
         elif '\\' in str(bval):
