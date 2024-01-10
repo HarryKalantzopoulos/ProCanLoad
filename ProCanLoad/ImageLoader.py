@@ -797,4 +797,4 @@ class DICOM2NII():
                         SitkUtils.WriteDICOM2Niifty(SEGval['image'], export_path, f'{seg}')
                         nii_dict[patient][study][f'{seg}'] = os.path.join(export_path,f'{seg}.nii.gz').replace('\\','/')
 
-                JsonUtils.Write(nii_dict, 'nifty_files.json')
+                JsonUtils.Write(nii_dict, 'nifti_files.json')
