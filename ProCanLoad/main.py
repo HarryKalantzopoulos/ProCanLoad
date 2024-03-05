@@ -71,7 +71,7 @@ def dicom2nii(series: Path = '',
 
     extractor = DICOM2NII(image_loader='image_loader.json')
     
-    extractor.Excecute()
+    extractor.Execute()
 
 
 if __name__ == '__main__':
