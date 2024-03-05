@@ -117,10 +117,12 @@ class ImageLoader:
                 self.selected_columns.append(col)
 
         self.df = self.df[self.selected_columns].copy()
-
-        if self.parquet_segmentations != None:
+        
+        if isinstance(self.parquet_segmentations, pd.DataFrame):
+            pass
+        elif self.parquet_segmentations != None:
             self.seg_df = DataFrameUtils.Read(self.parquet_segmentations)
-
+            
         return self.df
     
     def __CheckPathExist(self) -> bool:
@@ -496,7 +498,7 @@ class ImageLoader:
             self.image_loader[self.patient_id][self.study_uid][sequence][bv]['dcm_path'] = copy.deepcopy(dcm_path)
 
             #If segmentation for parquet is given
-            if self.parquet_segmentations:
+            if isinstance(self.parquet_segmentations,str):
                 self.df_seg = DataFrameUtils.Read(self.parquet_segmentations)
 
                 if self.sequence == 'T2':
