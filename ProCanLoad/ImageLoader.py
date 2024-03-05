@@ -560,7 +560,7 @@ class ImageLoader:
                                     keep_max_bvalue= True,
             )
 
-            extractor.Excecute()
+            extractor.Execute()
 
         
 
@@ -630,7 +630,7 @@ class DICOM2NII():
 
         self.exclude_dict = exclude_dict
             
-    def Excecute(self) -> dict:
+    def Execute(self) -> dict:
 
         extract_folder = 'nii_files'
 
