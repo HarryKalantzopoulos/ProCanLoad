@@ -101,7 +101,7 @@ class SitkUtils():
         return image.GetMetaData(tag)
     
     @staticmethod
-    def WriteDICOM2Niifty(image: sitk.Image or list,path2save: Path, sequence: str) -> None:
+    def WriteDICOM2Nifti(image: sitk.Image or list,path2save: Path, sequence: str) -> None:
 
         os.makedirs(path2save, exist_ok=True)
 
