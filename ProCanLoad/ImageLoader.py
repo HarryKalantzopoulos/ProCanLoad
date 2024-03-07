@@ -779,24 +779,24 @@ class DICOM2NII():
                 export_path = os.path.join(extract_folder, patient, study)
                 os.makedirs(export_path, exist_ok=True)
 
-                SitkUtils.WriteDICOM2Niifty(T2, export_path, 'T2')
+                SitkUtils.WriteDICOM2Nifti(T2, export_path, 'T2')
                 nii_dict[patient][study]['T2'] = os.path.join(export_path,'T2.nii.gz').replace('\\','/')
 
                 if ADCdict:
 
-                    SitkUtils.WriteDICOM2Niifty(ADC, export_path, 'ADC')
+                    SitkUtils.WriteDICOM2Nifti(ADC, export_path, 'ADC')
                     nii_dict[patient][study]['ADC'] = os.path.join(export_path,'ADC.nii.gz').replace('\\','/')
 
                 if DWIdict:
                     
                     for bval,DWIval in DWIdict.items():
-                        SitkUtils.WriteDICOM2Niifty(DWIval['image'], export_path, f'DWI_{bval}')
+                        SitkUtils.WriteDICOM2Nifti(DWIval['image'], export_path, f'DWI_{bval}')
                         nii_dict[patient][study][f'DWI_{bval}'] = os.path.join(export_path,f'DWI_{bval}.nii.gz').replace('\\','/')
 
                 if segment_dict:
 
                     for seg,SEGval in segment_dict.items():
-                        SitkUtils.WriteDICOM2Niifty(SEGval['image'], export_path, f'{seg}')
+                        SitkUtils.WriteDICOM2Nifti(SEGval['image'], export_path, f'{seg}')
                         nii_dict[patient][study][f'{seg}'] = os.path.join(export_path,f'{seg}.nii.gz').replace('\\','/')
 
                 JsonUtils.Write(nii_dict, 'nifti_files.json')
