@@ -8,7 +8,7 @@ class DataFrameUtils:
     def Read(file: str or pd.DataFrame) -> pd.DataFrame:
 
         PandasLoaderDict = {    '.csv':     pd.read_csv,
-                                '.xlsl':    pd.read_excel,
+                                '.xlsx':    pd.read_excel,
                                 '.parquet': pd.read_parquet
         }
 
@@ -50,7 +50,7 @@ class JsonUtils:
 
 def GetDirectionDict() -> dict:
      
-    direction_dict =    {   '0': {'plane':'SAG','origin':0}, # Saggital
+    direction_dict =    {   '0': {'plane':'SAG','origin':0}, # Sagittal
                             '1': {'plane':'COR','origin':1}, # Coronal
                             '2': {'plane':'AX', 'origin':2}  # Axial
         }
