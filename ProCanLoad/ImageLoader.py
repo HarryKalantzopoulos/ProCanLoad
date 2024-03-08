@@ -648,27 +648,31 @@ class DICOM2NII():
                 nii_dict[patient] = {}
 
             for study,stval in pval.items():
-                nii_dict[patient][study] = {}
 
-                T2dict = stval['T2']['N/A']['dcm_path']
-                T2series = stval['T2']['N/A']['meta']['series_uid']
-
-                T2_list_path = [T2dict[pos]['path'] for pos in T2dict]
-                T2 = SitkUtils.LoadImageByFolder(T2_list_path, 'LPS')
-
-                if 'SEG' in stval:
-                    segment_dict = stval['SEG']
-                else:
-                    segment_dict = {}
-                
-                if  not segment_dict:
-                    self.missing_seg_list.append([patient, study])
-
-                label_list = [seg for seg in segment_dict ]
-
-                for seg in label_list:
-                        seg_path = segment_dict[seg]['nii_path']
-                        segment_dict[seg]['image'] = SitkUtils.LoadSingleFile(seg_path, 'LPS')
+                T2dict = {}
+                segment_dict = {}
+                if 'T2' in stval:
+                    nii_dict[patient][study] = {}
+    
+                    T2dict = stval['T2']['N/A']['dcm_path']
+                    T2series = stval['T2']['N/A']['meta']['series_uid']
+    
+                    T2_list_path = [T2dict[pos]['path'] for pos in T2dict]
+                    T2 = SitkUtils.LoadImageByFolder(T2_list_path, 'LPS')
+    
+                    if 'SEG' in stval:
+                        segment_dict = stval['SEG']
+                    else:
+                        segment_dict = {}
+                    
+                    if  not segment_dict:
+                        self.missing_seg_list.append([patient, study])
+    
+                    label_list = [seg for seg in segment_dict ]
+    
+                    for seg in label_list:
+                            seg_path = segment_dict[seg]['nii_path']
+                            segment_dict[seg]['image'] = SitkUtils.LoadSingleFile(seg_path, 'LPS')
 
 
                 ADCdict = {}
@@ -775,12 +779,30 @@ class DICOM2NII():
                             
                             DWI_list_path = DWIdict[bval]['path']
                             DWIdict[bval]['image'] = SitkUtils.LoadImageByFolder(DWI_list_path, 'LPS')
+
+                DCEdict = {}
+                if 'DCE' in stval:
+
+                    DCEdict = stval['DCE']['N/A']['dcm_path']
+                    ADCseries = stval['DCE']['N/A']['meta']['series_uid']
+
+                    rescale_type = None
+                    if 'rescale_type' in stval['DCE']['N/A']['meta']:
+                        rescale_type = stval['DCE']['N/A']['meta']['rescale_type']
+                        
+
+                    
+                    DCE_list_path = [DCEdict[pos]['path'] for pos in DCEdict]
+
+                    DCE = SitkUtils.LoadImageByFolder(DCE_list_path, 'LPS')
+                
  
                 export_path = os.path.join(extract_folder, patient, study)
                 os.makedirs(export_path, exist_ok=True)
 
-                SitkUtils.WriteDICOM2Nifti(T2, export_path, 'T2')
-                nii_dict[patient][study]['T2'] = os.path.join(export_path,'T2.nii.gz').replace('\\','/')
+                if T2dict:
+                    SitkUtils.WriteDICOM2Nifti(T2, export_path, 'T2')
+                    nii_dict[patient][study]['T2'] = os.path.join(export_path,'T2.nii.gz').replace('\\','/')
 
                 if ADCdict:
 
@@ -792,6 +814,12 @@ class DICOM2NII():
                     for bval,DWIval in DWIdict.items():
                         SitkUtils.WriteDICOM2Nifti(DWIval['image'], export_path, f'DWI_{bval}')
                         nii_dict[patient][study][f'DWI_{bval}'] = os.path.join(export_path,f'DWI_{bval}.nii.gz').replace('\\','/')
+
+                if DCEdict:
+
+                    for bval,DWIval in DWIdict.items():
+                        SitkUtils.WriteDICOM2Niifty(DCEdict['image'], export_path, f'DCE')
+                        nii_dict[patient][study][f'DCE'] = os.path.join(export_path,f'DCE.nii.gz').replace('\\','/')
 
                 if segment_dict:
 
