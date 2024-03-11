@@ -181,6 +181,7 @@ How to use:
 Let's say files in dir "image_repository"
 Still needs to be in ProCAncer-I format (PATIENT_ID/STUDY_UID/SERIES_UID), modifications must be done in ImageLoader
 
+from ProCanLoad.ExtractMete import ReadMeta
 from ProCanLoad import ReadMeta, ImageLoader
 
 path2images = "image_repository"
