@@ -35,7 +35,7 @@ pyarrow
 # Install repository:
 run 
 ```bash
-pip install git+https://github.com/HarryKalantzopoulos/ProCAnLoad.git
+pip install git+https://github.com/HarryKalantzopoulos/ProCAnLoad.git@dev_nometa
 ```
 # Demonstration
 
