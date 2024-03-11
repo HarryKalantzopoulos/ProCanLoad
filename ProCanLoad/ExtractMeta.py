@@ -190,3 +190,3176 @@ ReadMeta(path2images) # Now, will work for dcm files !
 Loader = ImageLoader(path2images,'ecrfs.parquet','segments.parquet',extract_nii=True)
 Loader.GetImageLoader()
 '''
+series_description = '''\
+T2:
+- Ax T2 FSE 703
+- Ax T2 frFSE
+- T2W_TSE_ax
+- AX T2 FSE 703
+- Ax T2 sFOV HR
+- Ax T2W TSE 703
+- Ax T2 sFOV
+- AXT2
+- Ax T2 FSE
+- t2_tse_bl_tra
+- t2_tse_obl tra
+- t2_tse_tra_p2_304
+- t2_tse_tra
+- Ax T2 PROP Hi Res
+- t2_tse_sag
+- t2_tse_cor
+- Ax T2 SFOV
+- Cor T2 SFOV
+- Ax T2 3mm
+- t2_tse_tra_TRUE AXIAL NO ANGLE
+- t2_tse_cor TRUE CORONALS NO ANGLE
+- t2_tse_tra_sfov
+- t2_tse_tra _Lfov
+- Sag T2 SFOV
+- t2_qtse_tra LFoV
+- t2_tse_tra_SFOV no angulations
+- t2_tse_tra_LFOV
+- t2_qtse_stir_cor_320
+- t2_sag PELVIC SIDE WALL TO PELVIC SIDE WALL
+- t2_trufi_localizer
+- T2W_TSE_TRA_IQ
+- T2W_TSE_COR_IQ
+- TRA T2 TSE
+- AX T2 ardl PROP 3mm
+- T2 TRA BLADE
+- Ax T2 Propeller ARDL
+- Ax Obl T2 PROP ardlh
+- Ax T2 FRFSE
+- eEt2/tra/3mm SENSE
+- t2_trufi_fs_tra
+- t2_tse_tra_p3_368_3mm
+- t2_blade_tra
+- t2_tse_sag_blade_sfov
+- t2_tse_fs-dixon_tra_F
+- t2_tse_cor_sfov
+- t2_tse_fs-dixon_tra_W
+- t2_tse_tra_448_p2_sfov
+- Cor T2 Pro 4mm
+- Ax T2 Pro 4mm
+- t2_qtse_tra
+- t2_tse_tra_hr  prostate
+- t2_haste_tra_p2_mbh kidneys down
+- PU:O-Ax T2 PROP
+- O-Ax T2 PROP
+- O-Ax T2 PROP 3mm
+- Ax T2 SSFSE ARDL apnee
+- 3D T2 PETIT FOV PETIT CHAMP
+- T2W_SSH GRD CHAMP NEW
+- ax T2 Prostate
+- CDIN-T2 TSE AX (FOV 200) 3.5 mm
+- CDIN-T2 HASTE TRA GANGLIONS
+- AXIAL T2
+- T2 TSE AX (FOV 200) 3.5 mm
+- t2_tse_tra_p2_384 ESTRICTO CON BLADE
+- ax T2
+- AX T2 PROPELLER 3mm
+- SAG T2
+- AX T2
+- AX T2 HASTE 2 APNEES GG
+- T2 3Dt SPACE
+- AX T2 TSE HR
+- AX T2 FRFSE
+- AX T2 FRFSE HR
+- AX T2 PROSTATA
+- COR T2 GRAND FOV
+- T2_ax_TSE
+- T2_ax_TSE_SFoV
+- T2_ax_TSE_LFoV
+- T2_cor_TSE
+- test.DR.T2_ax_TSE_SFoV. 2 avs_sms_TR_br288
+- t2_qtse_sag
+- T2
+- Sag T2 FRFSE
+- CDIN-ax T2 Prostate
+- CDIN-3D T2 PETIT FOV PETIT CHAMP
+- Ax T2 FSE HR
+- SAG T2 PROPELLER
+- Cor T2 frFSE
+- T2W_TSE_SAG
+- T2W_TSE_cor
+- CDIN-Ax T2 Propeller ARDL
+- T2 AX
+- sag T2 frFSE
+- CORO T2
+- Ax T2
+- AX T2 FSE ALTA RESOL
+- AXIAL T2 TSE
+- T2_HR_ax_Dual
+- T2Star_Images
+- T2starMap_fl2d_tra
+- Sag T2
+- AXIAL T2 AR
+- t2_tse_tra_p2_384
+- eAX T2 HR
+- AX T2 HR
+- t2_tse_tra_p2_384 ESTRICTO
+- t2_tse_sag_p2_320
+- t2_haste_tra_p2_Kidneys
+- t2_tse_tra_p2_320 SMALL FOV
+- t2_haste_tra_p2_mbh_320_Kidneys
+- t2_tse_cor_p2_384 SMALL FOV
+- t2_tse_tra_seg_TRA_MPR
+- t2_tse_tra_seg
+- SAG T2 LFOV
+- t2_tse_tra obl_p2_320_prostate_high res
+- t2_tse_tra_p2_320_fs_whole pelvis
+- t2_tse_cor obl_p2_320_prostate_high res
+- t2_tse_sag_p2_320 phase H-F
+- t2_tse_sag_sfov
+- t2_tse_tra_Pelvis
+- t2_tse_cor_pelvis
+- t2_tse_sag_pelvis
+- t2_haste_tra_bh
+- t2_tse_cor_p2_SFOV
+- t2_tse_tra_p2_SFOV
+- t2_cor_tse_320_p2
+- t2_tse_tra_320_p2
+- T2_TSE
+- 3D_ProstateVIEW_T2
+- t2_tse_tra SFOV high res straight
+- t2_tse_cor SFOV high res straight
+- t2_spc_rst_tra_p2_iso
+- t2_tse_tra_384_p2
+- t2_tse_fs-dixon_tra_p2_448_W
+- t2_tse_sag_512_p2 rep
+- t2_tse_cor_384_p2_sFOV
+- t2_tse_fs-dixon_tra_p2_448_F
+- COR T2 BLADE
+- AX T2 ( scan straight)
+- t2_tse_tra_Whole_pelvis
+- t2_tse_tra_hires
+- t2_tse_sag_blade_pelvic contents
+- t2_tse_cor_hires
+- t2_tse_tra_320_ p2
+- T2Star_Images_FIL_1
+- t2_tse_tra_320_ p2_FIL_1
+- T2-star_p2_anatomical_FIL_1
+- T2Star_Images_RGB
+- T2-star_p2_anatomical
+- PRO.Ax T2 DLR
+- t2_tse_tra_p2_320
+- eT2W_TSE_ax 3mm
+- cs1 T2W_TSE_ax 3mm
+- PRO.Ax T2 frFSE DLR
+- T2W_TSE_ax 3mm
+- PRO.Ax T2 frFSE DLr
+- T2_ax_TSE_SFoV_deep resolve
+- t2_tse_tra_p2
+- T2_ax_TSE_sFoV
+- T2_cor_TSE_sFoV
+- T2_sag_TSE
+- T2_ax_TSE LFoV
+- t2_tse_cor TRUE AXIAL NO ANGLE
+- t2_tse_fs_tra_LFOV_W
+- t2_tse_cor_SFOV
+- t2_spc_rst_tra
+- t2_tse_sag_p2
+- t2_tse_tra_p2_384 SMALL FOV
+- Sag T2 PROP
+- Ax T2 FSE HR ARDL
+- Ax T2 PROP
+- Ax T2 SSFSE ARDL GG apnees
+- t2_tse_tra_small FOV(cover just prostate& semi-vesicles)
+- t2_tse_cor small FOV(cover only prostate&semi-vesicles)
+- t2_haste_tra_p2_mbh
+- T2 AX CS
+- Ax T2 PROPELLER
+- T2 COR CS
+- T2 SAG
+- Sag T2 PROPELLER
+- Ax T2 SSFSE GG
+- AX T2 ardl PROP 3mm Medium +
+- T2 ax hr
+- t2_tse_tra_whole_pelvis
+- t2_haste_tra_p2_mbh_384
+- T2_COMP
+- AxT2 sFOV PROPELLER
+- Ax T2 LFOV
+- t2_tse_dixon_tra_W
+- t2_tse_dixon_tra_F
+- t2_tse_tra_p3_336
+- t2_tse_dixon_tra_in
+- T2W_MVXD_cor
+- STIR Cor
+- T2W_MVXD_ax
+- 'PosDisp: [12] ax_t2_tse'
+- 'PosDisp: [4] ax_t2_tse'
+- 'PosDisp: [11] cor_t2_tse'
+- ax_t2_tse
+- sag_t2_tse
+- cor_t2_tse
+- ax_t2_haste
+- t2_tse_tra R-L
+- t2 tse tra 703
+- t2_tse_tra_snel
+- t2_tse_tra_320_ p2_FIL_2
+- t2_tse_tra_384
+- pT2W_TSE_HR CLEAR
+- pTRA/120/T2 CLEAR
+- pT2W_TSE_HR SENSE
+- T2W_TSE_sag
+- t2/tra/3 min SENSE
+- t2_tse_tra_prostata
+- t2_tse_tra_HD_R-L
+- 'InPhase: Ax T2 Flex Pelve'
+- T2 TSE MVXD AX HR
+- Ax T2 FRFSE per espectro
+- T2W_3D_TSE_IQ
+- Ax T2 FSE 3mm
+- t2_tse_tra_448
+- t2_haste_tra_mbh_FIL
+- Ax Cube T2 strict
+- AX T2 PROPELLER STRICT
+- Ax Cube T2 1mm
+- T2W_TSE_HR
+- T2W_TSE_AX_HR
+- T2W_TSE-COR_HR
+- Axial T2
+- AX T2 SPAIR Lower Abdomen
+- Cor T2 Pro 3.5mm
+- Ax T2 SS FB
+- Ax T2 Pro 3.5mm
+- PRO.T2 Ax PROP
+- Ax T2 PROPELLER 3mm
+- t2_tse_sag_LFOV
+- t2_haste_tra_p2_mbh_320
+- t2_haste_tra_p2_mbh_320_COMP
+- t2_tse_tra_p3_SFOV
+- t2_tse_cor_LFOV
+- T2/TSE/TRA
+- Ax T2 PANORAMICA
+- AX T2 PROPELLER
+- t2_tse_tra_p3_368
+- T2 TSE AX
+- t2_space_TRA_p2_iso
+- t2_tse_tra_320_SFOV
+- T2/TSE/AXIAL
+- Ax T2 HR Propeller
+- T2 TSE AX BOOST
+- T2 TSE SAG BOOST
+- COR T2 TSE
+- REC AX T2 3mm
+- CS 3D T2 TR2000
+- Ax T2 PROPELLER PROSTATA
+- T2 TSE Ax
+- T2W_TSE_SAG_MV
+- t2_tse_sag_FoV_220
+- t2_tse_tra_FoV_220
+- t2_tse_cor_FoV_220
+- Ax T2 frFSE_HR ARDLh
+- pT2W_TSE_HR
+- pTRA/120/T2
+- T2 HR AX
+- TRA/120/T2
+- AX T2 prostata
+- T2 AX cs
+- AXIAL T2,.
+- SAG T2 FRFSE
+- COR T2 FRFSE
+- Ax T2 frFSE|adc
+- t2_tse_tra_p3_384
+- T2W_TSE_tra
+- Ax T2 new
+- web_t2_tse_tra_p2
+- T2W_TSE_AX
+- T2W_TSE AX
+- t2_tse_sag_320_p2
+- T2W_TSE
+- STIR_aTSE
+- S/STIR/MALUC AFECTAT
+- T2W_FFE_DRET
+- t2_tse_tra_REG
+- t2_tse_tra_prostata_HR
+- T2PELVIS512 SENSE
+- T2 Mv AX
+- T2 ax
+- t2_tse_axial_p2 pelvis toda
+- 3D AX T2 HC 26
+- t2_tse_ax finos
+- t2_tse_tra_HD
+- Ax T2 PROPELLER 2.5mm
+- t2_tse_ax_finos
+- t2_tse_cor_p2_320
+- t2_tse_tra_SFOV
+- t2_tse_tra_384_p2_sfov
+- Ax T2 ADENOPATIAS
+- CORONAL STIR FSE
+- sag T2 FRFSE
+- cor T2
+- T2 HASTE LOCALISER
+- t2_blade WHOLE PELVIS AX
+- T2 HASTE LOCALISER 2 body coils
+- 'PosDisp: [15] t2_blade_AX_p2_mbh may need 2 Blocks'
+- t2_blade_AX_p2_mbh may need 2 Blocks
+- 'PosDisp: [5] t2_tse_tra'
+- 'PosDisp: [14] t2_blade_AX_p2_mbh may need 2 Blocks'
+- 'PosDisp: [7] t2_blade WHOLE PELVIS AX'
+- 'PosDisp: [16] t2_blade_AX_p2_mbh may need 2 Blocks'
+- T2W_TSE_Sag
+- Ax T2 TSE high res_106TE_200BW
+- t2_tse_sag NEW
+- Cor T2 TSE high res_106TE_BW
+- COR T2 PROSTATA
+- T2W_TSE_ax CLEAR
+- T2-TSE-Cor
+- T2_SFOV
+- t2_tse_sag_p2_SFOV
+- T2W_HR SAG
+- FL:B/PU:SAG T2 SFOV_
+- FL:B/PU:AX T2 SFOV_
+- FL:B/PU:COR T2 SFOV_
+- t2_tse_tra_p2_336
+- t2_spc_rst_tra_p2_iso (POPERT ONLY)
+- t2_tse_cor_p2_384
+- PRO T2 AX
+- Cor T2 - 4mm Prostate
+- Ax T2 - 4mm Prostate
+- Cor T2 (SFOV)
+- Ax T2 (SFOV)
+- Sag T2 TSE
+- t2_tse_tra_3mm
+- t2_tse_tra_largeFOV
+- Ax T2 sfov Propeller
+- t2_tirm_tra_p2
+- t2_tse_tra_1.5mm
+- t2_haste_tra_p2_trig_384
+- Axial T2 SSFSE
+- Ax T2 Propeller Fin
+- Ax T2 panoramica
+- Ax T2 Pro 3mm
+- Cor T2 Pro 3mm
+- T2W_COR
+- T2W_AX
+- Ax T2 HR
+- Sag T2 HR
+- Cor T2 HR
+- 'L1: M3 Rt mid PZ, 4p'
+- Ax Thin FRFSE T2 3/0
+- t2_tse_TRA _320_p2_sfov
+- Ax T2 Propeller
+- Cor T2 Propeller
+- eT2W_TSE_sag sFOV
+- eT2W_TSE_AX sFOV
+- AX T2 FSE
+- t2_tse_OBL
+- t2_tse_tra_CV_1
+- t2_tse_cor_CV_1
+- t2_tse_axial_7mm_CV_1
+- FL:C/AX T2 PROPELLER 3mm
+- FL:C/Ax T2 PROPELLER 3mm
+- FL:C/AX T2 PROPELLER mm
+- t2_tse_cor_320_p2
+- 'PosDisp: [3] t2_tse_tra_p2_320'
+- t2_tse_TRA
+- t2_tse_sag_320_p2 NAO ENVIAR
+- AX T2 Prop Radioterapia
+- Cor T2 FRFSE
+- FL:A/AX T2 PROPELLER mm
+- t2_tse_sag_p2_320_SFOV
+- t2_tse_cor_p2_320_SFOV
+- t2_tse_tra_p2_320_SFOV
+- FL:C/AX T2 ECHO FUSION
+- t2_tse_sag_320_p2_FIL_1
+- t2_tse_tra_320_ p2 VS_FIL_1
+- t2_tse_sag_320_p2_FIL_2
+- t2_tse_sag_p3_320
+- Sag T2 FSE
+- Ax T2 Pelve FSE
+- Cor T2 FSE
+- Ax T2 FS Pelve FSE
+- t2_tse_tra_FIL_1
+- T2 TRA PELVE_FIL_1
+- Ax T2 Small FOV
+- Cor T2 Small FOV
+- Sag T2 Small FOV
+- AX T2 PROP a tester
+- Prs.Ax T2
+- t2_tse_tra_320_ 2MM
+- t2_tse_tra_320_p2_FIL_1
+- 3D AX T2 Cube
+- Ax T2 Rectum
+- Ax T2 FS PROPELLER
+- AX T2 3MM
+- COR T2 3MM
+- SAG T2 3MM
+- t2_tse_TRA_320_p2
+- t2_blade_tra_320
+- T2 TSE Ax SENSE
+- t2_tse_tra GENIS FOV
+- PRO T2 AX PROP
+- t2_tse_tra_p2_3MM
+- t2_tse_tra_512_p2
+- t2_tse_SAG_320_p2_FIL_1
+- t2_tse_cor_320_p2_FIL_1
+- t2_tse_tra_320_35sl
+- t2_tse_320_p2
+- t2_tse_tra_p2_320_kucuk_fov
+- t2_tse_VS_320_p2
+- Pros.Ax T2 frFSE
+- t2_tse_tra- fs_p2_320
+- (Pros)Ax T2 frFSE
+- T2W_SPAIR
+- LSP AX T2
+- COR STIR FSE
+- t2_tse_tra_p3_336 grappa 2
+- T2W_TSE_sFOV_CorObl
+- T2W_TSE_sFOV_Ax
+- T2_AX_MVXD_HR_RT
+- t2_tse_sag_384
+- t2_tse_tra_4 Groups
+- KEY_IMAGES
+- t2_tse_tra_p2_LFov
+- t2_tse_cor_320_SFOV
+- t2_haste_tra_p2_mbh_Upper Abdo
+- t2_sag_H-F_satband
+- t2_tse_ax_p2 HR
+- t2_tse_cor_p2 HR
+- t2_haste_tra_p2_pelvis non-BH
+- T2W_TSE_BH
+- T2W_TSE_Cor
+- Pro.Ax T2 PROP
+- t2_tse_tra_p2_mbh LOWER
+- t2_tse_tra_p2_mbh UPPER
+- t2_tse_cor_320_p2 SFOV
+- t2_tse_tra_320_p2 SFOV
+- t2_tra_sm_fov
+- t2_tse_tra_448_LFOV
+- t2_tse_tra_p2 sfov_384
+- t2_blade_tra_p2
+- t2_tse_cor_p2 sfov_384
+- t2_tse_tra_sfov_p2
+- t2_tse_cor_sfov_p2
+- t2_tse_tra_hi_res
+- t2_tse_cor_hi_res
+- t2_tse_sag_hi_res
+- t2_trufi_tra_p2_bh
+- COR T2 STIR LFOV
+- AX T2 sFOV PROPELLER
+- t2_tse_tra_p2_3mm_0.6x0.6
+- t2_tse_sag_p2_3mm_0.6x0.6
+- t2_tse_cor_p2_3mm_0.6x0.6
+- Ax T2 Pelvis
+- AX  T2* FGRE
+- CORONAL T2
+- SAGITAL T2
+- T2W_HR_Cor
+- T2W_HR_Ax
+- Ax T2 SFOV REPEAT
+- T2w_TSE_Ax
+- T2w_TSE_Cor
+- T2w_TSE_Sag
+- COR T2WI
+- AX T2WI
+- SAG T2WI
+- 'PosDisp: [4] R t2_tse_tra_320_p2'
+- R t2_tse_sag_320_p2
+- R t2_tse_tra_320_p2
+- R t2_tse_cor_320_p2
+- 'PosDisp: [5] R t2_tse_cor_320_p2'
+- t2_tse_ax_etl 30 p3
+- t2_tse_tra_p2_380 SMALL FOV
+- Cor T2 TSE 3mm
+- Ax T2 TSE 3mm
+- Ax T2 high res
+- SAG T2 HIGH RES
+- Cor T2 high res
+- PRO tra T2 FSE
+- Ax T2 Prostate
+- Cor T2 Prostate
+- t2_tse_tra_p2_pelvis
+- t2_tse_tra_abdo_bh
+- t2_tse_tra_FS_p2
+- RDU5002234563
+- T2 TSE Cor Pros
+- T2 TSE Tra Pros
+- t2_tse_tra_p3_352
+- t2_tse_tra_sfov_WARP
+- t2_qtse_tra LFoV WARP
+- t2_tse_sag_p2_
+- t2_tse_axial
+- t2_tse_sag needs 3mm no gap repeat
+- t2_tse_cor - true orthogonal
+- t2_tse_tra - true orthogonal
+- t2_tse_tra_L5 straight _High Res
+- 'DW_Synthetic: Ax DWI b50/400/1000 Synt2000'
+- Ax DWI b50/400/1000 Synt2000
+- Ax T2 FRFSE sfov
+- COR T2 PROPELLER
+- Ax T2 PROPELLER 3mm /S+BUSCOPAN
+- t2_haste_scout
+- t2_tse_tra_p2_s2
+- t2_tse_tra_p2_320_sfov
+- T2W/COR_sFOV include symph to sacrum
+- TRA_T2 sFOV
+- SAG T2 sFOV
+- t2_haste_tra_p2_mbh_320_4mm
+- COR STIR LFOV
+- COR T2 SFOV
+- Ax T2 FRFSE LFOV
+- SAG T2 SFOV
+- t2_tse_cor SFOV
+- t2_tse_tra SFOV
+- t2_tse_tra LFOV
+- t2_tse_sag_SML
+- t2_tse_sag_p2_384 SMALL FOV
+- Cor T2 PROPELLER
+- Ax T2 PROP HR (prostate)
+- Ax T2 PROPELLER (Pelvis)
+- t2_tse_tra_small_fov
+- t2_haste_loc
+- t2_tse_cor_p2_320 SFOV
+- t2_tse_tra _p2_320 SFOV
+- Ax T2 Pro 4mm - Prostate
+- Cor T2 Pro 4mm - Prostate
+- t2_tse_AX_3MM
+- t2_tse_COR_3MM
+- t2_tse_sag_3MM
+- LOWER AX T2 FS
+- LOWER AX T2
+- T2W_TSE_Ax_LFOV
+- T2W_Cor_HR
+- T2W_Sag_HR
+- T2W_Ax_HR
+- t2_trufi_tra_p2_bh_320 Abdo and pelvis
+- t2_tse_tra_fs
+- t2_haste_tra
+- t2_tse_cor obl_p2_320
+- t2_blade_sag_p2_320
+- t2_tse_tra obl_p2_320
+- SAG T2 FRFSE PELVIS ESTRICTE
+- O-Ax T2 FRFSE
+- T2 TRA
+- T2W_TSE_ax SENSE
+- TRA_ T2 MV
+- SAG T2 MV
+- STIR_aTSE_Cor
+- T2W/COR_sFOV include sacrum
+- T2W_TSE_
+- T2 ax prostata CS
+- Ax frFSE T2
+- Ax T2 FRFSE cortes 3 mm
+- ax T2 frFSE
+- Ax T2 fov16
+- Filter_t2_tse_tra
+- eT2 TRA
+- FL:B/Ax T2 FRFSE
+- FL:C/Ax T2 FRFSE
+- FL:D/Ax T2 FRFSE
+- AX T2 PROSTATA HD
+- Ax T2 FRFSE fov16
+- Ax T2 FRFSE 16 cm
+- Sag T2 4mm
+- T2_cor_Dual
+- FL:U/Ax T2 new
+- t2_spc_tra_iso
+- 13 New Series
+- 14 New Series
+- pT2W_TSE_HR/25 CORTE
+- t2_tse_ax
+- T2W/SPAIR/BH
+- FL:U/Ax T2 FSE
+- FL:B/Ax T2 FRFSE fov16
+ADC:
+- "ADC (10^-6 mm\xB2/s):Jan 09 2023 12-28-46 EET"
+- "ADC (10^-6 mm\xB2/s)"
+- dadc_0 1400
+- dADC_0 400 1000 1400
+- Apparent Diffusion Coefficient (mm2/s)
+- "ADC (10^-6 mm\xB2/s):Sep 12 2023 16-26-43"
+- dADC_0 400 1000
+- "ADC (10^-6 mm\xB2/s):Jul 19 2023 14-32-42"
+- "ADC (10^-6 mm\xB2/s):Aug 08 2023 11-44-03"
+- dDWI_3b ADC
+- Mapa-ADC-DWI
+- "ADC (10^-6 mm\xB2/s):Sep 08 2023 16-34-57|ADC (10^-6 mm\xB2/s):Sep 08 2023 16-34-56"
+- "ADC (10^-6 mm\xB2/s):Sep 06 2023 14-16-57"
+- "ADC (10^-6 mm\xB2/s):Apr 19 2023 12-11-06"
+- "ADC (10^-6 mm\xB2/s):Jun 21 2023 10-16-36"
+- "ADC (10^-6 mm\xB2/s):Oct 19 2023 15-09-28"
+- "ADC (10^-6 mm\xB2/s):Aug 30 2023 13-53-37"
+- "ADC (10^-6 mm\xB2/s):Jun 09 2023 11-22-10"
+- ep2d_diff_b50_400_800_tra_ADC
+- ep2d_diff_tra b50 200 800 overview_ADC
+- eADC
+- ep2d_diff_b50_400_800_tra_calc_1400_new_ADC_DFC_MIX
+- ep2d_diff_obl_tra_b50_b400_b800_p2_160_ADC
+- Results ADC_b50_600_900_QDWI - ep2d_diff_zoomit_b50_600_900_tra_TRA
+- ep2d_diff_tra_b50_500_1000_ADC
+- ep2d_diff_tra_b50-600-1050_Zoomit_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Jun 08 2023 16-50-01"
+- "ADC (10^-6 mm\xB2/s):Aug 06 2023 10-23-29"
+- "ADC (10^-6 mm\xB2/s):Sep 01 2023 11-32-22"
+- ep2d_diff_zoomit_b50_600_900_tra_ADC
+- ep2d_diff_b50_400 800_tra_3mm_ADC
+- ep2d_diff_b50_800_tra_3mm_ADC
+- ep2d_diff_b50_400_1500_tra_calc_1400_ADC_DFC_MIX
+- ep2d_diff_zoomit_b50_600_900_calc2000_tra_ADC
+- ep2d_qDWI_b50_600_1050_SPAIR 5mm no gap_ADC
+- dADC
+- "ADC (10^-6 mm\xB2/s):Jun 26 2023 09-02-26"
+- DIFF RESOLVE B2000_ADC
+- ep2d_diff_b50 500 1000 1600c_ADC
+- dADC - b100/b1000
+- dADC - b100 / b1000
+- "ADC (10^-6 mm\xB2/s):Jul 18 2023 13-34-43"
+- "ADC (10^-6 mm\xB2/s):May 24 2023 14-24-02"
+- "ADC (10^-6 mm\xB2/s):Jun 07 2023 07-18-25"
+- ep2d_diff_b50_800_tra_p2_ADC
+- ep2d_diff_zoomit_b50_800_tra_ADC
+- ep2d_diff_tra_b100_400_1200_2000_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Oct 12 2021 17-14-14 BST"
+- ep2d_diff_b50_400_800_tra_p2 Apps 09-06_ADC
+- DIFF B50_800_1400_2000calc AX_ADC
+- "ADC (10^-6 mm\xB2/s):Aug 07 2023 09-22-16"
+- "ADC (10^-6 mm\xB2/s):May 20 2023 11-28-13|ADC (10^-6 mm\xB2/s):May 20 2023 11-28-12"
+- "ADC (10^-6 mm\xB2/s):Jun 16 2023 12-44-31"
+- "ADC (10^-6 mm\xB2/s):Aug 11 2023 08-22-38"
+- "ADC (10^-6 mm\xB2/s):May 11 2023 16-42-16"
+- "ADC (10^-6 mm\xB2/s):May 16 2023 09-55-09"
+- "ADC (10^-6 mm\xB2/s):May 03 2023 16-45-16"
+- "ADC (10^-6 mm\xB2/s):Apr 27 2023 17-36-47"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2023 09-44-16 EET"
+- "ADC (10^-6 mm\xB2/s):Apr 27 2023 11-43-49|ADC (10^-6 mm\xB2/s):Apr 27 2023 11-43-50"
+- "ADC (10^-6 mm\xB2/s):Apr 07 2022 11-57-15"
+- dDIFF
+- CDIN-AX DIFF B50 B1000 B2000CALC NEW_ADC
+- AX DIFF b50-400-1100-2000Calc_ADC
+- AX DIFF B50 B1000 B2000CALC NEW_ADC
+- "ADC (10^-6 mm\xB2/s)[No-Q]"
+- IsoADC
+- DIFF RESOLVE B50_500_1000_1600CALC_ADC
+- DIFFUSION GG_ADC
+- ep2d_diff_B50 B1500_ADC
+- DWI_ax_SPAIR_EPI_zoomit_ADC_DFC_MIX
+- DWI_ax_fs_EPI_zoomit_ADC
+- Exponential Apparent Diffusion Coefficient
+- CDIN-dDIFF
+- "CDIN-ADC (10^-6 mm\xB2/s)"
+- reco
+- DIFF B50_500_1000_1600CALC_ADC
+- "ADC (10^-6 mm\xB2/s):Dec 01 2022 09-04-59 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2022 14-33-00"
+- ep2d_diff_b50_500_1000_1500_1800tra_p2_ADC
+- "ADC (10^-6 mm\xB2/s):Mar 01 2023 10-18-27 WET"
+- "ADC (10^-6 mm\xB2/s):Jan 04 2023 16-41-44 WET"
+- "ADC (10^-6 mm\xB2/s):Jan 02 2023 12-02-16 WET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2022 12-23-04 WET"
+- "ADC (10^-6 mm\xB2/s):Dec 12 2022 16-34-19 WET"
+- "ADC (10^-6 mm\xB2/s):Nov 25 2022 15-33-46 WET"
+- "ADC (10^-6 mm\xB2/s):Nov 29 2022 10-18-53 WET"
+- "ADC (10^-6 mm\xB2/s):Nov 16 2022 12-35-04 WET|ADC (10^-6 mm\xB2/s):Nov 16 2022\
+    \ 12-35-05 WET"
+- "ADC (10^-6 mm\xB2/s):Oct 03 2022 11-36-49"
+- "ADC (10^-6 mm\xB2/s):Sep 19 2022 11-18-03"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2022 12-38-47"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2022 11-20-36"
+- "ADC (10^-6 mm\xB2/s):Jul 13 2022 15-20-21"
+- "ADC (10^-6 mm\xB2/s):Jul 12 2022 11-30-00"
+- "ADC (10^-6 mm\xB2/s):Jul 12 2022 12-14-11|ADC (10^-6 mm\xB2/s):Jul 12 2022 12-14-10"
+- "ADC (10^-6 mm\xB2/s):Jul 11 2022 11-06-23"
+- "ADC (10^-6 mm\xB2/s):Jun 29 2022 10-36-23"
+- "ADC (10^-6 mm\xB2/s):Jun 07 2022 10-07-01"
+- ADCmap (Creator:synapse_giacomoaringhieri, Series No.8)
+- ep2d_diff_b50_400_1000_1400_tra_p2_ADC_DFC_MIX
+- ep2d_diff_b50_400_800_1400_tra_ADC_DFC_MIX
+- WIP990L_ZOOMit_RL_b50-900t_MoBvCxS_ADC_DFC_MIX
+- WIP990L_ZOOMit_RL_b50-900t_ADC_DFC_MIX
+- ep2d_diff_tra_b50-900_ADC
+- ep2d_diff_b50_1000_1500 cal_2000_tra_ADC_DFC_MIX
+- ep2d_diff_b50_400_800_1000tra_p2_ADC_DFC_MIX
+- ep2d_diff_b0_b400_b1000_b1400_tra_sfov_ADC
+- ep2d_diff_b50_400_800_tra_p2 NEW_ADC_DFC
+- ep2d_diff_b50_1400_tra_p2_ADC_DFC_MIX
+- ep2d_diff_zoomit_b50_600__900_tra_ADC
+- ep2d_diff_50_600_1050.tra_ADC
+- dLOWER B VALUES
+- ep2d_diff_tra_b0_b500_b1000_ADC
+- TRA DWI b50,800 ( scan straight)_ADC
+- diff_b500_1000_1500_tra_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Aug 05 2022 12-01-37"
+- "ADC (10^-6 mm\xB2/s):Dec 14 2022 17-14-05 WET"
+- "ADC (10^-6 mm\xB2/s):Sep 06 2022 11-43-41|ADC (10^-6 mm\xB2/s):Sep 06 2022 11-43-40"
+- "ADC (10^-6 mm\xB2/s):Aug 02 2022 15-23-55"
+- "ADC (10^-6 mm\xB2/s):May 17 2022 12-26-36"
+- "ADC (10^-6 mm\xB2/s):Jun 06 2022 10-56-37"
+- ep2d_diff_tra_com_bandas_3_ADC_DFC_MIX
+- ep2d_diff_tra_com_bandas_ADC_DFC_MIX_FIL_1
+- ep2d_diff_tra_com_bandas_ADC_DFC_MIX
+- ep2d_diff_b50_1000-1500_tra_p2_ADC_DFC
+- dDWI_ADC 1500
+- dDWI_3b_dS_ZOOM
+- dDWI_ADC 800
+- ep2d_diff_b50_1000-1500_tra_p2_ADC_DFC_MIX
+- DWI_ax_SPAIR_EPI_ADC
+- ep2d_diff_b50_400_1500_tra_calc_1400_new_ADC_DFC_MIX
+- ep2d_diff_zoomit_b50_600_900_b1400calc1400_tra_ADC
+- ep2d_diff_b50_400_800_1400_tra_ADC_DFC
+- dadc
+- "ADC (10^-6 mm\uFFFD/s)"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 16 2022 08-27-45 CET"
+- resolve_diff_tra_p2_ADC
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 14 2021 10-47-09"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 30 2022 10-04-58"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 19 2022 09-20-00 CET"
+- "ADC (10^-6 mm\uFFFD/s):Apr 20 2022 14-29-35"
+- "ADC (10^-6 mm\uFFFD/s):Oct 29 2020 10-55-15 WET"
+- ep2d_diff_zoomit_b50_200_800_ADC
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 03 2023 15-53-54 BST"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 03 2023 15-57-15 BST"
+- eADC[No-Q]:Apr 03 2023 15-35-43 BST|eADC[No-Q]:Apr 03 2023 15-35-44 BST
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 03 2023 15-35-43 BST"
+- ep2d_diff_b0_100_400_1200_2000_tra_p2_ADC
+- ax_dwi_spair_epi_gland_ADC_DFC_MIX
+- ax_dwi_spair_epi_nodes_ADC_DFC_MIX
+- ep2d_diff_b50_1000_2000_calc3000_tra_ADC
+- ep2d diff b50 800 1400 2000 p2 tra 703_ADC_DFC_MIX
+- ep2d_diff_tra_ADC
+- ep2d_diff_tra_ADC_DFC
+- "ADC (10^-6 mm\uFFFD/s):Mar 11 2021 12-38-31 WET"
+- "ADC (10^-6 mm\xB2/s):May 10 2022 12-12-23"
+- ep2d_diff_tra_com_bandas_ADC_DFC
+- ep2d_diff_tra_com_bandas_ADC_DFC_FIL_1
+- ep2d_diff_b50_400_800_tra_bcalc1500_ADC_DFC
+- dDWI SENSE
+- "ADC (10^-6 mm\xB2/s):Apr 22 2020 15-33-39"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2020 12-24-32 EET"
+- resolve_diff_b50_800_tra_p2_ADC
+- "ADC (10^-6 mm\uFFFD/s):Dec 21 2021 10-33-55 WET"
+- DIF. B50-800-1400-2000_ADC_DFC_MIX
+- ep2d_diff_b50_1000_2000_calc3000_tra_ADC_DFC_MIX
+- "ADC (10^-6 mm\uFFFD/s)[No-Q]:Feb 27 2021 11-41-11 WET"
+- dRSI_Diffusion_ADC
+- dadc_DWI_4b
+- "ADC (10^-6 mm\xB2/s):Jul 01 2020 13-02-52"
+- ep2d_diff_4scan_trace_ADC
+- "ADC (10^-6 mm\xB2/s):Sep 12 2019 17-21-41"
+- ep2d_diff_3scan_trace_ADC_coregistration
+- ep2d_diff_3scan_trace_ADC
+- "ADC (10^-6 mm\xB2/s):May 28 2020 08-19-23"
+- QDWI - ep2d_diff_zoomit_b50_600_900_tra_ADC
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 05 2022 09-47-01 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 05 2021 12-22-08"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 09 2021 09-39-45 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 02 2021 08-38-49 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 17 2021 09-12-06 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 17 2021 09-54-57 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 18 2021 11-32-03 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 18 2021 11-18-22 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 28 2021 09-58-29"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 30 2021 10-26-16"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 23 2021 08-41-15"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 28 2021 09-14-19"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 15 2021 09-02-47"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 08 2021 09-44-47"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 03 2021 09-13-09"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 02 2021 08-56-43|ADC (10^-6 mm\xB2/s)[No-Q]:Jun\
+    \ 02 2021 08-56-42"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 27 2021 12-00-06"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 20 2021 12-07-55"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 20 2021 08-32-59"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 05 2021 08-27-22|ADC (10^-6 mm\xB2/s)[No-Q]:May\
+    \ 05 2021 08-27-21"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Feb 03 2021 10-04-46 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Feb 03 2021 09-26-10 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 27 2021 11-02-47 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 07 2021 11-14-23 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 09 2020 09-21-35 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 26 2020 10-26-28 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 19 2020 10-22-01 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 19 2020 09-44-04 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 08 2020 09-42-53"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 08 2020 09-51-21"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 07 2020 11-32-57"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 24 2020 10-43-34"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 17 2020 08-34-57"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 10 2020 10-49-59"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 02 2020 10-44-51|ADC (10^-6 mm\xB2/s)[No-Q]:Sep\
+    \ 02 2020 10-44-50"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 26 2020 08-39-11"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 06 2020 12-10-20"
+- "ADC (10^-6 mm\xB2/s):Jul 23 2020 09-42-56"
+- "ADC (10^-6 mm\xB2/s):Jul 01 2020 10-17-08"
+- "ADC (10^-6 mm\xB2/s):Jun 25 2020 08-28-27"
+- "ADC (10^-6 mm\xB2/s):Jun 24 2020 10-12-45"
+- "ADC (10^-6 mm\xB2/s):Jun 17 2020 11-48-25"
+- "ADC (10^-6 mm\xB2/s):Apr 23 2020 09-53-33"
+- "ADC (10^-6 mm\xB2/s):Mar 12 2020 12-32-14 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 11 2020 09-50-49 CET|ADC (10^-6 mm\xB2/s):Mar 11 2020\
+    \ 09-50-48 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2020 08-58-33 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2020 08-32-00 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2020 08-52-58 CET"
+- dMAPA ADC
+- QDWIep2d_diff_b50_600_900_mono_ADC
+- dADC b200
+- dADC b1500
+- "ADC (10^-6 mm\xB2/s):Mar 17 2021 14-21-37 GMT"
+- adc
+- "ADC (10^-6 mm\xB2/s):Feb 15 2023 18-02-54 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 22 2023 12-36-26 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2023 11-11-51 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 06 2023 18-07-00"
+- "ADC (10^-6 mm\xB2/s):Apr 12 2023 13-41-29"
+- "ADC (10^-6 mm\xB2/s):May 31 2023 11-59-04"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2018 14-22-10"
+- "ADC (10^-6 mm\xB2/s):Mar 17 2021 10-49-12 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 21 2021 16-42-11 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 23 2021 11-12-53"
+- "ADC (10^-6 mm\xB2/s):Sep 13 2023 11-37-34"
+- "ADC (10^-6 mm\xB2/s):Oct 02 2019 13-23-34"
+- "ADC (10^-6 mm\xB2/s):May 20 2020 14-37-02"
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 12-40-39 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 23 2023 10-21-58"
+- "ADC (10^-6 mm\xB2/s):Feb 01 2023 16-20-56 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 02 2023 08-53-23 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 01 2023 13-17-29 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 14 2022 16-24-50 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 07 2022 14-20-35 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 09 2022 14-11-17 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 02 2022 13-21-46 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 17 2022 11-24-23"
+- "ADC (10^-6 mm\xB2/s):Jul 20 2022 12-02-50"
+- "ADC (10^-6 mm\xB2/s):Jun 29 2022 08-57-41"
+- "ADC (10^-6 mm\xB2/s):Jun 15 2022 13-25-21"
+- "ADC (10^-6 mm\xB2/s):Jun 15 2022 10-52-24"
+- "ADC (10^-6 mm\xB2/s):Jun 15 2022 10-12-12"
+- "ADC (10^-6 mm\xB2/s):Apr 13 2022 11-35-09"
+- "ADC (10^-6 mm\xB2/s):Apr 12 2022 17-56-39"
+- "ADC (10^-6 mm\xB2/s):Apr 06 2022 10-16-06"
+- "ADC (10^-6 mm\xB2/s):Mar 22 2022 19-44-50 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 09 2022 12-59-58 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 09 2022 13-57-37 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2022 19-16-18 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 02 2022 08-50-28 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 26 2022 09-48-46 CET"
+- "ADC (10^-6 mm\xB2/s):May 31 2023 18-31-38"
+- "ADC (10^-6 mm\xB2/s):May 24 2023 14-03-29"
+- "ADC (10^-6 mm\xB2/s):Mar 01 2023 09-16-57 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 29 2023 14-01-53"
+- "ADC (10^-6 mm\xB2/s):Mar 29 2023 15-27-47"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2023 15-37-40 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2023 16-17-47 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2023 12-28-01 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 09 2023 16-54-13 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2019 14-49-54 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 15 2023 13-15-44 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 18 2023 17-19-11 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 12 2023 18-05-57 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 11 2023 09-05-57 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 11 2023 11-06-51 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 07 2022 11-40-49 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 09 2022 16-51-16 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 21 2022 09-01-03"
+- "ADC (10^-6 mm\xB2/s):Jun 19 2023 14-18-12"
+- "ADC (10^-6 mm\xB2/s):Jun 01 2022 08-41-10"
+- "ADC (10^-6 mm\xB2/s):Apr 06 2022 14-01-28"
+- "ADC (10^-6 mm\xB2/s):Feb 02 2022 15-43-36 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 25 2023 15-38-46 CET"
+- ep2d_diff_b50_500_1000_1400_tra_p2_ADC
+- ep2d_diff_tra_b50_b800_b1500_ADC
+- DIFFUSION AX_ A TO P_ADC_DFC
+- ep2d_diff_b50_1000_1500_tra_p2_ADC_DFC_MIX
+- ep2d_diff_b100_500_1000_1500_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 06 2021 11-43-44"
+- "ADC (10^-6 mm\xB2/s):Sep 07 2022 08-53-07"
+- "ADC (10^-6 mm\xB2/s):Nov 13 2019 13-04-02 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 17 2022 08-50-44"
+- "ADC (10^-6 mm\xB2/s):Apr 28 2021 10-01-07"
+- "ADC (10^-6 mm\xB2/s):Oct 19 2022 17-54-16"
+- "ADC (10^-6 mm\xB2/s):May 04 2022 11-42-56"
+- "ADC (10^-6 mm\xB2/s):Jul 13 2022 14-47-26"
+- "ADC (10^-6 mm\xB2/s):Dec 02 2020 09-34-20 CET"
+- "ADC (10^-6 mm\xB2/s):May 26 2021 08-44-20"
+- "ADC (10^-6 mm\xB2/s):Oct 20 2021 14-28-45"
+- "ADC (10^-6 mm\xB2/s):Jun 01 2022 11-01-01"
+- "ADC (10^-6 mm\xB2/s):Apr 19 2023 15-28-43"
+- "ADC (10^-6 mm\xB2/s):May 18 2022 11-47-30"
+- "ADC (10^-6 mm\xB2/s):Jan 12 2023 17-27-12 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 20 2022 12-58-38"
+- "ADC (10^-6 mm\xB2/s):Jun 30 2021 09-24-43"
+- "ADC (10^-6 mm\xB2/s):Mar 30 2022 13-02-20"
+- "ADC (10^-6 mm\xB2/s):Nov 17 2018 09-29-46 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 15 2022 16-34-46 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 15 2022 15-51-06"
+- "ADC (10^-6 mm\xB2/s):Sep 22 2021 09-23-49"
+- "ADC (10^-6 mm\xB2/s):Apr 05 2023 10-51-59"
+- "ADC (10^-6 mm\xB2/s):Apr 27 2022 12-54-59"
+- "ADC (10^-6 mm\xB2/s):Mar 23 2022 13-00-07 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 27 2022 14-03-54"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2020 15-58-23 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 19 2020 09-50-16"
+- "ADC (10^-6 mm\xB2/s):Nov 30 2022 13-01-44 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 16 2022 10-55-00 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 03 2019 10-29-01"
+- "ADC (10^-6 mm\xB2/s):Jun 29 2022 10-20-16"
+- "ADC (10^-6 mm\xB2/s):Aug 10 2022 10-09-04"
+- "ADC (10^-6 mm\xB2/s):Jul 13 2022 09-40-17"
+- "ADC (10^-6 mm\xB2/s):Sep 30 2020 11-41-06"
+- "ADC (10^-6 mm\xB2/s):Jun 11 2021 14-44-09"
+- "ADC (10^-6 mm\xB2/s):Apr 20 2022 09-26-07"
+- "ADC (10^-6 mm\xB2/s):Aug 03 2022 15-31-34"
+- ep2d_diff_zoomit_b50_800_tra 12 22_ADC
+- "ADC (10^-6 mm\xB2/s):Nov 22 2017 17-12-25 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 06 2022 19-01-35"
+- "ADC (10^-6 mm\xB2/s):Apr 12 2018 13-51-27"
+- "ADC (10^-6 mm\xB2/s):Mar 28 2018 13-06-43"
+- "ADC (10^-6 mm\xB2/s):May 03 2023 18-36-03"
+- "ADC (10^-6 mm\xB2/s):Sep 14 2022 13-10-24"
+- "ADC (10^-6 mm\xB2/s):Nov 11 2020 11-17-13 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 16 2022 13-21-31 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 01 2018 08-50-52"
+- "ADC (10^-6 mm\xB2/s):Nov 16 2022 15-38-40 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 15 2023 14-23-21 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 18 2021 18-31-22 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 14 2023 15-46-59"
+- "ADC (10^-6 mm\xB2/s):Mar 09 2022 12-24-25 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 29 2020 08-39-51 +03"
+- "ADC (10^-6 mm\xB2/s):May 20 2021 15-33-56"
+- ep2d_diff_spair_OLD_50_850_ADC
+- "ADC (10^-6 mm\xB2/s):Jul 08 2021 17-13-41"
+- eADC:Mar 08 2021 10-52-45 EET|eADC:Mar 08 2021 10-52-44 EET
+- AXIAL ADC.
+- "ADC (10^-6 mm\xB2/s):Oct 07 2021 17-00-43"
+- "ADC (10^-6 mm\xB2/s):Nov 16 2021 12-44-38 EET"
+- dADC 0 400 1000
+- "ADC (10^-6 mm\xB2/s):Mar 05 2021 12-40-54 EET"
+- "ADC (10^-6 mm\xB2/s):Mar 27 2020 08-01-20 EET"
+- ep2d_diff_b50_1000_1500_calc2000_tra julho 2020_ADC
+- ep2d_diff_b50_1000_1500_calc2000_tra julho 2020_ADC_coregistration
+- ep2d_diff_tra_b0_500_1000_1400_ADC
+- web_ep2d_diff_b50_450_800_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Sep 12 2018 11-45-51"
+- "ADC (10^-6 mm\xB2/s):Nov 29 2019 13-46-39 +03"
+- db1400 4mm
+- "ADC (10^-6 mm\xB2/s):Jul 28 2020 23-13-51 +03"
+- ep2d_diff_b50_400_800_tra_p2_ADC_DFC_MIX
+- dDWI 4b SENSE
+- sadc
+- ep2d_diff_b50_1000_1500_calc2000_tra_ADC
+- ep2d_diff_b50_b800_b1000_b1200_ADC
+- resolve_diff_b50_400_800_1600_tra_p2_ADC
+- "ADC (10^-6 mm\xB2/s):Jun 27 2018 16-14-48"
+- ep2d_diff_tra_ADC_DFC_MIX_FIL_1
+- ep2d_diff_tra_ADC_DFC_MIX
+- ep2d_diff_b50_400_800_1400_2000_tra_p2_ADC_DFC_MIX
+- DIFUSAO b 800
+- ep2d_diff_tra_b0_b800_p2_160_ADC
+- Apparent Diffusion Coefficient (mm?/s)
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 10-50-13 CET"
+- diff_tra_b0-1000-2000_ADC
+- ep2d_tra_b50_b100_b500_b1600_ADC
+- ep2d_diff_tra_b50-400-800-1000_ADC_DFC_MIX
+- ep2d_diff_tra_b50-500-1000_bcalc-1500_ADC_DFC_MIX
+- ep2d_diff_tra_2015_b50_b400_B800_bcalc1600_DYNDIST_ADC
+- ep2d_diff_b50_800_1400_2000_tra_p2_ADC_DFC_MIX
+- ep2d_diff_tra_b0_b800_b1000_ADC
+- "ADC (10^-6 mm\xB2/s):Feb 27 2019 09-38-39 WET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2019 17-03-44 WET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2019 16-13-33 WET"
+- ep2d_diff_OBL_b50_1200_1400_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Dec 06 2017 18-22-15 CET"
+- ep2d_diff_tra_b100_b1000_b1200_ADC
+- ep2d_diff_tra_b50_b800_b1200_ADC
+- "ADC (10^-6 mm\xB2/s):Sep 05 2018 17-32-55"
+- ep2d_diff_b50_400_800 AXIAL_ADC_DFC
+- DWI
+- resolve_diff_b0_100_500_800_tra_p2_ADC
+- "ADC (10^-6 mm\xB2/s):Mar 13 2019 15-31-30 EET"
+- "ADC (10^-6 mm\xB2/s):Apr 03 2019 16-02-30"
+- ep2d_diff_b0_1000_2000_tra_p2_ADC_DFC_MIX
+- ep2d_diff_tra_orig_ADC_DFC
+- ep2d_diff_tra_b50-400-800_DYNDIST_ADC
+- ep2d_diff_b50_400_800_tra_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Jan 09 2019 11-26-03 CET"
+- 'PosDisp: [9] ep2d_diff_tra_b50_b800 b1400_ADC'
+- ep2d_diff_tra_b50_b800 b1400_ADC
+- ep2d_DWI_b0_b100_b300_b800_b1000__ADC
+- dADC_FOV100_2.75mmSL CLEAR
+- ep2d_diff_b50_400_800_tra_p2 NEW_ADC_DFC_MIX
+- APPARENT DIFFUSION COEFFICIENT (MM2/S)
+- EXPONENTIAL APPARENT DIFFUSION COEFFICIENT
+- ep2d_diff_b50_400_800_tra_p2_cal1400_ishim_ADC
+- DIFUSION_diff_b50_400_800_1000_ADC
+- "ADC (10^-6 mm\xB2/s):Dec 27 2019 11-22-02 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 26 2019 18-19-01 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 05 2020 14-26-47 EET|ADC (10^-6 mm\xB2/s):Feb 05 2020\
+    \ 14-26-46 EET"
+- "ADC (10^-6 mm\xB2/s):Dec 08 2019 23-23-39 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 07 2020 09-27-54 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 17 2020 23-10-30 +03"
+- "ADC (10^-6 mm\xB2/s):Apr 29 2021 18-41-35 +03"
+- ep2d_diff_b50_400_800_ADC_ADC_DFC
+- ep2d_diff_b50_400_800_ADC_EXP_DFC
+- ep2d_diff_b50_b400_b800_3mm_ADC
+- ep2d_diff_tra_b50_800_ADC_DFC
+- ep2d_diff_ADC
+- "ADC (10^-6 mm\xB2/s):Sep 07 2020 09-25-16"
+- "ADC (10^-6 mm\xB2/s):Feb 10 2020 16-48-36 GMT"
+- "ADC (10^-6 mm\xB2/s):Mar 01 2022 17-50-11 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 01 2022 18-29-18 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 03 2022 15-45-28 GMT"
+- dDWI_3b
+- dADC MAP
+- "ADC (10^-6 mm\xB2/s):Jul 10 2019 13-05-41 BST"
+- eADC:Jul 10 2019 13-05-41 BST
+- eADC:Jul 10 2019 13-11-02 BST
+- "ADC (10^-6 mm\xB2/s):Jul 10 2019 13-11-02 BST"
+- ep2d_diff_tra_b0 b500 b1000 sfov_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Aug 08 2020 16-38-58 BST"
+- eADC:Aug 08 2020 16-32-50 BST
+- eADC:Aug 08 2020 16-38-58 BST
+- "ADC (10^-6 mm\xB2/s):Aug 08 2020 16-32-50 BST"
+- "ADC (10^-6 mm\xB2/s):Nov 05 2020 11-12-28 GMT"
+- dDWI_5b ax sFOV ADC
+- SSh_DWI
+- dDIF 10bs SENSE
+- eeADC
+- "ADC (10^-6 mm\xB2/s):Jan 07 2020 12-20-08 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 04 2020 14-57-56 +03"
+- ep2d_diff_tra_DYNDIST_MIX_ADC
+- ep2d_diff_3scan_trace_ADC_CV_1
+- "ADC (10^-6 mm\xB2/s):Jan 27 2020 09-32-09 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 28 2020 10-03-13 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 12 2020 11-00-43 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2020 08-18-49 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2020 09-11-17 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2020 10-54-01 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 05 2020 08-30-31 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 19 2020 11-24-21 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 22 2020 12-03-11"
+- "ADC (10^-6 mm\xB2/s):May 28 2020 08-56-52"
+- "ADC (10^-6 mm\xB2/s):Jun 03 2020 10-24-14"
+- "ADC (10^-6 mm\xB2/s):Jun 10 2020 09-34-13"
+- "ADC (10^-6 mm\xB2/s):Jun 11 2020 08-24-35"
+- "ADC (10^-6 mm\xB2/s):Jun 11 2020 09-36-26"
+- "ADC (10^-6 mm\xB2/s):Jun 17 2020 10-41-16"
+- "ADC (10^-6 mm\xB2/s):Jun 24 2020 08-24-47"
+- "ADC (10^-6 mm\xB2/s):Jul 08 2020 11-16-07"
+- "ADC (10^-6 mm\xB2/s):Jul 08 2020 09-07-06"
+- "ADC (10^-6 mm\xB2/s):Jul 15 2020 10-58-37"
+- "ADC (10^-6 mm\xB2/s):Jul 22 2020 10-36-47"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 03 2020 11-30-57"
+- "ADC (10^-6 mm\xB2/s):May 28 2020 10-49-33"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 29 2020 09-18-35 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 29 2020 09-24-05 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 05 2020 09-50-46 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 02 2020 11-24-33 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 16 2020 10-17-08 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 16 2020 09-03-21 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 17 2020 08-40-23 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 24 2020 08-32-17 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 24 2020 08-38-20 CET"
+- eADC[No-Q]:Jan 06 2021 10-41-11 CET|eADC[No-Q]:Jan 06 2021 10-41-12 CET
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 06 2021 10-40-53 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 06 2021 10-41-11 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 20 2021 09-04-10 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 28 2021 10-43-56 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 31 2021 09-51-55"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 01 2021 09-52-42"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 29 2021 11-02-05"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 08 2021 11-04-07"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 22 2021 09-40-38"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 27 2021 11-15-46"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 02 2021 10-42-15"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 15 2021 09-50-32"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 29 2021 11-02-34"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 18 2021 09-13-31"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 01 2021 11-03-59"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 14 2021 10-17-25"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 06 2022 10-41-21 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 12 2022 08-23-51 CET"
+- resolve_diff_b1600_tra_p2_ADC
+- resolve_diff_b50_800_1200_tra_p2_ADC
+- "ADC (10^-6 mm\xB2/s):Feb 11 2021 18-45-52 GMT"
+- "ADC (10^-6 mm\xB2/s):Nov 10 2020 09-15-30 GMT"
+- "ADC (10^-6 mm\xB2/s):Mar 18 2021 17-41-14 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 06 2019 18-36-20 CET"
+- eADC:Jan 13 2021 16-47-10 CET
+- "ADC (10^-6 mm\xB2/s):Jan 13 2021 16-47-10 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 17 2018 12-34-27"
+- "ADC (10^-6 mm\xB2/s):Jul 23 2021 13-19-23"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 06 2021 08-20-16 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 03 2020 22-44-20 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 21 2020 22-01-37 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 14 2020 00-58-22 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 10 2022 12-28-21 WET"
+- "ADC (10^-6 mm\xB2/s):Apr 05 2022 12-42-15"
+- "ADC (10^-6 mm\xB2/s):Feb 18 2022 11-50-03 WET"
+- "ADC (10^-6 mm\xB2/s):Mar 10 2022 10-43-24 WET"
+- ep2d_tra_b0_b100_b500_b1000_b1400_p2_128_ADC
+- "ADC (10^-6 mm\xB2/s):Aug 12 2020 12-19-53"
+- "ADC (10^-6 mm\xB2/s):Aug 26 2020 12-21-34"
+- "ADC (10^-6 mm\xB2/s):Jun 17 2020 09-24-48"
+- "ADC (10^-6 mm\xB2/s):Mar 23 2022 09-26-24 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 30 2020 09-43-14 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 01 2018 13-37-55"
+- "ADC (10^-6 mm\xB2/s):Jun 23 2021 14-29-24"
+- "ADC (10^-6 mm\xB2/s):Mar 03 2021 09-37-36 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 10 2021 13-57-55 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 09 2020 10-32-30 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 27 2022 15-49-41"
+- "ADC (10^-6 mm\xB2/s):Oct 21 2020 10-14-39"
+- "ADC (10^-6 mm\xB2/s):Sep 22 2021 10-52-42"
+- "ADC (10^-6 mm\xB2/s):Jan 09 2019 12-16-35 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 07 2022 17-56-57 CET"
+- "ADC (10^-6 mm\xB2/s):May 11 2022 14-47-33"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 07 2020 10-49-05"
+- "ADC (10^-6 mm\xB2/s):Oct 06 2021 18-17-51"
+- "ADC (10^-6 mm\xB2/s):Feb 24 2021 11-00-16 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 20 2021 11-04-52"
+- "ADC (10^-6 mm\xB2/s):Jul 27 2022 10-57-25"
+- "ADC (10^-6 mm\xB2/s):Aug 26 2020 14-08-06"
+- "ADC (10^-6 mm\xB2/s):Nov 06 2019 11-31-41 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 27 2018 15-29-14"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2022 18-21-38 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 29 2022 12-30-44"
+- "ADC (10^-6 mm\xB2/s):Jul 15 2020 11-30-44"
+- "ADC (10^-6 mm\xB2/s):Nov 20 2019 10-30-21 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 05 2019 17-26-44 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 08 2022 11-44-03"
+- "ADC (10^-6 mm\xB2/s):Jan 04 2023 13-58-50 CET"
+- "ADC (10^-6 mm\xB2/s):May 20 2020 11-28-46"
+- "ADC (10^-6 mm\xB2/s):Nov 11 2020 13-39-33 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 08 2018 14-24-09 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 09 2019 17-17-16"
+- "ADC (10^-6 mm\xB2/s):Apr 06 2022 13-19-20"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 24 2021 10-26-35 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 14 2019 10-41-40"
+- "ADC (10^-6 mm\xB2/s):Jan 04 2023 10-05-55 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 29 2023 17-39-55"
+- "ADC (10^-6 mm\xB2/s):Sep 22 2021 08-51-25"
+- "ADC (10^-6 mm\xB2/s):Sep 02 2020 12-59-24"
+- "ADC (10^-6 mm\xB2/s):Jun 16 2022 16-56-29"
+- "ADC (10^-6 mm\xB2/s):May 18 2022 14-15-11"
+- "ADC (10^-6 mm\xB2/s):Feb 16 2019 09-48-45 CET"
+- "ADC (10^-6 mm\xB2/s):May 18 2022 10-07-33"
+- "ADC (10^-6 mm\xB2/s):Jun 22 2022 12-19-45"
+- "ADC (10^-6 mm\xB2/s):Jun 29 2022 17-52-23"
+- "ADC (10^-6 mm\xB2/s):May 07 2019 11-01-43"
+- "ADC (10^-6 mm\xB2/s):Aug 26 2020 11-19-25"
+- "ADC (10^-6 mm\xB2/s):Feb 09 2022 12-39-57 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 05 2020 10-56-06"
+- "ADC (10^-6 mm\xB2/s):Oct 09 2019 09-35-01"
+- "ADC (10^-6 mm\xB2/s):Oct 30 2019 15-01-20 CET"
+- "ADC (10^-6 mm\xB2/s):May 30 2018 10-25-54"
+- "ADC (10^-6 mm\xB2/s):May 20 2020 10-14-46"
+- "ADC (10^-6 mm\xB2/s):Feb 19 2020 16-24-40 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 01 2022 14-13-20"
+- "ADC (10^-6 mm\xB2/s):Aug 31 2022 10-51-48"
+- "ADC (10^-6 mm\xB2/s):Feb 10 2021 13-51-13 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 26 2022 15-15-46 CET"
+- "ADC (10^-6 mm\xB2/s):May 07 2019 18-10-00"
+- "ADC (10^-6 mm\xB2/s):Aug 03 2022 09-43-55"
+- "ADC (10^-6 mm\xB2/s):Dec 01 2021 12-40-49 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 10 2018 14-37-29"
+- "ADC (10^-6 mm\xB2/s):Dec 14 2022 17-08-31 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 01 2021 09-56-00"
+- "ADC (10^-6 mm\xB2/s):Jul 27 2022 12-24-46"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 17 2021 10-08-52 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 26 2020 12-46-45 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 17 2022 10-15-28"
+- "ADC (10^-6 mm\xB2/s):Sep 02 2020 13-47-49"
+- "ADC (10^-6 mm\xB2/s):May 18 2022 13-19-01"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 24 2021 09-50-42 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 27 2022 18-02-08"
+- "ADC (10^-6 mm\xB2/s):Mar 09 2019 09-53-12 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 12 2020 10-45-56"
+- "ADC (10^-6 mm\xB2/s):Feb 08 2023 13-00-29 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 20 2019 11-03-53 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 15 2022 18-19-42"
+- "ADC (10^-6 mm\xB2/s):Mar 16 2022 14-08-52 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 29 2020 10-42-02"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Feb 23 2022 08-43-21 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 26 2018 15-50-56"
+- "ADC (10^-6 mm\xB2/s):Jul 12 2018 14-32-21"
+- "ADC (10^-6 mm\xB2/s):Apr 20 2022 14-36-08"
+- "ADC (10^-6 mm\xB2/s):Jul 12 2022 18-13-08"
+- "ADC (10^-6 mm\xB2/s):Nov 11 2020 12-11-12 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 15 2021 17-22-54"
+- "ADC (10^-6 mm\xB2/s):Apr 27 2022 14-50-38"
+- "ADC (10^-6 mm\xB2/s):Jun 10 2020 11-30-28"
+- "ADC (10^-6 mm\xB2/s):Dec 29 2021 08-45-31 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 02 2022 15-09-37 CET"
+- "ADC (10^-6 mm\xB2/s):May 22 2019 13-41-58"
+- "ADC (10^-6 mm\xB2/s):Sep 08 2021 11-04-42"
+- "ADC (10^-6 mm\xB2/s):Aug 25 2021 09-26-17"
+- "ADC (10^-6 mm\xB2/s):Dec 12 2018 08-51-55 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 09 2020 10-32-02"
+- "ADC (10^-6 mm\xB2/s):Jan 31 2023 18-52-04 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 22 2022 17-10-15"
+- "ADC (10^-6 mm\xB2/s):Aug 11 2021 11-21-44"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2019 16-20-22"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2019 12-55-40"
+- "ADC (10^-6 mm\xB2/s):Jun 12 2019 09-02-43"
+- "ADC (10^-6 mm\xB2/s):Jan 23 2019 10-14-43 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 30 2021 12-48-19 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 01 2023 15-27-15 CET"
+- "ADC (10^-6 mm\xB2/s):May 27 2020 10-07-43"
+- "ADC (10^-6 mm\xB2/s):Jan 18 2023 11-36-07 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 22 2021 09-33-03 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 11 2019 12-38-01 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 23 2022 09-25-54 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 16 2020 08-30-05 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2020 11-22-59 CET"
+- "ADC (10^-6 mm\xB2/s):May 20 2020 12-07-57"
+- "ADC (10^-6 mm\xB2/s):Jan 18 2023 08-51-39 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 14 2020 11-11-31"
+- "ADC (10^-6 mm\xB2/s):Mar 30 2023 14-22-49"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 12 2021 10-11-22"
+- "ADC (10^-6 mm\xB2/s):Oct 27 2021 08-48-53"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2019 11-35-30 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 20 2022 08-48-12"
+- "ADC (10^-6 mm\xB2/s):May 20 2020 08-23-20"
+- "ADC (10^-6 mm\xB2/s):Jan 05 2022 10-12-25 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 23 2021 10-29-04"
+- "ADC (10^-6 mm\xB2/s):Oct 20 2021 09-16-52"
+- "ADC (10^-6 mm\xB2/s):Dec 21 2022 11-07-31 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 03 2019 10-59-24"
+- "ADC (10^-6 mm\xB2/s):Dec 07 2022 17-24-01 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 02 2022 10-57-35 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 10 2020 10-12-59"
+- "ADC (10^-6 mm\xB2/s):Apr 08 2020 11-17-08"
+- "ADC (10^-6 mm\xB2/s):Sep 05 2018 14-35-11"
+- "ADC (10^-6 mm\xB2/s):Aug 18 2021 11-51-11"
+- "ADC (10^-6 mm\xB2/s):Mar 31 2021 14-10-29"
+- "ADC (10^-6 mm\xB2/s):Dec 31 2019 10-57-24 CET|ADC (10^-6 mm\xB2/s):Dec 31 2019\
+    \ 10-57-25 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 23 2019 11-40-57"
+- edDWI_5b ax sFOV ADC
+- "ADC (10^-6 mm\xB2/s):Nov 04 2019 11-20-29 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 07 2020 11-01-03 CET|ADC (10^-6 mm\xB2/s):Jan 07 2020\
+    \ 11-01-02 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 03 2019 11-36-39 CET"
+- "ADC (10^-6 mm\xB2/s):May 21 2019 11-23-08"
+- "ADC (10^-6 mm\xB2/s):Aug 06 2019 10-59-50"
+- "ADC (10^-6 mm\xB2/s):Nov 04 2019 12-48-56 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 26 2019 12-10-50 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 27 2019 11-59-12"
+- ep2d_diff_b100_1000_(1400)_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Dec 10 2019 10-00-30 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 30 2019 12-39-19"
+- "ADC (10^-6 mm\xB2/s):Dec 10 2019 09-27-09 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 03 2019 09-57-10 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 04 2021 09-47-44 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 03 2020 09-50-07 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 23 2021 09-03-37"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2020 09-39-29 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 10 2021 08-05-22"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 31 2021 10-27-56"
+- "ADC (10^-6 mm\xB2/s):Sep 03 2021 10-30-20"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 20 2020 08-54-31|ADC (10^-6 mm\xB2/s)[No-Q]:Aug\
+    \ 20 2020 08-54-30"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 30 2020 08-20-19"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 30 2020 08-14-49"
+- "ADC (10^-6 mm\xB2/s):Jan 11 2021 10-17-58 EET"
+- "ADC (10^-6 mm\xB2/s):Jul 07 2021 14-09-44|ADC (10^-6 mm\xB2/s):Jul 07 2021 14-09-45"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 25 2021 09-45-53"
+- "ADC (10^-6 mm\xB2/s):Jan 14 2020 10-12-54 CET"
+- ep2d_diff_tra_ADC_DFC_MIX_FIL_2
+- ep2d_diff_b50_400_800_tra_p2_ADC_DFC
+- ep2d_diff_tra_b50_1000_1500_p2_ADC
+- ep2d_diff_b50_600_1050_SPAIR 5mm no gap_ADC
+- ep2d_diff_b50_600_1050_bipolar_ADC
+- ep2d_diff_b50_400_1000_tra_p2_ADC_DFC_MIX
+- ep2d_diff_new 16 measipat_ADC
+- ep2d_diff_b50_800_tra_ADC_DFC_MIX
+- ep2d_diff_tra b0, b800, b1400_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 02 2021 10-28-03 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 01 2021 08-33-17 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 03 2021 10-30-33 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 29 2021 11-33-22"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 20 2021 10-19-53"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 30 2021 08-42-40"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 29 2021 09-23-43"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 07 2021 07-48-15|ADC (10^-6 mm\xB2/s)[No-Q]:Oct\
+    \ 07 2021 07-48-16"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 07 2021 08-01-27"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 28 2021 09-19-25"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 13 2021 08-02-28"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 29 2021 10-03-51"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 03 2021 08-51-24 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 09 2021 10-42-20 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 13 2021 10-33-13"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 09 2021 08-20-46 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 09 2021 11-44-57 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 09 2021 12-23-06"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 29 2021 08-28-30"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 15 2021 11-17-00"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 19 2021 09-44-09"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 27 2021 09-13-02 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 07 2020 10-43-06"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 25 2021 11-24-55 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 10 2021 10-59-02"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 28 2021 08-57-58 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 03 2020 11-04-36 CET|ADC (10^-6 mm\xB2/s)[No-Q]:Dec\
+    \ 03 2020 11-04-37 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 08 2021 10-44-05"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 28 2021 09-54-09"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 04 2021 11-38-32 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 13 2021 09-17-40 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jul 22 2021 11-50-20"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 06 2021 09-23-23"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 22 2020 10-22-42"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 22 2020 10-29-12"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 03 2021 09-40-37 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 23 2021 10-33-43"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Feb 10 2021 08-03-55 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 26 2021 09-53-03"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Feb 24 2021 08-32-01 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 26 2021 09-17-20"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 24 2021 10-21-43"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 06 2021 08-24-55"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jun 30 2021 09-38-17"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Feb 24 2021 10-00-17 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Nov 25 2020 10-12-40 CET|ADC (10^-6 mm\xB2/s)[No-Q]:Nov\
+    \ 25 2020 10-12-41 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Jan 06 2021 08-59-17 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Dec 10 2020 10-34-42 CET"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Apr 28 2021 10-28-21"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 27 2021 09-57-47"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 20 2021 09-12-15"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 13 2020 09-45-48"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 01 2020 10-33-17"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Oct 01 2020 10-28-05"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 09 2020 09-48-26"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Aug 19 2020 09-17-07"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Sep 02 2020 09-20-58|ADC (10^-6 mm\xB2/s)[No-Q]:Sep\
+    \ 02 2020 09-20-57"
+- KEY_IMAGES
+- 'PosDisp: [11] DIFF 4 VALUES_B1600_ADC_DFC_MIX'
+- "ADC (10^-6 mm\xB2/s):Jul 02 2020 08-26-34"
+- "ADC (10^-6 mm\xB2/s):Jul 02 2020 11-03-34"
+- "ADC (10^-6 mm\xB2/s):Jul 02 2020 09-04-19"
+- "ADC (10^-6 mm\xB2/s):Jun 24 2020 09-12-33"
+- "ADC (10^-6 mm\xB2/s):Jun 17 2020 10-00-09"
+- "ADC (10^-6 mm\xB2/s):Jun 18 2020 10-16-47"
+- "ADC (10^-6 mm\xB2/s):Jun 18 2020 10-52-15"
+- "ADC (10^-6 mm\xB2/s):Jun 03 2020 09-07-44"
+- "ADC (10^-6 mm\xB2/s):Apr 30 2020 09-38-14"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2020 11-02-58 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 11 2020 10-27-03 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 12 2020 11-51-48 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 22 2020 09-37-49"
+- "ADC (10^-6 mm\xB2/s):Mar 04 2020 10-54-30 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 03 2020 09-52-52"
+- "ADC (10^-6 mm\xB2/s):Mar 18 2020 10-42-22 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 17 2020 08-43-20"
+- "ADC (10^-6 mm\xB2/s):Jun 03 2020 11-37-15"
+- "ADC (10^-6 mm\xB2/s):Aug 27 2022 14-05-06"
+- '-'
+- "ADC (10^-6 mm\xB2/s):Nov 12 2020 20-38-51 +03"
+- ep2d_diff_tra_b0_b600_b1400p2_160_ADC
+- ep2d_diff_b50_400_800_1400_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Feb 05 2020 11-52-31 CET"
+- VII_ep2d_diff_pelvis_ADC
+- ep2d_diff_b50_400_800 tra_p2_ADC_DFC_MIX
+- DIFUSAO B1000
+- "ADC (10^-6 mm\xB2/s):Nov 05 2020 12-30-53 EET"
+- ep2d_diff_tra_b400-800-1400_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Aug 14 2020 16-10-57 +03"
+- ep2d_diff_tra_b50-600-1000_ADC_DFC
+- "ADC (10^-6 mm\xB2/s):Jan 28 2020 13-48-54 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 22 2019 14-55-34 EET"
+- "ADC (10^-6 mm\xB2/s):Aug 13 2020 02-55-04 +03"
+- ep2d_diff_tra_ADC_DFC_FIL_1
+- ep2d_diff_tra_b50-400-800-1500_ADC_DFC_MIX
+- ep2d_diff_tra_b0_b500_b1000 p2_160_ADC
+- ep2d_diff_3scan_trace_p2_ADC
+- "ADC (10^-6 mm\xB2/s):Feb 20 2020 18-14-15 +03"
+- DIFUSAO
+- "ADC (10^-6 mm\xB2/s):Dec 20 2019 20-45-28 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 05 2020 12-29-52 CET"
+- ep2d_diff_b50_400_1400_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Feb 06 2020 10-33-10 CET"
+- ep2d_diff_zoomit_b50_400_1000_tra_ADC_DFC_MIX
+- ep2d_diff_b50_1000-1500_tra_p2_ADC_DFC_MIX_coregistration
+- "ADC (10^-6 mm\xB2/s):Feb 22 2019 21-06-43 EET"
+- "ADC (10^-6 mm\xB2/s):Feb 23 2020 15-31-45 +03"
+- dReg - DWI_4B SENSE
+- eReg - DWI_4B SENSE
+- edADC LONG B
+- dADC LONG B
+- dADC 5B
+- edADC 5B
+- ep2d_diff_zoomit_b50_800_tra_m_ADC
+- ep2d_diff_obl_tra b0_800_p2__160_ADC
+- "ADC (10^-6 mm\xB2/s):Oct 21 2021 08-44-38"
+- "ADC (10^-6 mm\xB2/s):Feb 19 2020 19-10-42 +03"
+- ep2d_diff_b50_400_800_calc.1400_tra_ADC
+- ep2d_diff_b0-b1400_ADC_DFC_MIX
+- ep2d_diff_b0_100_400_1000_tra_p2_ADC_DFC_MIX
+- ep2d_diff_b50_600_1050_mono_ADC
+- ep2d_diff_tra_b0_b100_b300_b800_b1000_ADC_DFC_MIX
+- ep2d_diff_b50_800_bipolar_ADC
+- ep2d_diff_tra_b2000_SFOV_ADC
+- ep2d_diff_tra_b50_400_800_1200_ADC
+- dDWI ADC
+- "ADC (10^-6 mm\xB2/s):Jun 26 2020 16-37-24 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 14 2020 09-50-28 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 06 2020 10-44-22 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 08 2019 17-29-56 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 25 2020 08-54-59 +03"
+- "ADC (10^-6 mm\xB2/s):Apr 16 2019 14-54-45"
+- PROSTATE ep2d_diff_tra_b0, 500, 1100, 1400_ADC
+- ep2d_diff_b50_b400_b800_b1200_3mm_ADC
+- "ADC (10^-6 mm\xB2/s):Sep 06 2021 10-28-37"
+- ep2d_diff_tra_b0_b800_p2_160_AXIAL_ADC
+- "ADC (10^-6 mm\xB2/s):Sep 16 2020 23-46-33 +03"
+- ep2d_diff_b50_400_800_ADC_TRACEW_DFC
+- ep2d_diff_b50_b400_b1000_128_ADC
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 15-54-33 CET"
+- ep2d_diff_tra_b0_100_300_800_ADC
+- "ADC (10^-6 mm\xB2/s):Oct 20 2021 14-28-11"
+- "ADC (10^-6 mm\xB2/s):Dec 25 2019 02-05-09 +03"
+- ep2d_diff_b50_800_1400_tra_p2 Strong FS_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Feb 21 2020 00-33-22 +03"
+- ep2d_diff_tra_b50_b500_b1000_ADC
+- ep2d_diff_b50_400_800_1000 tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Mar 07 2022 11-45-00 GMT"
+- ep2d_diff_stir_b50_600_900_tra__ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Mar 14 2022 14-15-31 GMT"
+- ep2d_diff_obl_tra_b0_b800_p2_160_ADC
+- ep2d_diff_tra_b50_800_ADC_DFC_MIX
+- eADC:Dec 08 2021 13-12-30 EET
+- ep2d_diff_b50_400_800_ADC_DFC_MIX
+- ep2d_diff_tra_b800 b1200_ADC
+- "ADC (10^-6 mm\xB2/s) -"
+- "ADC (10^-6 mm\xB2/s):Oct 15 2021 13-15-41"
+- "ADC (10^-6 mm\xB2/s):Oct 05 2021 11-07-01"
+- "ADC (10^-6 mm\xB2/s):Oct 09 2020 09-32-41 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 03 2020 18-46-29 +03"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 09 2022 19-41-33 GMT|ADC (10^-6 mm\xB2/s)[No-Q]:Mar\
+    \ 09 2022 19-41-32 GMT"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:Mar 09 2022 19-45-06 GMT"
+- ep2d_diff_b50_400_800_tra_p2_BIPOLAR_ADC_DFC_MIX
+- ep2d_diff_0_500_800_1200_ADC_DFC_MIX
+- Apparent Diffusion Coefficient (mm2s)
+- "ADC (10^-6 mm\xB2/s):Oct 20 2021 12-46-33"
+- DIFUSION + ADC VICKY_ADC
+- "ADC (10^-6 mm\xB2/s):Mar 13 2020 14-32-04 +03"
+- "ADC (10^-6 mm\xB2/s):Jun 03 2020 12-31-38 +03"
+- ep2d_diff_b50_400_800_ADC_EXP_DFC_MIX
+- ep2d_diff_b50_400_800_ADC_ADC_DFC_MIX
+- ep2d_diff_b50_400_800_ADC_TRACEW_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Mar 16 2020 18-16-54 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 01 2020 21-37-53 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 17 2021 08-40-41"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 20 2021 11-00-36 BST"
+- "ADC (10^-6 mm\xB2/s)[No-Q]:May 20 2021 10-56-37 BST"
+- "ADC (10^-6 mm\xB2/s):Jul 05 2020 14-11-24 +03"
+- ep2d_diff_b50_400_800_tra_calc_1400_new_ADC_DFC
+- "ADC (10^-6 mm\xB2/s):Aug 23 2019 18-20-51 BST"
+- "ADC (10^-6 mm\xB2/s):Aug 19 2020 09-34-50 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2018 17-05-05"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2020 01-46-09 +03"
+- diff_b500_1000_1500_tra_ADC_DFC
+- ep2d_diff_tra_b0_b800_p2_160SG3_ADC_DFC_MIX
+- ep2d_diff_b100_200_1000_ADC
+- ep2d_diff_tra_b50_b400_b1000_ADC
+- "ADC (10^-6 mm\xB2/s):Apr 22 2021 15-28-54 BST"
+- "ADC (10^-6 mm\xB2/s):May 02 2021 10-12-14 BST"
+- ep2d_diff_tra_b0_b800_b1400_p2_160_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):May 06 2021 15-23-31 BST"
+- "ADC (10^-6 mm\xB2/s):Jun 28 2021 17-02-42 BST"
+- "ADC (10^-6 mm\xB2/s):May 06 2021 18-38-36 BST"
+- "ADC (10^-6 mm\xB2/s):Dec 06 2021 09-41-06 GMT"
+- "ADC (10^-6 mm\xB2/s):Dec 17 2020 15-20-30 GMT"
+- "ADC (10^-6 mm\xB2/s):Apr 21 2021 13-47-30 BST"
+- "ADC (10^-6 mm\xB2/s):Feb 23 2021 17-16-35 GMT"
+- "ADC (10^-6 mm\xB2/s):Jan 11 2021 13-41-34 GMT"
+- "ADC (10^-6 mm\xB2/s):May 20 2019 17-05-22"
+- "ADC (10^-6 mm\xB2/s):Apr 26 2021 13-41-24 BST"
+- "ADC (10^-6 mm\xB2/s):Apr 07 2021 14-08-31 BST"
+- "ADC (10^-6 mm\xB2/s):May 25 2021 17-07-36 BST"
+- "ADC (10^-6 mm\xB2/s):Apr 20 2021 11-50-57 BST"
+- "ADC (10^-6 mm\xB2/s):May 21 2021 14-57-51 BST"
+- "ADC (10^-6 mm\xB2/s):Nov 18 2020 13-27-00 GMT"
+- "ADC (10^-6 mm\xB2/s):Apr 15 2021 17-23-58 BST"
+- "ADC (10^-6 mm\xB2/s):Jun 05 2020 16-33-47 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 16 2020 19-14-31 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 25 2020 09-42-47 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 03 2020 23-41-50 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 28 2020 08-30-49 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 18 2020 18-29-12 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 27 2019 09-52-09 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2020 15-13-12 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 10 2020 11-43-04 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 27 2019 23-25-15 +03"
+- "ADC (10^-6 mm\xB2/s):Jun 08 2020 16-31-18 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 16 2020 15-45-21 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 02 2020 12-20-54 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 29 2020 17-28-00 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 19 2020 09-37-05 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 25 2020 16-46-41 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 08 2019 19-33-53 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 10 2020 14-50-20 EET"
+- "ADC (10^-6 mm\xB2/s):Jun 11 2020 13-35-07 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 27 2020 12-12-41 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 23 2020 13-30-57 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 06 2019 12-07-41"
+- "ADC (10^-6 mm\xB2/s):Nov 10 2020 15-01-36 +03"
+- DIFF_b50-1000-1500_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Aug 21 2020 23-55-51 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 21 2020 08-44-44 +03"
+- "ADC (10^-6 mm\xB2/s):Jun 22 2020 11-59-30 BST"
+- "ADC (10^-6 mm\xB2/s):Mar 03 2020 18-42-33 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 04 2020 10-49-46 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 04 2020 10-54-49 GMT"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2020 15-04-57 BST"
+- "ADC (10^-6 mm\xB2/s):Sep 25 2020 10-56-24 BST"
+- "ADC (10^-6 mm\xB2/s):Oct 24 2020 09-28-24 BST"
+- "ADC (10^-6 mm\xB2/s):Nov 02 2020 13-41-28 GMT|ADC (10^-6 mm\xB2/s):Nov 02 2020\
+    \ 13-41-29 GMT"
+- diff_ax_b50-400-800_ADC_DFC_MIX
+- ep2d_diff_b50_400_800_tra_p2_ADC
+- RDU5002234563
+- DIFF 4 VALUES_B1600_ADC_DFC_MIX
+- DIFF 4 VALUES_b50_b800_b1200_ADC_DFC
+- "ADC (10^-6 mm\xB2/s):Feb 18 2020 18-20-42 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 18 2020 18-20-25 GMT"
+- "ADC (10^-6 mm\xB2/s):Sep 25 2020 14-28-47 BST"
+- "ADC (10^-6 mm\xB2/s):Oct 06 2020 10-39-06 BST"
+- "ADC (10^-6 mm\xB2/s):Jul 01 2021 18-58-20 BST"
+- "ADC (10^-6 mm\xB2/s):Jan 28 2021 09-59-32 GMT"
+- "ADC (10^-6 mm\xB2/s):Apr 02 2020 15-49-24 BST"
+- ep2d_diff_b50_600_1050_SPAIR_Pelvis_ADC
+- "ADC (10^-6 mm\xB2/s):Oct 20 2020 09-39-56 BST|ADC (10^-6 mm\xB2/s):Oct 20 2020\
+    \ 09-39-55 BST"
+- "ADC (10^-6 mm\xB2/s):Feb 25 2020 17-09-09 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 25 2020 17-08-53 GMT"
+- "ADC (10^-6 mm\xB2/s):Aug 16 2020 09-37-27 BST"
+- ep2d_diff_b50_400_1000_1400_calc1600_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Jul 21 2020 09-20-47 BST"
+- "ADC (10^-6 mm\xB2/s):Mar 24 2020 12-06-13 GMT"
+- "ADC (10^-6 mm\xB2/s):Jun 08 2020 11-17-04 BST"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2020 11-49-07 BST"
+- "ADC (10^-6 mm\xB2/s):May 21 2021 14-09-32 BST"
+- "ADC (10^-6 mm\xB2/s):Oct 20 2020 13-48-01 BST"
+- "ADC (10^-6 mm\xB2/s):Aug 07 2020 14-58-18 BST"
+- "ADC (10^-6 mm\xB2/s):Jun 16 2021 13-43-25 BST"
+- "ADC (10^-6 mm\xB2/s):Jul 29 2021 15-36-39 BST"
+- "ADC (10^-6 mm\xB2/s):Oct 28 2020 14-14-08 GMT"
+- "ADC (10^-6 mm\xB2/s):Mar 11 2020 01-51-08 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 09 2019 21-10-37 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 13 2020 01-37-54 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 31 2020 20-37-43 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 25 2020 16-58-51 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 14 2020 23-17-37 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 18 2020 16-30-21 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 23 2020 11-57-50 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2020 23-04-24 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 12 2020 11-19-15 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 30 2020 23-23-49 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 24 2020 20-00-01 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 11 2020 16-57-39 +03"
+- dDWI_3b_dS_ZOOM adc
+- DWI_3b_dS_ZOOM adc yapilacak
+- "ADC (10^-6 mm\xB2/s):Mar 10 2020 00-08-52 +03|ADC (10^-6 mm\xB2/s):Mar 10 2020\
+    \ 00-08-51 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2019 17-57-01 EET"
+- ep2d_diff_b50_400_800_ADC_DFC
+- "ADC (10^-6 mm\xB2/s):Aug 16 2019 13-49-34"
+- ep2d_diff_b50_800_tra_p2_phase_A-->P_ADC
+- ep2d_diff_b50_800_whole_pelvis_tra_wip_ADC
+- ep2d_diff_b1400_tra_p2_phase_A-->P_ADC
+- "ADC (10^-6 mm\xB2/s):Jun 12 2020 22-54-42 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 14 2020 18-51-09 +03"
+- DWI_1400 (NO ADC)
+- R ep2d_diff_tra_b0_b800_b1400_p2_160_ADC_DFC_MIX
+- ep2d_diff_b1400_new 32 measipat_ADC
+- ep2d_diff_b50_150_500_1000_UCLH_ADC_DFC_MIX
+- ep2d_diff_b50_1050_SPAIR_Pelvis_ADC
+- "ADC (10^-6 mm\xB2/s):Jan 22 2020 14-30-34 GMT"
+- ep2d_diff_0_1400_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Feb 19 2018 16-54-41 CET"
+- ep2d_DWI_b0_b50_b150_b500_b1000_optimised_ADC
+- diff_b50_400_800_1400_tra__ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 18-29-02 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 06 2020 18-21-31 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 06 2020 18-09-40 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 06 2020 18-00-44 GMT"
+- AX DWI_ADC_DFC
+- SIEMENS ep2d_diff_b50_400_1000_2000_tra_p2_ADC_DFC_MIX
+- sb1000
+- sb350
+- sb100
+- sb700
+- ep2d_diff_tra_b50-400-1000-2000_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Feb 06 2020 16-09-03 GMT"
+- "ADC (10^-6 mm\xB2/s):Feb 06 2020 15-59-34 GMT"
+- ep2d_diff_b0_500_1400_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Mar 08 2018 19-31-44 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2018 15-26-56 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 06 2017 08-52-12 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 15-19-40 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 04 2018 15-42-09"
+- "ADC (10^-6 mm\xB2/s):Aug 01 2018 14-24-48"
+- "ADC (10^-6 mm\xB2/s):Apr 11 2018 15-46-50"
+- "ADC (10^-6 mm\xB2/s):Dec 14 2017 17-21-22 CET"
+- "ADC (10^-6 mm\xB2/s):May 09 2018 15-43-07"
+- "ADC (10^-6 mm\xB2/s):Mar 26 2018 17-50-40"
+- "ADC (10^-6 mm\xB2/s):Feb 07 2018 15-23-26 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 27 2018 16-05-20"
+- "ADC (10^-6 mm\xB2/s):Jul 18 2018 15-58-13"
+- "ADC (10^-6 mm\xB2/s):Mar 22 2018 16-25-51 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 18 2018 15-51-27"
+- "ADC (10^-6 mm\xB2/s):Apr 24 2019 17-56-10"
+- "ADC (10^-6 mm\xB2/s):Feb 28 2018 14-48-43 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 30 2018 17-43-43"
+- "ADC (10^-6 mm\xB2/s):Jan 09 2020 19-25-53 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 29 2017 09-33-24 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 28 2019 17-36-02 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2018 16-24-09 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2020 16-55-47 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 27 2018 11-19-55"
+- "ADC (10^-6 mm\xB2/s):May 10 2018 12-57-30"
+- "ADC (10^-6 mm\xB2/s):May 09 2018 08-48-46"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2019 17-54-07 CET"
+- "ADC (10^-6 mm\xB2/s):May 08 2019 15-28-26"
+- "ADC (10^-6 mm\xB2/s):Jan 29 2018 16-27-14 CET"
+- ep2d_diff_tra_50-500-800_DYNDIST_ADC
+- ep2d_diff_b50_400_1000_ADC
+- "ADC (10^-6 mm\xB2/s):Oct 27 2018 08-46-52"
+- "ADC (10^-6 mm\xB2/s):Oct 07 2020 12-38-37"
+- eADC:Oct 07 2020 12-38-37
+- "ADC (10^-6 mm\xB2/s):Nov 17 2019 14-32-35 EET"
+- "ADC (10^-6 mm\xB2/s):Jul 15 2020 15-42-32"
+- "ADC (10^-6 mm\xB2/s):Oct 11 2018 08-58-10"
+- "ADC (10^-6 mm\xB2/s):Aug 12 2020 15-17-48"
+- "ADC (10^-6 mm\xB2/s):Feb 05 2020 14-13-58 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 30 2020 10-19-30 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 19 2018 18-17-20 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 19 2018 11-03-41"
+- "ADC (10^-6 mm\xB2/s):Jan 08 2020 08-53-55 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 23 2022 15-27-26 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 28 2020 17-17-17 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 25 2020 09-30-07 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 25 2020 09-00-00 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 04 2020 15-37-06 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 07 2020 23-21-58 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 03 2018 18-08-10"
+- "ADC (10^-6 mm\xB2/s):Jul 24 2020 15-50-18 +03"
+- ep2d_diff_b50_b400_b800_128 prostata_ADC
+- "ADC (10^-6 mm\xB2/s):Jan 13 2021 13-27-43 CET"
+- "ADC (10^-6 mm\xB2/s):May 06 2020 15-14-43"
+- "ADC (10^-6 mm\xB2/s):Aug 29 2018 12-35-41"
+- "ADC (10^-6 mm\xB2/s):Apr 15 2020 15-01-54"
+- "ADC (10^-6 mm\xB2/s):Jun 12 2019 09-39-51"
+- "ADC (10^-6 mm\xB2/s):Mar 25 2019 18-34-20 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2020 13-44-17 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 14 2020 16-15-17 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 01 2021 11-07-54"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2018 18-31-52"
+- "ADC (10^-6 mm\xB2/s):Oct 06 2021 08-53-49"
+- "ADC (10^-6 mm\xB2/s):Mar 17 2021 08-58-09 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 08 2019 10-26-17 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2019 17-13-51 CET"
+- ep2d_diff_b0_1000_2000_tra_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Mar 02 2022 16-14-53 CET"
+- ep2d_diff_b50_400_800_tra_ADC_DFC
+- "ADC (10^-6 mm\xB2/s):May 20 2020 18-06-02"
+- "ADC (10^-6 mm\xB2/s):Dec 30 2020 12-46-10 CET"
+- diff_tra_b0-1000-1500_ADC
+- zoomit_ep2d_diff_b50_100_400_1000_tra SPAIR_ADC
+- ep2d_diff_b50_2000_tra_p2_DETECTION_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Nov 27 2019 15-47-34 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 25 2020 15-27-55"
+- "ADC (10^-6 mm\xB2/s):Mar 06 2020 04-11-22 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 22 2021 14-17-06"
+- "ADC (10^-6 mm\xB2/s):Mar 25 2019 17-48-30 EET"
+- "ADC (10^-6 mm\xB2/s):Apr 29 2020 10-05-16"
+- "ADC (10^-6 mm\xB2/s):Jan 31 2019 16-06-48 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2018 15-41-22"
+- ep2d_diff_tra_b50-400-800_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Dec 27 2019 02-10-55 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2020 00-15-30 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 05 2020 20-56-26 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 01 2020 11-00-35 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 06 2020 10-35-09 +03"
+- "ADC (10^-6 mm\xB2/s):Apr 19 2021 10-31-09 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 25 2020 00-59-04 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 19 2020 16-56-01 +03"
+- "ADC (10^-6 mm\xB2/s):Jun 23 2020 18-08-47 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 03 2020 09-51-59 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 29 2020 18-18-23 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 10 2020 15-55-12 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 22 2020 17-11-40 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 28 2020 00-28-29 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2019 18-09-36 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 24 2020 16-27-50 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 17 2020 00-26-37 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 11 2020 18-47-22 +03"
+- "ADC (10^-6 mm\xB2/s):Apr 05 2021 17-24-52"
+- "ADC (10^-6 mm\xB2/s):Nov 05 2020 16-18-21 EET|ADC (10^-6 mm\xB2/s):Nov 05 2020\
+    \ 16-18-20 EET"
+- "ADC (10^-6 mm\xB2/s):Jan 15 2020 18-48-47 +03|ADC (10^-6 mm\xB2/s):Jan 15 2020\
+    \ 18-48-46 +03"
+- "ADC (10^-6 mm\xB2/s):Jun 10 2020 17-48-15 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 03 2020 19-59-16 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 23 2020 18-25-53 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 05 2020 14-51-13 +03"
+- ep2d_diff_tra_b50_b400_B800_DYNDIST_ADC
+- "ADC (10^-6 mm\xB2/s):Feb 26 2020 01-29-41 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 08 2020 14-57-06 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 16 2020 21-51-09 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 22 2019 21-23-43 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 04 2020 14-32-59 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 04 2020 15-05-09 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 15 2020 16-51-18 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 23 2020 17-14-21 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 19 2020 01-41-29 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 20 2020 09-39-33 +03"
+- ep2d_diff_b50_100_800_1600_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 11-41-27 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2018 10-51-49"
+- "ADC (10^-6 mm\xB2/s):Jan 10 2018 11-58-47 CET"
+- "ADC (10^-6 mm\xB2/s):May 23 2018 13-56-56"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2019 17-36-26"
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 19-29-52 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 19-06-52 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 29 2020 16-07-03 CET"
+- "ADC (10^-6 mm\xB2/s):May 30 2018 11-55-16"
+- "ADC (10^-6 mm\xB2/s):Jul 03 2019 17-56-46"
+- "ADC (10^-6 mm\xB2/s):Sep 11 2019 16-15-10"
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 10-23-44 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 06 2019 12-39-57 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 22 2017 19-25-30 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 17 2018 11-17-49"
+- "ADC (10^-6 mm\xB2/s):Nov 21 2018 10-31-44 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 07 2018 18-34-08 CET"
+- "ADC (10^-6 mm\xB2/s):May 09 2018 11-03-33"
+- "ADC (10^-6 mm\xB2/s):Sep 19 2018 10-45-37"
+- "ADC (10^-6 mm\xB2/s):Oct 16 2019 17-01-44"
+- "ADC (10^-6 mm\xB2/s):May 29 2019 17-16-57"
+- "ADC (10^-6 mm\xB2/s):Apr 18 2018 10-53-14"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2019 18-02-37 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 16 2019 10-24-13 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 03 2019 17-05-29"
+- "ADC (10^-6 mm\xB2/s):Feb 14 2018 10-57-47 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 10 2018 10-15-24 CET"
+- "ADC (10^-6 mm\xB2/s):May 22 2019 16-33-22"
+- "ADC (10^-6 mm\xB2/s):Jan 15 2020 17-34-26 CET"
+- "ADC (10^-6 mm\xB2/s):May 23 2018 12-12-11"
+- "ADC (10^-6 mm\xB2/s):Feb 05 2020 16-33-33 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 26 2019 17-06-48"
+- "ADC (10^-6 mm\xB2/s):Sep 11 2019 17-59-16"
+- "ADC (10^-6 mm\xB2/s):Aug 29 2018 10-26-54"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2018 11-10-17 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 08 2020 16-57-48 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 21 2018 10-13-51 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 14 2018 10-14-13 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 10-45-23"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 10-51-43"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2019 16-15-51 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 08-48-31 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 05 2018 12-20-46 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 26 2018 17-16-01"
+- dADC DWI 0/1000 SENSE
+- "ADC (10^-6 mm\xB2/s):Feb 28 2018 17-56-10 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 25 2018 10-50-43"
+- "ADC (10^-6 mm\xB2/s):Dec 11 2019 16-02-05 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 09 2019 11-54-54 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 23 2019 16-42-52"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2019 17-31-38 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 10 2018 11-04-35 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 13 2017 11-39-59 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2019 16-12-58 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 27 2019 16-22-58 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 11 2019 17-50-32 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 11 2019 17-02-55 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 18 2018 10-35-05"
+- "ADC (10^-6 mm\xB2/s):Nov 06 2019 17-26-00 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 16 2019 16-42-21"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2019 17-53-46"
+- "ADC (10^-6 mm\xB2/s):Dec 21 2018 16-56-38 WET"
+- "ADC (10^-6 mm\xB2/s):Dec 12 2018 10-14-16 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2019 16-53-16 CET"
+- "ADC (10^-6 mm\xB2/s):May 15 2019 16-16-29"
+- "ADC (10^-6 mm\xB2/s):Dec 13 2017 09-52-39 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 04 2019 16-44-15 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2019 18-16-35 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 24 2018 10-12-15 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 16 2019 10-44-42 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 09 2019 10-51-06 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 09 2019 16-53-10"
+- "ADC (10^-6 mm\xB2/s):Mar 06 2019 16-55-04 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 10 2019 16-51-59"
+- "ADC (10^-6 mm\xB2/s):Jan 23 2019 11-38-15 CET"
+- dDIF 7B SENSE
+- "ADC (10^-6 mm\xB2/s):Apr 24 2019 16-12-51"
+- "ADC (10^-6 mm\xB2/s):Dec 19 2018 10-12-47 CET"
+- "ADC (10^-6 mm\xB2/s):May 22 2019 17-26-33"
+- "ADC (10^-6 mm\xB2/s):Mar 13 2019 16-44-07 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2019 17-12-54 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 06 2019 16-10-58 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 17 2019 17-08-30"
+- "ADC (10^-6 mm\xB2/s):Oct 16 2019 16-20-26"
+- "ADC (10^-6 mm\xB2/s):May 09 2018 11-31-42"
+- "ADC (10^-6 mm\xB2/s):Oct 23 2019 17-00-59"
+- "ADC (10^-6 mm\xB2/s):Sep 11 2019 16-42-53"
+- "ADC (10^-6 mm\xB2/s):Jun 19 2019 16-57-51"
+- "ADC (10^-6 mm\xB2/s):Sep 18 2019 16-49-39"
+- "ADC (10^-6 mm\xB2/s):Apr 11 2018 12-40-25"
+- "ADC (10^-6 mm\xB2/s):Oct 31 2018 10-17-06 CET"
+- ep2d_diff_sms_b50_1000_2000_3000_tra_ADC
+- "ADC (10^-6 mm\xB2/s):Jun 19 2019 17-20-13"
+- "ADC (10^-6 mm\xB2/s):Jan 09 2019 10-23-00 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 23 2019 16-25-30"
+- "ADC (10^-6 mm\xB2/s):Dec 04 2019 16-26-11 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2019 16-22-36 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 28 2018 12-17-13"
+- "ADC (10^-6 mm\xB2/s):Apr 10 2019 17-13-23"
+- "ADC (10^-6 mm\xB2/s):Oct 09 2019 17-56-10"
+- "ADC (10^-6 mm\xB2/s):Mar 14 2018 16-43-02 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 06 2019 16-54-50 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 05 2018 10-08-02"
+- "ADC (10^-6 mm\xB2/s):Dec 05 2018 10-35-55 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 29 2020 16-30-51 CET"
+- "ADC (10^-6 mm\xB2/s):May 22 2019 16-57-16"
+- "ADC (10^-6 mm\xB2/s):Jan 31 2018 11-29-45 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 21 2020 13-22-10"
+- "ADC (10^-6 mm\xB2/s):Mar 06 2019 16-27-46 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 23 2019 11-19-33 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 22 2020 17-14-43 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 12 2020 17-06-45 CET"
+- "ADC (10^-6 mm\xB2/s):May 22 2019 16-14-07"
+- "ADC (10^-6 mm\xB2/s):Jan 16 2019 11-24-16 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 22 2020 17-34-46 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 20 2019 16-33-03 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 06 2019 14-47-33 CET"
+- ep2d_diff_tra_p2_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Jan 23 2019 10-44-27 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 05 2018 12-02-38 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 19 2018 10-32-06 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2019 16-17-13"
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 11-13-17 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 17 2020 11-00-56 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 10 2018 11-11-03"
+- "ADC (10^-6 mm\xB2/s):May 02 2018 10-44-54"
+- "ADC (10^-6 mm\xB2/s):Sep 19 2018 10-03-31"
+- "ADC (10^-6 mm\xB2/s):Jan 31 2018 10-49-34 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 27 2017 10-49-28 CET"
+- dDWI_3b_dS_ZOOM adc yapilacak
+- "ADC (10^-6 mm\xB2/s):Jan 24 2018 13-39-03 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2018 10-39-14 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 27 2017 10-24-01 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 28 2018 11-52-13"
+- "ADC (10^-6 mm\xB2/s):Jul 25 2018 11-59-42"
+- "ADC (10^-6 mm\xB2/s):Jan 12 2020 16-57-32 +03"
+- "ADC (10^-6 mm\xB2/s):Apr 23 2020 13-41-22"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2018 10-18-09 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2018 12-33-33 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 11 2018 10-29-57"
+- "ADC (10^-6 mm\xB2/s):Feb 28 2018 09-38-03 CET"
+- "ADC (10^-6 mm\xB2/s):May 09 2018 10-43-20"
+- "ADC (10^-6 mm\xB2/s):Mar 28 2018 10-37-44"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2018 10-54-08"
+- "ADC (10^-6 mm\xB2/s):Nov 22 2017 11-10-53 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 11-36-39"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 11-42-59"
+- "ADC (10^-6 mm\xB2/s):Feb 09 2020 17-29-36 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2018 10-01-41 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2020 23-42-43 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 07 2018 10-16-38 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2018 10-11-12"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 10-37-42 CET"
+- "ADC (10^-6 mm\xB2/s):May 14 2020 12-27-28"
+- "ADC (10^-6 mm\xB2/s):Mar 08 2020 10-54-01 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2018 11-08-16 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 08 2017 11-08-25 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 14 2018 11-28-47 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 17 2018 10-38-01"
+- "ADC (10^-6 mm\xB2/s):Nov 14 2018 12-02-07 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 24 2018 10-52-07"
+- "ADC (10^-6 mm\xB2/s):Jan 03 2020 16-35-28 +03"
+- "ADC (10^-6 mm\xB2/s):Mar 14 2018 10-11-56 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 24 2018 11-10-04"
+- "ADC (10^-6 mm\xB2/s):May 23 2018 11-41-21"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2018 11-17-05"
+- "ADC (10^-6 mm\xB2/s):Oct 17 2018 10-58-18"
+- dpDIFUSION HR SENSE
+- "ADC (10^-6 mm\xB2/s):May 16 2018 10-48-41"
+- "ADC (10^-6 mm\xB2/s):Mar 02 2020 20-48-05 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 22 2017 10-24-19 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 14 2018 10-31-58 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2018 11-50-02 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 11-17-31"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 11-11-11"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2018 10-27-19 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 12 2018 10-08-50"
+- "ADC (10^-6 mm\xB2/s):Aug 01 2018 10-01-20"
+- "ADC (10^-6 mm\xB2/s):Sep 26 2018 11-51-50"
+- "ADC (10^-6 mm\xB2/s):Sep 26 2018 12-18-57"
+- "ADC (10^-6 mm\xB2/s):May 02 2018 11-41-19"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2020 16-25-44 +03"
+- "ADC (10^-6 mm\xB2/s):Jun 27 2018 10-02-35"
+- "ADC (10^-6 mm\xB2/s):Aug 18 2020 19-04-01 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 05 2018 10-58-30"
+- "ADC (10^-6 mm\xB2/s):Oct 24 2018 10-17-58"
+- "ADC (10^-6 mm\xB2/s):May 06 2019 18-17-31"
+- "ADC (10^-6 mm\xB2/s):Oct 31 2018 11-45-52 CET"
+- "ADC (10^-6 mm\xB2/s):Aug 29 2018 10-09-02"
+- "ADC (10^-6 mm\xB2/s):Oct 10 2018 10-41-08"
+- "ADC (10^-6 mm\xB2/s):Jan 10 2018 10-43-26 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 20 2018 10-25-58"
+- "ADC (10^-6 mm\xB2/s):Jan 07 2020 20-31-46 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 14 2020 19-18-34 +03"
+- "ADC (10^-6 mm\xB2/s):Feb 07 2018 11-50-30 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 06 2020 16-00-45 +03"
+- "ADC (10^-6 mm\xB2/s):Oct 27 2020 19-04-25 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 25 2018 10-22-48"
+- "ADC (10^-6 mm\xB2/s):May 23 2018 10-35-59"
+- "ADC (10^-6 mm\xB2/s):Aug 01 2018 10-35-00"
+- "ADC (10^-6 mm\xB2/s):Jan 16 2020 18-36-16 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 26 2018 10-06-57"
+- "ADC (10^-6 mm\xB2/s):Sep 26 2018 11-22-51"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2018 11-00-00 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 01 2021 09-42-48 EET|ADC (10^-6 mm\xB2/s):Dec 01 2021\
+    \ 09-42-47 EET"
+- "ADC (10^-6 mm\xB2/s):Dec 16 2021 18-01-38 EET"
+- "ADC (10^-6 mm\xB2/s):Jan 26 2022 10-32-56 EET"
+- "ADC (10^-6 mm\xB2/s):Jan 28 2020 19-00-55 +03"
+- "ADC (10^-6 mm\xB2/s):Nov 21 2018 11-08-15 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 18 2019 16-50-05 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2018 11-54-59"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 11-01-45 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 13 2019 17-04-14 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 10 2018 11-31-07"
+- epDIFUSION HR SENSE
+- "ADC (10^-6 mm\xB2/s):Feb 23 2020 14-20-57 +03"
+- "ADC (10^-6 mm\xB2/s):Jul 01 2020 14-50-53 +03"
+- "ADC (10^-6 mm\xB2/s):May 09 2018 10-25-25"
+- "ADC (10^-6 mm\xB2/s):Jan 22 2020 16-43-49 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 12 2020 16-33-27 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 13 2017 11-06-24 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 22 2017 12-19-54 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 11-21-03 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 09 2019 16-32-59"
+- "ADC (10^-6 mm\xB2/s):Jun 06 2018 10-42-55"
+- "ADC (10^-6 mm\xB2/s):Sep 05 2018 10-38-27"
+- "ADC (10^-6 mm\xB2/s):Sep 18 2019 16-19-02"
+- "ADC (10^-6 mm\xB2/s):Nov 27 2019 16-52-47 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 29 2020 16-09-59 +03"
+- "ADC (10^-6 mm\xB2/s):Aug 29 2018 10-46-36"
+- "ADC (10^-6 mm\xB2/s):Mar 07 2018 11-30-18 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 14 2018 11-36-55 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 08 2019 09-02-58 +03|ADC (10^-6 mm\xB2/s):Dec 08 2019\
+    \ 09-02-57 +03"
+- "ADC (10^-6 mm\xB2/s):Sep 04 2019 17-03-00"
+- "ADC (10^-6 mm\xB2/s):Jan 29 2020 16-54-00 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 27 2019 16-42-29 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 01 2020 09-52-41"
+- "ADC (10^-6 mm\xB2/s):Apr 03 2019 17-22-47"
+- "ADC (10^-6 mm\xB2/s):Jun 13 2018 11-18-57"
+- "ADC (10^-6 mm\xB2/s):May 30 2018 11-20-10"
+- "ADC (10^-6 mm\xB2/s):May 30 2018 10-47-18"
+- dDWI 3bs
+- "ADC (10^-6 mm\xB2/s):Aug 29 2018 14-26-29"
+- "ADC (10^-6 mm\xB2/s):Jun 27 2018 10-24-06"
+- "ADC (10^-6 mm\xB2/s):Jun 05 2019 15-59-50"
+- "ADC (10^-6 mm\xB2/s):May 06 2020 15-26-46"
+- "ADC (10^-6 mm\xB2/s):Apr 03 2019 16-05-31"
+- "ADC (10^-6 mm\xB2/s):Dec 27 2019 19-00-28 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 13 2017 10-37-05 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 21 2018 13-02-48 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 16 2019 10-04-30 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 17 2020 14-24-32 WET"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2018 11-29-12 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 21 2018 11-22-52 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 22 2020 16-55-26"
+- "ADC (10^-6 mm\xB2/s):Nov 08 2017 11-16-10 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 08 2017 10-59-45 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 02 2019 16-32-01"
+- "ADC (10^-6 mm\xB2/s):Jun 27 2018 10-52-02"
+- "ADC (10^-6 mm\xB2/s):Mar 07 2018 10-59-50 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 26 2019 16-29-56"
+- ep2d_diff_b50_b500_b1000_ADC
+- "ADC (10^-6 mm\xB2/s):Apr 11 2018 10-10-18"
+- "ADC (10^-6 mm\xB2/s):Jun 06 2020 00-36-25 +03"
+- "ADC (10^-6 mm\xB2/s):Jan 17 2018 11-30-10 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 05 2018 10-54-46 CET"
+- ep2d_diff_tra_DYNDIST_MIX_ADC_FIL_1
+- ep2d_diff_tra_b50_800_ 1000_1200_TESTAR_ADC_DFC_MIX
+- "ADC (10^-6 mm\xB2/s):Feb 20 2019 18-39-02 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 06 2017 10-06-21 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 03 2021 13-27-29 EET"
+- "ADC (10^-6 mm\xB2/s):Oct 03 2018 10-57-56"
+- "ADC (10^-6 mm\xB2/s):Jan 05 2022 11-43-18 EET|ADC (10^-6 mm\xB2/s):Jan 05 2022\
+    \ 11-43-17 EET"
+- "ADC (10^-6 mm\xB2/s):Aug 11 2020 16-46-48"
+- "ADC (10^-6 mm\xB2/s):Dec 18 2019 16-27-04 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 18 2018 10-17-09"
+- ep2d_diff_b50_b800_b1000_b1200_Prostata_ADC
+- "ADC (10^-6 mm\xB2/s):Aug 23 2021 13-52-40"
+- "ADC (10^-6 mm\xB2/s):Jul 04 2018 10-49-23"
+- "ADC (10^-6 mm\xB2/s):Jun 19 2019 16-27-00"
+- "ADC (10^-6 mm\xB2/s):Oct 17 2018 11-37-48"
+- ep2d_diff_b50_400_800_ADC
+- "ADC (10^-6 mm\xB2/s):Feb 06 2019 10-16-53 CET"
+- "ADC (10^-6 mm\xB2/s):May 16 2018 10-05-23"
+- "ADC (10^-6 mm\xB2/s):May 15 2019 16-55-02"
+- "ADC (10^-6 mm\xB2/s):Nov 13 2019 16-13-25 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 07 2018 10-36-44 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 07 2018 10-59-26 CET"
+- "ADC (10^-6 mm\xB2/s):Apr 04 2018 09-57-42"
+- "ADC (10^-6 mm\xB2/s):May 02 2018 09-56-44"
+- "ADC (10^-6 mm\xB2/s):Jun 03 2020 13-37-19"
+- "ADC (10^-6 mm\xB2/s):Dec 11 2019 17-32-07 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 20 2017 12-16-48 CET"
+- ep2d_diff_tra_b0-100-800-1000_DYNDIST_MIX_ADC
+- "ADC (10^-6 mm\xB2/s):Feb 07 2018 12-12-24 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 22 2021 16-04-20 EET"
+- "ADC (10^-6 mm\xB2/s):Dec 04 2019 17-14-38 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 17 2018 11-56-16"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2019 11-34-00 CET"
+- "ADC (10^-6 mm\xB2/s):Sep 29 2020 15-26-26 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 06 2017 11-44-36 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 06 2019 16-32-24 CET"
+- "ADC (10^-6 mm\xB2/s):Jun 06 2018 10-15-25"
+- "ADC (10^-6 mm\xB2/s):Feb 27 2020 22-24-00 +03"
+- "ADC (10^-6 mm\xB2/s):Dec 05 2018 11-31-51 CET"
+- "ADC (10^-6 mm\xB2/s):Dec 06 2017 13-38-47 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 25 2021 11-06-05 WET"
+- "ADC (10^-6 mm\xB2/s):Mar 06 2019 18-00-29 CET"
+- "ADC (10^-6 mm\xB2/s):Jan 31 2018 10-31-33 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 08 2017 12-45-19 CET"
+- "ADC (10^-6 mm\xB2/s):Nov 08 2017 12-28-44 CET"
+- "ADC (10^-6 mm\xB2/s):Oct 02 2019 17-45-01"
+- "ADC (10^-6 mm\xB2/s):Nov 27 2019 17-35-17 CET"
+- "ADC (10^-6 mm\xB2/s):Feb 13 2019 10-12-55 CET"
+- "ADC (10^-6 mm\xB2/s):Jul 22 2020 16-53-39 +03|ADC (10^-6 mm\xB2/s):Jul 22 2020\
+    \ 16-53-40 +03"
+- DIFUSAO_MAPA ADC
+- "ADC (10^-6 mm\xB2/s):Nov 15 2017 09-55-16 CET"
+- "ADC (10^-6 mm\xB2/s):Mar 16 2020 17-39-44 +03"
+DWI:
+- Ax DWI b1000 703
+- Ax DWI b0 B1000
+- DWI_0 400 1000 1400
+- Ax DWI b800 703 WHOLE PELV
+- Ax DWI  b50-800
+- Ax DWI b1500 703
+- Ax DWI b 0 B1000
+- AX DWI b50;1500  sFOV
+- Ax DWI B50-B800-B1400
+- Ax DWI b 0 1500 703
+- Ax DWI b800 larger FOV
+- Ax DWI b0 1400 703
+- DWI_0_1500
+- DWI_0_1000
+- DWI_3b_ZOOM B0 B100 B1400
+- ep2d_diff_tra b 50 200 800 cal.1400 zoom_CALC_BVAL
+- 'Ax DWI: b-50/100/800'
+- 'Ax DWI: b-1500'
+- Ax FOCUS ALL b50-800
+- ep2d_diff_1400_new_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_800_tra_calc_1400_new_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_800_tra_calc_1400_new_TRACEW_DFC_MIX
+- ep2d_diff_b1400
+- ep2d_diff_obl_tra_b50_b400_b800_p2_160
+- Ax DWI ALL DIRECTION
+- Ax FOCUS FS ALL TALEB
+- 'DW_Synthetic: Ax FOCUS FS ALL TALEB'
+- Results MEAN_QDWI - ep2d_diff_zoomit_b50_600_900_tra_TRACEW
+- Results CALC_b1400_b50_600_900_QDWI - ep2d_diff_zoomit_b50_600_900
+- ep2d_diff_tra_b50_500_1000
+- ep2d_diff_tra_b1400
+- ep2d_diff_tra_b50-600-1050_Zoomit_CALC_BVAL_DFC_MIX
+- ep2d_diff_b2000_SPAIR 12 ac_ImScFac4_TRACEW
+- ep2d_diff_tra_b50-600-1050_Zoomit_TRACEW_DFC_MIX
+- 'Ax DWI: b-50/400/800 Tetra'
+- 'Ax DWI: b-1400 Tetra'
+- Ax DWI b 0 800 703
+- ep2d_diff_zoomit_b50_600_900_tra_TRACEW
+- ep2d_diff_zoomit_b50_600_900_tra_CALC_BVAL
+- ep2d_diff_b2000_bipolar_TRACEW
+- ep2d_diff_b1400_tra_3mm_TRACEW
+- ep2d_diff_b50_400 800_tra_3mm_TRACEW
+- ep2d_diff_b50_800_tra_3mm_TRACEW
+- ep2d_diff_spair_tra_b1400_aera_TRACEW
+- ep2d_diff_1400_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_1500_tra_calc_1400_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_1500_tra_calc_1400_TRACEW_DFC_MIX
+- ep2d_diff_zoomit_b50_600_900_calc2000_tra_TRACEW
+- ep2d_diff_zoomit_b50_600_900_calc2000_tra_CALC_BVAL
+- ep2d_qDWI_b2000_SPAIR 12 ac_ImScFac4_TRACEW
+- MEAN_Various_1
+- ep2d_qDWI_b2000_SPAIR 12 ac_ImScFac4
+- ep2d_qDWI_b50_600_1050_SPAIR 5mm no gap_TRACEW
+- ep2d_qDWI_b50_600_1050_SPAIR 5mm no gap
+- DIFUSION_5b
+- Reg - DIFUSION_5b
+- DWI_5b_ZOOM
+- Reg - DWI_5b_ZOOM
+- Ax DWI b50-800
+- DIFF RESOLVE B2000_TRACEW
+- 'DW_Synthetic: AX DWI b100-600-1000 FOCUS ARDL'
+- AX DWI b100-600-1000 FOCUS ARDL
+- ep2d_diff_b50 500 1000 1600c_CALC_BVAL
+- ep2d_diff_b50 500 1000 1600c_TRACEW
+- 'DW_Synthetic: Ax FOCUS B50_2000 16 ARDL'
+- Ax FOCUS B50_2000 16 ARDL
+- Ax FOCUS b100-500-1000ARDL
+- Ax DIFUSIO b1000 (PROSTATA)
+- DWI_b0/b100/b1000
+- DWI
+- Reg - DWI
+- ep2d_diff_b1500_tra_p2_TRACEW
+- ep2d_diff_b50_800_tra_p2_TRACEW
+- ep2d_diff_b50_800_tra_p2_CALC_BVAL
+- ep2d_diff_tra_b100_400_1200_2000_TRACEW_DFC_MIX
+- ep2d_diff_tra_b100_400_1200_2000_CALC_BVAL_DFC_MIX
+- Ax DWI B50-1k-1.5k
+- ep2d_diff_b50_400_800_tra_p2 Apps 09-06_TRACEW
+- ep2d_diff_b1400 tra_p2 Apps 7-20_TRACEW
+- ep2d_diff_b50_400_800_tra_p2 Apps 09-06_CALC_BVAL
+- DIFF B50_800_1400_2000calc AX_TRACEW
+- DIFF B50_800_1400_2000calc AX_CALC_BVAL
+- 'DW_Synthetic: Ax FOCUS b100-500-1000ARDL'
+- Ax DWI b50_800 ARDL AP
+- O-Ax Focus b2000
+- O-Ax DWI b2000
+- O-Ax Focus b1500
+- Ax DWI b 0 1400 703
+- Ax DWI AP DL b1300
+- 'DW_Synthetic: Ax DWI b50_800 ARDL AP'
+- CDIN-AX DIFF B50 B1000 B2000CALC NEW_CALC_BVAL
+- CDIN-AX DIFF B50 B1000 B2000CALC NEW_TRACEW
+- AX DIFF B50 B1000 B2000CALC NEW_CALC_BVAL
+- AX DIFF B50 B1000 B2000CALC NEW_TRACEW
+- DWI_50_1400
+- ax dif b1500
+- Ax FOCUS B-50-1000 Synthetic B-2000
+- DIFF 0 1000 2000 AP
+- Mean_b0
+- DWI B=1200 EXSPER
+- cDWI.b=2000
+- IsoDWI
+- DIFF RESOLVE B50_500_1000_1600CALC_CALC_BVAL
+- DIFF RESOLVE B50_500_1000_1600CALC_TRACEW
+- DIFFUSION GG_TRACEW
+- AXIAL DIFF B2000_TRACEW
+- ep2d_diff_B50 B1500_TRACEW
+- DIFUSION 1500
+- ax dif new b1000
+- Ax DWI b1500
+- ax dif  b1000
+- Ax DWI b1000
+- DWI_ax_SPAIR_EPI_zoomit_CALC_BVAL_DFC_MIX
+- DWI_ax_SPAIR_EPI_zoomit_TRACEW_DFC_MIX
+- DWI_ax_SPAIR_EPI_TRACEW
+- DWI_ax_fs_EPI_zoomit_TRACEW
+- DWI_ax_fs_EPI_zoomit_CALC_BVAL
+- ep2d_diff_zoomit_b2000_tra_TRACEW
+- DW_0_1500
+- DW_0_1000
+- 'DW_Synthetic: Ax DWI ardl b1000 strict'
+- Ax DWI ardl b1000 strict
+- CDIN-DIFF 0 1000 2000 AP
+- Ax FOCUS DWI SynthB
+- DWI PELVIS
+- Reg - DWI_4b
+- DWI_6b HR
+- CDIN-Ax FOCUS B800 synth 1400-2000 ARDL
+- 'CDIN-DW_Synthetic: Ax FOCUS B800 synth 1400-2000 ARDL'
+- sB2200
+- sB200
+- DIFF B50_500_1000_1600CALC_CALC_BVAL
+- DIFF B50_500_1000_1600CALC_TRACEW
+- 'DW_Synthetic: Ax FOCUS DWI SynthB'
+- 'DW_Synthetic: Ax FOCUS All b50-800'
+- Ax FOCUS All b50-800
+- ax dif b1500|DWI_0_1500
+- AX DIFUSION B=1000
+- DIFUSION AX
+- ax dif 2000
+- DIF B-1500
+- DWI_4B 0 300 800 1500
+- Ax DWI b2000
+- DWI_0_2000
+- ep2d_diff_b50_500_1000_1500_1800tra_p2_CALC_BVAL
+- ep2d_diff_b50_500_1000_1500_1800tra_p2_TRACEW
+- Ax DWI B-50-500-1000-1500
+- ax dif  b1500
+- DWI_50_1000
+- DWI_0 400 1000
+- resolve_diff_b50_1400_tra_p2_TRACEW
+- ep2d_diff_b50_400_1000_1400_tra_p2_TRACEW_DFC_MIX
+- DWI_5b Large FOV Max B Value 1400
+- ep2d_diff_b50_400_800_1400_tra_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_800_1400_tra_TRACEW_DFC_MIX
+- WIP990L_ZOOMit_RL_b50-900t_MoBvCxS_CALC_BVAL_DFC_MIX
+- WIP990L_ZOOMit_RL_b50-900t_MoBvCxS_TRACEW_DFC_MIX
+- ep2d_diff_tra_b50-900_TRACEW
+- WIP990L_ZOOMit_RL_b50-900t_CALC_BVAL_DFC_MIX
+- WIP990L_ZOOMit_RL_b50-900t_TRACEW_DFC_MIX
+- ep2d_diff_tra_b50-900_CALC_BVAL
+- ep2d_diff_b50_1000_1500 cal_2000_tra_CALC_BVAL_DFC_MIX
+- ep2d_diff_b2000_tra_TRACEW_DFC_MIX
+- ep2d_diff_b50_1000_1500 cal_2000_tra_TRACEW_DFC_MIX
+- ep2d_diff_b1400_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_800_1000tra_p2_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_800_1000tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b0_b400_b1000_b1400_tra_sfov
+- ep2d_diff_b50_400_800_tra_p2 NEW_TRACEW_DFC
+- ep2d_diff_b1400_TRACEW_DFC_MIX
+- ep2d_diff_b50_1400_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_zoomit_b50_600__900_tra_CALC_BVAL
+- ep2d_diff_zoomit_b50_600__900_tra_TRACEW
+- ep2d_diff_50_600_1050.tra_TRACEW
+- DWI_3b_dS_ZOOM ORIGINAL
+- t1_blade_tra_TO CRESTS
+- ep2d_diff_tra_b0_b500_b1000
+- TRA DWI b1500
+- TRA DWI b50,800 ( scan straight)
+- diff_b500_1000_1500_tra_TRACEW_DFC_MIX
+- ep2d_diff_tra_com_bandas_3_TRACEW_DFC_MIX
+- ep2d_diff_tra_com_bandas_TRACEW_DFC_MIX_FIL_1
+- ep2d_diff_tra_com_bandas_TRACEW_DFC_MIX
+- PRO.DWI Ax Focus b50.800
+- PRO.DWI Ax Focus b50.1400
+- ep2d_diff_b50_1000-1500_tra_p2_TRACEW_DFC
+- 3mm DWI_3b_dS_ZOOM
+- ep2d_diff_b50_1000-1500_tra_p2_TRACEW_DFC_MIX
+- 5 mm DWI_08001500
+- ep2d_diff_b1400tra_p2_TRACEW
+- DWI_ax_SPAIR_EPI_b2000_TRACEW
+- DWI_ax_fs_EPI_zoomit_b2000_TRACEW
+- ep2d_diff_b50_400_1500_tra_calc_1400_new_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_1500_tra_calc_1400_new_TRACEW_DFC_MIX
+- ep2d_diff_zoomit_b1400_tra_TRACEW
+- ep2d_diff_zoomit_b50_600_900_b1400calc1400_tra_TRACEW
+- ep2d_diff_zoomit_b50_600_900_b1400calc1400_tra_CALC_BVAL
+- ep2d_diff_spair_tra_b1400_TRACEW
+- ep2d_diff_b50_400_800_1400_tra_CALC_BVAL_DFC
+- ep2d_diff_b50_400_800_1400_tra_TRACEW_DFC
+- DWI_ax_fs_EPI_zoomit_b1400_TRACEW
+- DWI_ax_SPAIR_EPI_b1400_TRACEW
+- Ax DWI b1300 Abdopelv
+- 'DW_Synthetic: Ax FOCUS B-50-1000 Synthetic B-2000'
+- Ax FOCUS B-50-1400 Synthetic B-2000
+- 'DW_Synthetic: Ax FOCUS B-50-1400 Synthetic B-2000'
+- DWI b1400
+- sb1500
+- Ax DWI 2000
+- sb1400
+- ORIG Ax FOCUS b100-500-1000ARDL
+- 'DW_Synthetic: Ax FOCUS ardl  B-50-1000 Synthetic B-2000'
+- Ax FOCUS ardl  B-50-1000 Synthetic B-2000
+- resolve_diff_tra_p2_CALC_BVAL
+- resolve_diff_tra_p2_TRACEW
+- Sag FOCUS DWI b50-1400
+- Ax DWI b 100 800 1500 703
+- b1400
+- 'DW_Synthetic: Ax FOCUS 50-500-1500'
+- sb1000
+- ep2d_diff_zoomit_b1500_tra_TRACEW
+- ep2d_diff_zoomit_b50_200_800_CALC_BVAL
+- ep2d_diff_zoomit_b50_200_800_TRACEW
+- Ax DWI ALL l B-50-800
+- Ax DWI TETRA B-50-1400
+- Ax DWI B- 50-800 WHOLE PELVIS
+- ep2d_diff_b0_100_400_1200_2000_tra_p2_TRACEW
+- DWI_4b
+- DWI_b1400
+- sB100
+- sB350
+- sB1000
+- sB700
+- 'PosDisp: [7] ax_dwi_spair_epi_gland_CALC_BVAL_DFC_MIX'
+- ax_dwi_spair_epi_gland_TRACEW_DFC_MIX
+- ax_dwi_spair_epi_gland_CALC_BVAL_DFC_MIX
+- ax_dwi_spair_epi_nodes_CALC_BVAL_DFC_MIX
+- ax_dwi_spair_epi_nodes_TRACEW_DFC_MIX
+- ep2d_diff_b50_1000_2000_calc3000_tra_TRACEW
+- ep2d diff b50 800 1400 2000 p2 tra 703_TRACEW_DFC_MIX
+- ep2d_diff_tra_CALC_BVAL_DFC
+- Ax DWI SEM B50-500-100
+- ep2d_diff_tra_com_bandas_TRACEW_DFC
+- ep2d_diff_tra_com_bandas_TRACEW_DFC_FIL_1
+- ep2d_diff_b50_400_800_tra_bcalc1500_TRACEW_DFC
+- pDIFUSION_PELVIS SENSE
+- sDIFUSION SENSE
+- sb0
+- IVIM_PROST_15b SENSE
+- sb500
+- pDIFUSION HR SENSE
+- ax dif  b1400
+- AXIAL DIFUSION PROSTATA b50_1400_TRACEW
+- Reg - DWI SENSE
+- Reg - DWI_3b SENSE
+- Ax DWI b2000 detection
+- DWI_3b_dS_ZOOM
+- resolve_diff_b50_800_tra_p2_TRACEW
+- Ax DWI b50-800 703
+- DIF. B50-800-1400-2000_TRACEW_DFC_MIX
+- ep2d_diff_b50_1000_2000_calc3000_tra_TRACEW_DFC_MIX
+- Ax MUSE b50-400-1000
+- Ax DIFUSIO b1400
+- O-Ax DWI b1000/1500
+- O-Ax DWI b1000
+- O-Ax DWI b1500
+- O-Ax Focus b1000
+- O-Ax  Focus b1500
+- RSI_MRI_5b_Values
+- RSI_MRI_CTX_Labs
+- RSI_DKI_MRI_CTX_Labs
+- DWI_IVIM
+- Ax syDWI Focus 3mm
+- ep2d_diff_4scan_trace
+- ep2d_diff_3scan_trace
+- QDWI - ep2d_diff_zoomit_b50_600_900_tra_TRACEW
+- QDWI - ep2d_diff_zoomit_b50_600_900_tra
+- QDWI - ep2d_diff_spair_tra_b1400
+- Results MEAN_qdwi_ep2d_diff_spair_tra_SlAdj_b1400
+- qdwi_ep2d_diff_spair_tra_SlAdj_b1400
+- Results MEAN_QDWI - ep2d_diff_spair_tra_b1400
+- 'DW_Synthetic: Sag FOCUS DWI b50-1400'
+- AX FOCUS B75-400-800synth 2000
+- 'DW_Synthetic: AX FOCUS B75-400-800synth 2000'
+- Ax FOCUS B-50-800 Synt B-2000
+- DWI_3b 1500
+- sb900
+- sb1800
+- sb50
+- sb200
+- sb800
+- Reg - DWI_4B
+- DWI_6b_1800
+- DWI_2b 50/800
+- sb400
+- QDWIep2d_diff_b50_600_900_mono_TRACEW
+- QDWIep2d_diff_b50_600_900_mono
+- sDWI_b1500
+- sDWI_b0
+- DWI_0_200_1500
+- sDWI_b200
+- Ax DWI b50/1k/2k
+- Ax DWI b50/1500
+- QDWI - ep2d_diff_spair_tra_b0_b1400_TRACEW
+- QDWI - ep2d_diff_spair_tra_b0_b1400
+- PRO.DWI Ax Focus b50.800.1400
+- Ax FOCUS DWI
+- 'DW_Synthetic: Ax FOCUS DWI'
+- DWI 1000
+- DWI 1400
+- DWI 600
+- 'DW_Synthetic: DWI 1000[synb=2000]'
+- 'DW_Synthetic: AX FOCUS DWI 0 1000'
+- AX FOCUS DWI 0 1000
+- AX FOCUS DWI 50 1000
+- 'DW_Synthetic: AX FOCUS DWI 50 1000'
+- AX FOCUS DWI 1000
+- ep2d_diff_tra_b50_b800_b1500
+- DIFFUSION AX_ A TO P_TRACEW_DFC
+- ep2d_diff_b50_1000_1500_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b100_500_1000_1500_tra_p2_TRACEW_DFC_MIX
+- AX FOCUS DWI 2000
+- 'DW_Synthetic: AX FOCUS DWI 1000'
+- Ax MUSE b800 SB2000
+- ep2d_diff_zoomit_b50_800_tra 12 22_TRACEW
+- ep2d_diff_zoomit_b50_800_tra 12 22_CALC_BVAL
+- Reg - Reg - DIFF
+- 'DW_Synthetic: Ax FOCUS B-50-1000 SINTETICA 1400'
+- ep2d_diff_spair_OLD_50_850
+- DWI_5b
+- 'DW_Synthetic: Ax syDWI Focus 3mm'
+- 'DW_Synthetic: Ax FOCUS ALL 3mm b50-1000 syn'
+- O-Ax DWI 15000
+- Ax DIFUSIO b1400 (PELVIS)
+- Ax DIFUSIO b1000 asset
+- Ax DIFUSIO b1400 asset
+- DIFUSION_6b
+- Ax FOCUS DWI b1200
+- sB 0
+- sB 400
+- sB 1800
+- sB 50
+- sB 200
+- sB 1000
+- pDIFUSION HR
+- pDIFUSION_PELVIS
+- Dif 3bs
+- DWI 3bs
+- DWI 500-1000
+- sB 100
+- sB 1500
+- DIFUSION HR
+- DIFUSION_PELVIS
+- DWI 2000
+- cDWI.b=1600
+- IVIM_PROST_15b
+- b0
+- sb150
+- b1400 4mm
+- AXIAL DW.
+- DWI_3b
+- qDIFUSION HR
+- Ax b1000 FOV24
+- Ax DIFUSIO
+- DWI b1000 te90
+- ep2d_diff_b50_1000_1500_calc2000_tra julho 2020_TRACEW
+- ep2d_diff_tra_b0_500_1000_1400
+- DWI_08001500
+- ep2d_diff_b50_1000_2000_calc3000_tra_CALC_BVAL
+- web_ep2d_diff_b50_450_800_tra_p2_TRACEW_DFC_MIX
+- DWI_3b LIPO
+- ep2d_diff_b50_400_800_tra_p2_TRACEW_DFC_MIX
+- ssb1300
+- ep2d_diff_b50_1000_1500_calc2000_tra_TRACEW
+- ep2d_diff_b50_1000_1500_calc2000_tra_CALC_BVAL
+- ep2d_diff_b50_b800_b1000_b1200_TRACEW
+- resolve_diff_b50_400_800_1600_tra_p2_TRACEW
+- resolve_diff_b50_400_800_1600_tra_p2_CALC_BVAL
+- Ax DWI Focus B2000
+- ep2d_diff_tra_TRACEW_DFC_MIX_FIL_1
+- ep2d_diff_tra_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_800_1400_2000_tra_p2_TRACEW_DFC_MIX
+- DWI b800 coil e body
+- ep2d_diff_tra_b0_b800_p2_160
+- DIFUSAO b 800
+- ep2d_diff_b50_1000_2000_calc3000_tra_CALC_BVAL_DFC_MIX
+- Apparent Diffusion Coefficient (mm?/s)
+- 'DW_Synthetic: DWI b1000 te90[synb=2000]'
+- 'DW_Synthetic: DWI b1000 te90'
+- diff_tra_b0-1000-2000
+- ep2d_tra_b50_b100_b500_b1600_TRACEW
+- ep2d_diff_tra_b50-400-800-1000_TRACEW_DFC_MIX
+- ep2d_diff_tra_b50-500-1000_bcalc-1500_TRACEW_DFC_MIX
+- ep2d_diff_b50_800_1400_2000_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_tra_2015_b50_b400_B800_bcalc1600_DYNDISTCALC_BVAL
+- ep2d_diff_tra_b0_b800_b1000
+- Ax DWI b 0 1400 4mm 703
+- Ax DWI B 50 800 1400
+- ep2d_diff_OBL_b50_1200_1400_tra_p2_TRACEW_DFC_MIX
+- DWI 800 old
+- DWI b800 te90
+- ep2d_diff_tra_b100_b1000_b1200
+- ep2d_diff_tra_b50_b800_b1200
+- ep2d_diff_b50_400_800 AXIAL_TRACEW_DFC
+- Ax b1400 FOV24
+- resolve_diff_b0_100_500_800_tra_p2_TRACEW
+- Ax DIFF b2000 detection
+- ep2d_diff_b0_1000_2000_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_tra_orig_CALC_BVAL_DFC
+- ep2d_diff_tra_CALC_BVAL
+- ep2d_diff_tra_b50-400-800_DYNDIST
+- ep2d_diff_b50_400_800_tra_TRACEW_DFC_MIX
+- ep2d_diff_b1400_tra_TRACEW_DFC_MIX
+- ep2d_diff_obl_tra_b50_b400_b800_p2_160_TRACEW
+- ep2d_diff_b1400_TRACEW
+- '-'
+- ep2d_diff_tra_b50_b800 b1400
+- DWI_5b 200FOV
+- ep2d_DWI_b0_b100_b300_b800_b1000__TRACEW
+- ep2d_DWI_b2000_TRACEW
+- ax DWI b2000
+- Reg - DWI-LFOV 3BV
+- DWI_SFOV_ADDITIONAL_ZOOM
+- Reg - REG FOV100_2.75mmSL CLEAR
+- DWI-LFOV 3BV
+- DWI_LFOV B2000
+- ep2d_diff_b50_400_800_tra_p2 NEW_TRACEW_DFC_MIX
+- DWI_4B VALUES
+- DWI_2000
+- AX DWI FOCUS B2000_3MM
+- AX DWI MULTI B-VALUE_4MM ADDENBROOKES
+- ep2d_diff_b1400_tra_p2_ishim_TRACEW
+- ep2d_diff_b50_400_800_tra_p2_cal1400_ishim_TRACEW
+- ep2d_diff_b50_400_800_tra_p2_cal1400_ishim_CALC_BVAL
+- DIFUSION_diff_b50_400_800_1000
+- ep2d_diff_b50_400_800_tra_p2_CALC_BVAL_DFC_MIX
+- PRO DW AX FOCUS b1400 *FS
+- Ax DWI 2000B
+- Ax DWI 1000B
+- Ax eDWI B2000
+- Ax eDWI B1000
+- Ax DWI 500B
+- ep2d_diff_b50_400_800_ADC_TRACEW_DFC
+- ep2d_diff_b50_b400_b800_3mm
+- ep2d_diff_b1400_5mm
+- ep2d_diff_tra_b50_800_TRACEW_DFC
+- ep2d_diff_tra_b2000_TRACEW_DFC_MIX
+- ep2d_diff_tra_b50_800_CALC_BVAL_DFC
+- Ax DWI B-50-1000-1500
+- ep2d_diff_CALC_BVAL
+- ep2d_diff_TRACEW
+- Ax Diff multi b
+- DWI 1400 porpiglia
+- DWI 600 porpiglia
+- DWI 1000 porpiglia
+- DWI b700 ATD
+- DWI_1400 (NO ADC)
+- Reg - DWI_4B SENSE
+- MPR - Cor T2
+- DWI_3B
+- Ax DWI b1400/750/100 3/0mm
+- 'DW_Synthetic: Ax DWI b1400/750/100 3/0mm'
+- 'DW_Synthetic: Ax DWI Focus b2000'
+- Ax DWI Focus b2000
+- ep2d_diff_tra_b0 b500 b1000 sfov_TRACEW_DFC_MIX
+- ep2d_diff_tra_b2000 sfov_TRACEW_DFC_MIX
+- FL:A/1 Ax DWI All b150, 500, 1000
+- FL:A/2 Ax DWI All b1500, 50
+- DWI_5b ax sFOV
+- SSh_DWI
+- Ax DWI B=1200
+- DWI_6b 1800
+- ep2d_diff_tra_DYNDIST_MIX
+- ep2d_diff_3scan_trace_CV_1
+- ep2d_diff_tra B3000 ._TRACEW_DFC_MIX
+- B1500
+- "AX DWI b50-2000 localis\xE9"
+- dDWI_3b_dS_ZOOM
+- 'DW_Synthetic: AX FOCUS B50-1400 synth 2000'
+- AX FOCUS B50-1400 synth 2000
+- resolve_diff_b1600_tra_p2_TRACEW
+- resolve_diff_b50_800_1200_tra_p2_CALC_BVAL
+- resolve_diff_b50_800_1200_tra_p2_TRACEW
+- ep2d_tra_b0_b100_b500_b1000_b1400_p2_128
+- DWI_b1500
+- 'DW_Synthetic: PRO.DWI Ax Focus b50.800'
+- DWI b1400 coil e body
+- ep2d_diff_tra_com_bandas_3_CALC_BVAL_DFC_MIX
+- Ax eDWI 0 1000 Aspir
+- Ax eDWI 0 1000 IR180
+- DWI_1600 ax sFOV
+- ep2d_diff_b100_1000_(1400)_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b100_1000_(1400)_tra_p2_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_800_tra_TRACEW
+- ep2d_diff_tra_TRACEW_DFC_MIX_FIL_2
+- ep2d_diff_b50_400_800_tra_p2_TRACEW_DFC
+- ep2d_diff_b50_400_800_tra_p2_CALC_BVAL_DFC
+- ep2d_diff_tra_b50_1000_1500_p2_TRACEW
+- 'DW_Synthetic: Ax MUSE b50-400-1000'
+- ep2d_diff_b50_600_1050_SPAIR 5mm no gap_TRACEW
+- ep2d_diff_zoomit_b50_800_tra_CALC_BVAL
+- ep2d_diff_zoomit_b50_800_tra_TRACEW
+- ep2d_diff_b50_600_1050_bipolar_TRACEW
+- qDWI_ep2d_diff_b2000_SPAIR 12 ac_ImScFac4
+- ep2d_diff_b50_400_1000_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_1000_tra_p2_CALC_BVAL_DFC_MIX
+- qDWI_ep2d_diff_b2000_SPAIR 12 ac_ImScFac4_TRACEW
+- ep2d_diff_zoomit_b1400_TRACEW
+- ep2d_diff_spair_tra_SlAdj_b1400_TRACEW
+- ep2d_diff_new 16 measipat
+- B 1500
+- ep2d_diff_b50_800_tra_TRACEW_DFC_MIX
+- Ax DWI b50/1k/1.5K
+- ep2d_diff_tra b0, b800, b1400_CALC_BVAL_DFC_MIX
+- ep2d_diff_tra b0, b800, b1400_TRACEW_DFC_MIX
+- Axial FOCUS DWI B 1300
+- AX FOCUS B75-400-1000synth 2000
+- Ax DWI Focus b50.800.1400
+- ep2d_diff_tra B3000_TRACEW_DFC_MIX
+- ep2d_diff_tra_b0_b600_b1400p2_160_TRACEW
+- Ax DWI b-1000
+- ep2d_diff_b50_400_800_1400_tra_p2_CALC_BVAL_DFC_MIX
+- Prs.Ax Focus DWI b50.400.800
+- VII_ep2d_diff_pelvis
+- ep2d_diff_b50_400_800 tra_p2_TRACEW_DFC_MIX
+- B=-500,0,500
+- ep2d_diff_tra_b400-800-1400_TRACEW_DFC_MIX
+- DWI_3b LIPO SENSE
+- ep2d_diff_tra_b50-600-1000_TRACEW_DFC
+- ep2d_diff_tra_TRACEW_DFC_FIL_1
+- ep2d_diff_tra_b50-400-800-1500_TRACEW_DFC_MIX
+- ep2d_diff_tra_b0_b500_b1000 p2_160_TRACEW
+- ep2d_diff_3scan_trace_p2
+- DIFUSAO|B=-600,0,600|B=600,600,0
+- ep2d_diff_tra B3000 NEW_TRACEW_DFC_MIX_FIL_1
+- ep2d_diff_b50_400_1400_tra_p2_TRACEW_DFC_MIX
+- Pros.Ax DWI Focus b50.800.Syn1400
+- ep2d_diff_zoomit_b50_400_1000_tra_TRACEW_DFC_MIX
+- ep2d_diff_tra B3000 ._TRACEW_DFC_MIX_FIL_1
+- Pros.Ax FOCUS DWI b1400
+- THRIVE_DYN_4s
+- T2W_TSE_sag
+- SURVEY
+- T1W_TSE
+- DWI_10b_IVIM
+- T1W_TSE_ax
+- T2W_SPAIR_cor
+- ax dif  b1500 VMS
+- sB 2000
+- sB0
+- sB500
+- sB50
+- sB150
+- ep2d_diff_zoomit_b50_800_tra_m_TRACEW
+- ep2d_diff_zoomit_b50_800_tra_m_CALC_BVAL
+- DWI_b2000_sFOV_Ax
+- DWI_3b_RT
+- DWI_3b_sFOV_Ax
+- ep2d_diff_obl_tra b0_800_p2__160_TRACEW
+- Ax DWI b50/1k/1.5k
+- ep2d_diff_b50_400_800_calc.1400_tra_TRACEW
+- ep2d_diff_b0-b1400_CALC_BVAL_DFC_MIX
+- ep2d_diff_b0_100_400_1000_tra_p2_CALC_BVAL_DFC_MIX
+- ep2d_diff_b0_100_400_1000_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b0-b1400_TRACEW_DFC_MIX
+- t2_tirm_sag_p2
+- ep2d_diff_b50_600_1050_mono_TRACEW
+- ep2d_diff_tra_b0_b100_b300_b800_b1000_TRACEW_DFC_MIX
+- ep2d_diff_b50_800_bipolar_TRACEW
+- ep2d_diff_tra_b50_400_800_1200_TRACEW
+- ep2d_diff_tra_b2000_SFOV_TRACEW
+- DWI_SSh 3b
+- DWI_SSh b1400
+- Reg - DWI_SSh SENSE
+- DWI_5b 2000
+- DWI_5b 500 900 1400
+- PROSTATE ep2d_diff_tra_b0, 500, 1100, 1400
+- ep2d_diff_b50_b400_b800_b1200_3mm
+- ep2d_diff_tra_b0_b800_p2_160_AXIAL
+- ALT DW AX b50.800
+- DWI_5b-SFOV 3mm new
+- ep2d_diff_b50_b400_b1000_128
+- AX DWI b50+600+1500
+- ep2d_diff_tra_b0_100_300_800
+- ep2d_diff_tra_1600
+- ep2d_diff_b50_800_1400_tra_p2 Strong FS_TRACEW_DFC_MIX
+- sb 1200
+- Reg - DWI_5b SENSE
+- DWI_5b Large FOV
+- sb 900
+- sb 0
+- sb 600
+- sb 300
+- ep2d_diff_tra_b50_b500_b1000
+- ep2d_diff_b50_400_800_1000 tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_800_1000 tra_p2_CALC_BVAL_DFC_MIX
+- ep2d_diff_b1400 tra_p2_TRACEW_DFC_MIX
+- b1500
+- ep2d_diff_stir_b50_600_900_tra__TRACEW_DFC_MIX
+- ep2d_diff_stir_b50_600_900_tra__CALC_BVAL_DFC_MIX
+- ep2d_wbdwi_1b_ac_b1400_12Av_IR_5MM_TRACEW
+- ep2d_diff_obl_tra_b0_b800_p2_160
+- ep2d_diff_tra_b50_800_TRACEW_DFC_MIX
+- ep2d_diff_tra_b50_800_CALC_BVAL_DFC_MIX
+- ep2d_diff_b50_400_800_TRACEW_DFC_MIX
+- ep2d_diff_tra_b800 b1200_TRACEW
+- ep2d_diff_tra_b1400_TRACEW
+- ep2d_diff_tra_b1400_TRACEW_DFC_MIX
+- Ax DWI b0-1400
+- Ax DWI b50-600-1000
+- ep2d_diff_b50_400_800_tra_p2_BIPOLAR_TRACEW_DFC_MIX
+- ep2d_diff_b1400_tra_p2_BIPOLAR_TRACEW_DFC_MIX
+- ep2d_diff_0_1400_TRACEW_DFC_MIX
+- ep2d_diff_0_500_800_1200_TRACEW_DFC_MIX
+- Ax eDWI 800 1400
+- Ax eDWI 1400
+- AX STIR
+- DIFUSION + ADC VICKY
+- DWI_b2000_dS_ZOOM
+- DWI_3b 0/100/1000
+- DWI_b2000
+- ep2d_diff_b50_400_800_tra_calc_1400_new_TRACEW_DFC
+- ep2d_diff_b50_400_800_tra_calc_1400_new_CALC_BVAL_DFC
+- DWI_Ax
+- AX DWI 2b 800-1000
+- cDWI.b=1400
+- diff_b500_1000_1500_tra_TRACEW_DFC
+- ep2d_diff_tra_b0_b800_p2_160SG3_CALC_BVAL_DFC_MIX
+- ep2d_diff_tra_b0_b800_p2_160SG3_TRACEW_DFC_MIX
+- ep2d_diff_b100_200_1000_CALC_BVAL
+- ep2d_diff_b100_200_1000_TRACEW
+- ep2d_diff_tra_b50_b400_b1000
+- PERFUSION PROSTATE
+- ep2d_diff_tra_b0_b800_b1400_p2_160_TRACEW_DFC_MIX
+- ep2d_diff_tra_b0_b800_b1400_p2_160_CALC_BVAL_DFC_MIX
+- Ax FOCUS ALL  B50-500-1000
+- Ax FOCUS ALL  B1500
+- Pro.Ax DWI FOCUS B50.800.1400
+- AX DWI b1400(SPAIR)
+- AX DWI multi B 50,400,880
+- ALT DWI MUSE  B50.800
+- 2 DWI_08001500
+- DIFF_b50-1000-1500_TRACEW_DFC_MIX
+- Ax DWI 50-2000b
+- Ax DWI 50-1000b
+- Ax DWI 1000b & 2000B
+- diff_ax_b50-400-800_TRACEW_DFC_MIX
+- diff_ax_b50-400-800_CALC_BVAL_DFC_MIX
+- ep2d_diff_b1400_tra_p2_TRACEW
+- ep2d_diff_b50_400_800_tra_p2_TRACEW
+- RDU5002234563
+- Ax DWI 1000b
+- Ax DWI 2000b
+- DWI b0-1000 Tra Pros
+- DIFF 4 VALUES_B1600_TRACEW_DFC_MIX
+- DIFF 4 VALUES_b50_b800_b1200_TRACEW_DFC
+- DIFF 4 VALUES_b50_b800_b1200_CALC_BVAL_DFC
+- ep2d_diff_b50_600_1050_SPAIR_Pelvis_TRACEW
+- Ax DWI 50-1500b
+- ep2d_diff_b50_400_1000_1400_calc1600_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_1000_1400_calc1600_CALC_BVAL_DFC_MIX
+- Ax DWI (b1400) 2
+- Ax DWI (b100 / 500 / 1000)
+- Ax DWI
+- Ax DWI b1400
+- DWI_FOCUS 0 400 1000 1400
+- AX DWI 500 1400
+- Ax DWI All B-0-100-500-1000
+- Ax DWI All B-1400
+- ep2d_diff_b50_400_800_TRACEW_DFC
+- ep2d_diff_b1400_tra_p2_phase_A-->P_TRACEW
+- ep2d_diff_b50_800_whole_pelvis_tra_wip
+- ep2d_diff_b50_800_tra_p2_phase_A-->P_TRACEW
+- DWI_5b*
+- R ep2d_diff_tra_b0_b800_b1400_p2_160_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_800_ADC_TRACEW_DFC_MIX
+- AX DWI B 0 /150 / 500
+- Ax DWI B 0 / 1000
+- ep2d_diff_b1400_new 32 measipat
+- ep2d_diff_b50_150_500_1000_UCLH_TRACEW_DFC_MIX
+- ep2d_diff_B1400_UCLH_TRACEW_DFC_MIX
+- ep2d_diff_b50_1050_SPAIR_Pelvis_TRACEW
+- Ax eDWI (b1400)
+- Ax eDWI PIRads (b500, b1000)
+- DWI_b2500
+- ep2d_diff_b50_400_800_tra_p2_CALC_BVAL
+- ep2d_DWI_b0_b50_b150_b500_b1000_optimised
+- ep2d_DWI_b2000_optimised
+- diff_b50_400_800_1400_tra__TRACEW_DFC_MIX
+- Ax DWI B50/1k/2k
+- Ax DWI B50/800 Pelvis
+- Ax DWI B50/1k/2k (Focus)
+- AX DWI_TRACEW_DFC
+- AX DWI_CALC_BVAL_DFC
+- SIEMENS ep2d_diff_b50_400_1000_2000_tra_p2_TRACEW_DFC_MIX
+- DWI_b100 800 1400
+- ep2d_diff_tra_b50-400-1000-2000_TRACEW_DFC_MIX
+- ep2d_diff_tra_b50-400-1000-2000_CALC_BVAL_DFC_MIX
+- Ax DWI All B-50-1000 Syenthetic B2000
+- Ax DWI All B-50-2000 Syenthetic B-2000
+- 'DW_Synthetic: Ax DWI All B-50-2000 Syenthetic B-2000'
+- Ax FOCUS B-50-800 Synthetic B-1400
+- 'DW_Synthetic: Ax DWI All B-50-1000 Syenthetic B2000'
+- ep2d_diff_b0_500_1400_tra_p2_TRACEW_DFC_MIX
+- ep2d_diff_b0_500_1400_tra_p2_CALC_BVAL_DFC_MIX
+- Ax eDWI b1400
+- ep2d_diff_tra_50-500-800_DYNDISTCALC_BVAL
+- ep2d_diff_b50_400_1000
+- Ax DWI b800
+- Ax DWI b60
+- Ax DWI b500
+- DWI 100-800-1000 SENSE
+- DWI_2000*
+- ep2d_diff_b1000
+- ep2d_diff_b0_1000_2000_tra_TRACEW_DFC_MIX
+- ep2d_diff_b50_400_800_tra_TRACEW_DFC
+- ep2d_diff_obl_tra_b0_b800_p2_160_TRACEW
+- zoomit_ep2d_diff_b50_100_400_1000_tra SPAIR_TRACEW
+- ep2d_diff_b50_2000_tra_p2_DETECTION_TRACEW_DFC_MIX
+- zoomit_ep2d_diff_b50_100_400_1000_tra SPAIR_CALC_BVAL
+- cor DWI b1500
+- ep2d_diff_tra_b50-400-800_TRACEW_DFC_MIX
+- DIF b1400 CS
+- ep2d_diff_tra_CALC_BVAL_DFC_MIX
+- diff_tra_b0-1000-1500
+- Ax DWI BH 1100
+- ep2d_diff_tra_b1500_TRACEW_DFC_MIX
+- ep2d_diff_tra_b1400_DYNDIST_MIX
+- ep2d_diff_tra_b1000_DYNDIST_MIX
+- ep2d_diff_b50_100_800_1600_TRACEW_DFC_MIX
+- Ax DWI b1200
+- DWI 1000 rs
+- 'DW_Synthetic: DWI b1000 te90[synb=1500]'
+- AX FOCUS DWI 1500
+- DWI 800 body coil
+- ep2d_diff_tra_b1000_DYNDIST
+- AX FOCUS DWI 800
+- 'DW_Synthetic: DWI b800 te90'
+- Ax DWI 3 B VALUES
+- Ax DWI ADC
+- AX DIFF PROSTATA
+- DWI b1400 te90
+- pDWIBS_PELVIS SENSE
+- ep2d_diff_sms_b50_1000_2000_3000_tra_TRACEW
+- Axial FOCUS DWI
+- Ax DWI B50-B2000
+- eDWI b800 1000 1400 coil e body
+- FOCUS test v1
+- DWI test v1
+- AX FOCUS DWI 1000 test1
+- AX FOCUS DWI 1000 FOV 20
+- ep2d_diff_tra_TRACEW
+- AX FOCUS DWI 1000 3.3mm
+- AX FOCUS DWI 1600
+- DWI 1000 old
+- FOCUS test v2
+- DWI b1500 te90
+- sb1000 HR
+- Reg - WIP IVIM_PROST_15b SENSE
+- ssb150
+- AX FOCUS DWI 50-1000
+- "Ax DIFUSIO PR\xD2STATA"
+- ep2d_diff_b50_b500_b1000_TRACEW
+- B 1500 INVERT. COR
+- ep2d_diff_tra_DYNDIST_MIX_FIL_1
+- B 1500 INVERT. TRA.
+- ep2d_diff_tra_b50_800_ 1000_1200_TESTAR_TRACEW_DFC_MIX
+- ep2d_diff_b50_b800_b1000_b1200_Prostata_TRACEW
+- Reg - DWI_3b_dS_ZOOM
+- DWI_5b_RT
+- Reg - DWI_3b_RT
+- ep2d_diff_b50_400_800
+- Reg - DWI_6b 1800
+- sb 1800
+- Ax DIFUSIO IR
+- 'DW_Synthetic: DWI b800 coil e body[synb=2000]'
+- Ax DWI B1200
+- ep2d_diff_tra_p2_TRACEW_DFC_MIX
+- IVIM_PROST_15b NO HACER
+- ep2d_diff_tra_b0-100-800-1000_DYNDIST_MIX
+- pDWI_5b_ABD SENSE
+- Reg - WIP DWI_5b_ABD SENSE
+- ssb1000iso
+- ep2d_diff_b50_500_1000_1400_tra_p2_TRACEW
+- Dif b1400
+- SAG DWI b800 4mm
+- DWI b800 b1400 te90
+- DIFUSAO B900
+DCE:
+- PERFUSION
+- Ax LAVA Dyn (multiphase)
+- 'WATER: Ph6/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph9/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph1/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph7/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph3/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph2/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph5/AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph4/AX LAVA-Flex DYNAMIC'
+- 'WATER: AX LAVA-Flex DYNAMIC'
+- 'WATER: Ph8/AX LAVA-Flex DYNAMIC'
+- t1_vibe_tra_dyn_MIP_TRA
+- t1_vibe_tra_dyn
+- 06 VIBE FS SERIE DYN
+- 'WATER: Ax DISCO Dyn (7s)'
+- Ax DISCO FS Dyn fov20
+- Ph4/Ax DISCO FS Dyn fov20
+- Ph6/Ax DISCO FS Dyn fov20
+- Ph3/Ax DISCO FS Dyn fov20
+- Ph10/Ax DISCO FS Dyn fov20
+- Ph9/Ax DISCO FS Dyn fov20
+- Ph5/Ax DISCO FS Dyn fov20
+- Ph8/Ax DISCO FS Dyn fov20
+- Ph1/Ax DISCO FS Dyn fov20
+- Ax DISCO FS Dyn
+- t1_vibe_tra_dyn_post contrast
+- fl3d_vibe_tra_dynamic
+- 'WATER: 3D Ax LAVA Flex Mph'
+- t1_vibe_fs_tra_dyn
+- 'WATER: Ax LAVA-Flex Flip15'
+- 'WATER: Ax LAVA-Flex Flip5'
+- CDIN-T1 VIBE FS DYN
+- T1 VIBE FS DYN
+- AXIAL LAVA Multiphase
+- 06 VIBE FS SERIE DYN_SUB
+- e-THRIVE_BH PERFU
+- PERFUSION +C
+- LAVA MULTIFASE DURANTE 5 MINUTOS
+- Ph5/LAVA MULTIFASE DURANTE 5 MINUTOS
+- 'WATER: 3D Ax DISCO Dyn'
+- (12982/700/713)-(12982/700/13)|(12982/700/682)-(12982/700/10)|(12982/700/349)-(12982/700/13)|(12982/700/225)-(12982/700/1)|(12982/700/311)-(12982/700/3)|(12982/700/515)-(12982/700/11)|(12982/700/217)-(12982/700/21)|(12982/700/448)-(12982/700/28)|(12982/700/342)-(12982/700/6)|(12982/700/469)-(12982/700/21)|(12982/700/93)-(12982/700/9)|(12982/700/485)-(12982/700/9)|(12982/700/396)-(12982/700/4)|(12982/700/397)-(12982/700/5)|(12982/700/410)-(12982/700/18)|(12982/700/709)-(12982/700/9)|(12982/700/103)-(12982/700/19)|(12982/700/619)-(12982/700/3)|(12982/700/581)-(12982/700/21)|(12982/700/135)-(12982/700/23)|(12982/700/41)-(12982/700/13)|(12982/700/113)-(12982/700/1)|(12982/700/593)-(12982/700/5)|(12982/700/156)-(12982/700/16)|(12982/700/333)-(12982/700/25)|(12982/700/611)-(12982/700/23)|(12982/700/527)-(12982/700/23)|(12982/700/127)-(12982/700/15)|(12982/700/149)-(12982/700/9)|(12982/700/324)-(12982/700/16)|(12982/700/47)-(12982/700/19)|(12982/700/169)-(12982/700/1)|(12982/700/181)-(12982/700/13)|(12982/700/254)-(12982/700/2)|(12982/700/750)-(12982/700/22)|(12982/700/209)-(12982/700/13)|(12982/700/589)-(12982/700/1)|(12982/700/701)-(12982/700/1)|(12982/700/666)-(12982/700/22)|(12982/700/347)-(12982/700/11)|(12982/700/455)-(12982/700/7)|(12982/700/573)-(12982/700/13)|(12982/700/700)-(12982/700/28)|(12982/700/428)-(12982/700/8)|(12982/700/650)-(12982/700/6)|(12982/700/360)-(12982/700/24)|(12982/700/492)-(12982/700/16)|(12982/700/361)-(12982/700/25)|(12982/700/226)-(12982/700/2)|(12982/700/136)-(12982/700/24)|(12982/700/637)-(12982/700/21)|(12982/700/524)-(12982/700/20)|(12982/700/745)-(12982/700/17)|(12982/700/659)-(12982/700/15)|(12982/700/224)-(12982/700/28)|(12982/700/98)-(12982/700/14)|(12982/700/728)-(12982/700/28)|(12982/700/421)-(12982/700/1)|(12982/700/430)-(12982/700/10)|(12982/700/172)-(12982/700/4)|(12982/700/36)-(12982/700/8)|(12982/700/540)-(12982/700/8)|(12982/700/255)-(12982/700/3)|(12982/700/42)-(12982/700/14)|(12982/700/598)-(12982/700/10)|(12982/700/664)-(12982/700/20)|(12982/700/139)-(12982/700/27)|(12982/700/546)-(12982/700/14)|(12982/700/590)-(12982/700/2)|(12982/700/76)-(12982/700/20)|(12982/700/424)-(12982/700/4)|(12982/700/543)-(12982/700/11)|(12982/700/456)-(12982/700/8)|(12982/700/726)-(12982/700/26)|(12982/700/729)-(12982/700/1)|(12982/700/608)-(12982/700/20)|(12982/700/244)-(12982/700/20)|(12982/700/351)-(12982/700/15)|(12982/700/577)-(12982/700/17)|(12982/700/317)-(12982/700/9)|(12982/700/328)-(12982/700/20)|(12982/700/509)-(12982/700/5)|(12982/700/268)-(12982/700/16)|(12982/700/592)-(12982/700/4)|(12982/700/144)-(12982/700/4)|(12982/700/234)-(12982/700/10)|(12982/700/252)-(12982/700/28)|(12982/700/588)-(12982/700/28)|(12982/700/365)-(12982/700/1)|(12982/700/468)-(12982/700/20)|(12982/700/228)-(12982/700/4)|(12982/700/458)-(12982/700/10)|(12982/700/165)-(12982/700/25)|(12982/700/343)-(12982/700/7)|(12982/700/357)-(12982/700/21)|(12982/700/494)-(12982/700/18)|(12982/700/94)-(12982/700/10)|(12982/700/216)-(12982/700/20)|(12982/700/582)-(12982/700/22)|(12982/700/624)-(12982/700/8)|(12982/700/322)-(12982/700/14)|(12982/700/550)-(12982/700/18)|(12982/700/706)-(12982/700/6)|(12982/700/652)-(12982/700/8)|(12982/700/273)-(12982/700/21)|(12982/700/595)-(12982/700/7)|(12982/700/54)-(12982/700/26)|(12982/700/433)-(12982/700/13)|(12982/700/578)-(12982/700/18)|(12982/700/414)-(12982/700/22)|(12982/700/487)-(12982/700/11)|(12982/700/258)-(12982/700/6)|(12982/700/454)-(12982/700/6)|(12982/700/71)-(12982/700/15)|(12982/700/591)-(12982/700/3)|(12982/700/241)-(12982/700/17)|(12982/700/738)-(12982/700/10)|(12982/700/746)-(12982/700/18)|(12982/700/227)-(12982/700/3)|(12982/700/83)-(12982/700/27)|(12982/700/735)-(12982/700/7)|(12982/700/551)-(12982/700/19)|(12982/700/503)-(12982/700/27)|(12982/700/237)-(12982/700/13)|(12982/700/160)-(12982/700/20)|(12982/700/407)-(12982/700/15)|(12982/700/629)-(12982/700/13)|(12982/700/171)-(12982/700/3)|(12982/700/73)-(12982/700/17)|(12982/700/446)-(12982/700/26)|(12982/700/606)-(12982/700/18)|(12982/700/734)-(12982/700/6)|(12982/700/309)-(12982/700/1)|(12982/700/77)-(12982/700/21)|(12982/700/272)-(12982/700/20)|(12982/700/474)-(12982/700/26)|(12982/700/29)-(12982/700/1)|(12982/700/383)-(12982/700/19)|(12982/700/208)-(12982/700/12)|(12982/700/49)-(12982/700/21)|(12982/700/240)-(12982/700/16)|(12982/700/202)-(12982/700/6)|(12982/700/85)-(12982/700/1)|(12982/700/230)-(12982/700/6)|(12982/700/67)-(12982/700/11)|(12982/700/646)-(12982/700/2)|(12982/700/299)-(12982/700/19)|(12982/700/289)-(12982/700/9)|(12982/700/617)-(12982/700/1)|(12982/700/253)-(12982/700/1)|(12982/700/398)-(12982/700/6)|(12982/700/290)-(12982/700/10)|(12982/700/648)-(12982/700/4)|(12982/700/434)-(12982/700/14)|(12982/700/112)-(12982/700/28)|(12982/700/134)-(12982/700/22)|(12982/700/146)-(12982/700/6)|(12982/700/612)-(12982/700/24)|(12982/700/180)-(12982/700/12)|(12982/700/560)-(12982/700/28)|(12982/700/387)-(12982/700/23)|(12982/700/200)-(12982/700/4)|(12982/700/541)-(12982/700/9)|(12982/700/531)-(12982/700/27)|(12982/700/662)-(12982/700/18)|(12982/700/193)-(12982/700/25)|(12982/700/35)-(12982/700/7)|(12982/700/751)-(12982/700/23)|(12982/700/719)-(12982/700/19)|(12982/700/207)-(12982/700/11)|(12982/700/117)-(12982/700/5)|(12982/700/741)-(12982/700/13)|(12982/700/196)-(12982/700/28)|(12982/700/620)-(12982/700/4)|(12982/700/535)-(12982/700/3)|(12982/700/179)-(12982/700/11)|(12982/700/748)-(12982/700/20)|(12982/700/203)-(12982/700/7)|(12982/700/104)-(12982/700/20)|(12982/700/270)-(12982/700/18)|(12982/700/525)-(12982/700/21)|(12982/700/705)-(12982/700/5)|(12982/700/440)-(12982/700/20)|(12982/700/522)-(12982/700/18)|(12982/700/529)-(12982/700/25)|(12982/700/548)-(12982/700/16)|(12982/700/732)-(12982/700/4)|(12982/700/110)-(12982/700/26)|(12982/700/346)-(12982/700/10)|(12982/700/92)-(12982/700/8)|(12982/700/335)-(12982/700/27)|(12982/700/502)-(12982/700/26)|(12982/700/610)-(12982/700/22)|(12982/700/436)-(12982/700/16)|(12982/700/294)-(12982/700/14)|(12982/700/632)-(12982/700/16)|(12982/700/547)-(12982/700/15)|(12982/700/420)-(12982/700/28)|(12982/700/558)-(12982/700/26)|(12982/700/500)-(12982/700/24)|(12982/700/366)-(12982/700/2)|(12982/700/164)-(12982/700/24)|(12982/700/332)-(12982/700/24)|(12982/700/70)-(12982/700/14)|(12982/700/449)-(12982/700/1)|(12982/700/489)-(12982/700/13)|(12982/700/472)-(12982/700/24)|(12982/700/168)-(12982/700/28)|(12982/700/91)-(12982/700/7)|(12982/700/88)-(12982/700/4)|(12982/700/457)-(12982/700/9)|(12982/700/643)-(12982/700/27)|(12982/700/315)-(12982/700/7)|(12982/700/526)-(12982/700/22)|(12982/700/417)-(12982/700/25)|(12982/700/681)-(12982/700/9)|(12982/700/334)-(12982/700/26)|(12982/700/122)-(12982/700/10)|(12982/700/702)-(12982/700/2)|(12982/700/182)-(12982/700/14)|(12982/700/100)-(12982/700/16)|(12982/700/471)-(12982/700/23)|(12982/700/388)-(12982/700/24)|(12982/700/677)-(12982/700/5)|(12982/700/293)-(12982/700/13)|(12982/700/40)-(12982/700/12)|(12982/700/660)-(12982/700/16)|(12982/700/523)-(12982/700/19)|(12982/700/105)-(12982/700/21)|(12982/700/66)-(12982/700/10)|(12982/700/663)-(12982/700/19)|(12982/700/206)-(12982/700/10)|(12982/700/714)-(12982/700/14)|(12982/700/235)-(12982/700/11)|(12982/700/557)-(12982/700/25)|(12982/700/371)-(12982/700/7)|(12982/700/263)-(12982/700/11)|(12982/700/536)-(12982/700/4)|(12982/700/300)-(12982/700/20)|(12982/700/282)-(12982/700/2)|(12982/700/286)-(12982/700/6)|(12982/700/378)-(12982/700/14)|(12982/700/679)-(12982/700/7)|(12982/700/615)-(12982/700/27)|(12982/700/537)-(12982/700/5)|(12982/700/61)-(12982/700/5)|(12982/700/501)-(12982/700/25)|(12982/700/386)-(12982/700/22)|(12982/700/143)-(12982/700/3)|(12982/700/377)-(12982/700/13)|(12982/700/399)-(12982/700/7)|(12982/700/542)-(12982/700/10)|(12982/700/264)-(12982/700/12)|(12982/700/239)-(12982/700/15)|(12982/700/338)-(12982/700/2)|(12982/700/642)-(12982/700/26)|(12982/700/219)-(12982/700/23)|(12982/700/56)-(12982/700/28)|(12982/700/86)-(12982/700/2)|(12982/700/277)-(12982/700/25)|(12982/700/461)-(12982/700/13)|(12982/700/544)-(12982/700/12)|(12982/700/69)-(12982/700/13)|(12982/700/658)-(12982/700/14)|(12982/700/84)-(12982/700/28)|(12982/700/80)-(12982/700/24)|(12982/700/631)-(12982/700/15)|(12982/700/514)-(12982/700/10)|(12982/700/645)-(12982/700/1)|(12982/700/306)-(12982/700/26)|(12982/700/220)-(12982/700/24)|(12982/700/532)-(12982/700/28)|(12982/700/205)-(12982/700/9)|(12982/700/564)-(12982/700/4)|(12982/700/305)-(12982/700/25)|(12982/700/138)-(12982/700/26)|(12982/700/81)-(12982/700/25)|(12982/700/676)-(12982/700/4)|(12982/700/538)-(12982/700/6)|(12982/700/374)-(12982/700/10)|(12982/700/425)-(12982/700/5)|(12982/700/45)-(12982/700/17)|(12982/700/429)-(12982/700/9)|(12982/700/566)-(12982/700/6)|(12982/700/116)-(12982/700/4)|(12982/700/137)-(12982/700/25)|(12982/700/698)-(12982/700/26)|(12982/700/419)-(12982/700/27)|(12982/700/721)-(12982/700/21)|(12982/700/623)-(12982/700/7)|(12982/700/519)-(12982/700/15)|(12982/700/475)-(12982/700/27)|(12982/700/153)-(12982/700/13)|(12982/700/278)-(12982/700/26)|(12982/700/236)-(12982/700/12)|(12982/700/427)-(12982/700/7)|(12982/700/249)-(12982/700/25)|(12982/700/308)-(12982/700/28)|(12982/700/565)-(12982/700/5)|(12982/700/32)-(12982/700/4)|(12982/700/699)-(12982/700/27)|(12982/700/711)-(12982/700/11)|(12982/700/307)-(12982/700/27)|(12982/700/53)-(12982/700/25)|(12982/700/364)-(12982/700/28)|(12982/700/376)-(12982/700/12)|(12982/700/450)-(12982/700/2)|(12982/700/641)-(12982/700/25)|(12982/700/133)-(12982/700/21)|(12982/700/496)-(12982/700/20)|(12982/700/379)-(12982/700/15)|(12982/700/199)-(12982/700/3)|(12982/700/686)-(12982/700/14)|(12982/700/412)-(12982/700/20)|(12982/700/718)-(12982/700/18)|(12982/700/571)-(12982/700/11)|(12982/700/109)-(12982/700/25)|(12982/700/674)-(12982/700/2)|(12982/700/325)-(12982/700/17)|(12982/700/170)-(12982/700/2)|(12982/700/499)-(12982/700/23)|(12982/700/115)-(12982/700/3)|(12982/700/188)-(12982/700/20)|(12982/700/596)-(12982/700/8)|(12982/700/313)-(12982/700/5)|(12982/700/491)-(12982/700/15)|(12982/700/212)-(12982/700/16)|(12982/700/204)-(12982/700/8)|(12982/700/233)-(12982/700/9)|(12982/700/52)-(12982/700/24)|(12982/700/724)-(12982/700/24)|(12982/700/497)-(12982/700/21)|(12982/700/675)-(12982/700/3)|(12982/700/353)-(12982/700/17)|(12982/700/669)-(12982/700/25)|(12982/700/403)-(12982/700/11)|(12982/700/150)-(12982/700/10)|(12982/700/627)-(12982/700/11)|(12982/700/443)-(12982/700/23)|(12982/700/644)-(12982/700/28)|(12982/700/481)-(12982/700/5)|(12982/700/155)-(12982/700/15)|(12982/700/191)-(12982/700/23)|(12982/700/647)-(12982/700/3)|(12982/700/123)-(12982/700/11)|(12982/700/607)-(12982/700/19)|(12982/700/518)-(12982/700/14)|(12982/700/486)-(12982/700/10)|(12982/700/327)-(12982/700/19)|(12982/700/653)-(12982/700/9)|(12982/700/222)-(12982/700/26)|(12982/700/214)-(12982/700/18)|(12982/700/321)-(12982/700/13)|(12982/700/654)-(12982/700/10)|(12982/700/348)-(12982/700/12)|(12982/700/280)-(12982/700/28)|(12982/700/147)-(12982/700/7)|(12982/700/130)-(12982/700/18)|(12982/700/633)-(12982/700/17)|(12982/700/462)-(12982/700/14)|(12982/700/594)-(12982/700/6)|(12982/700/517)-(12982/700/13)|(12982/700/292)-(12982/700/12)|(12982/700/690)-(12982/700/18)|(12982/700/151)-(12982/700/11)|(12982/700/394)-(12982/700/2)|(12982/700/187)-(12982/700/19)|(12982/700/513)-(12982/700/9)|(12982/700/534)-(12982/700/2)|(12982/700/291)-(12982/700/11)|(12982/700/507)-(12982/700/3)|(12982/700/314)-(12982/700/6)|(12982/700/731)-(12982/700/3)|(12982/700/101)-(12982/700/17)|(12982/700/516)-(12982/700/12)|(12982/700/166)-(12982/700/26)|(12982/700/684)-(12982/700/12)|(12982/700/215)-(12982/700/19)|(12982/700/295)-(12982/700/15)|(12982/700/406)-(12982/700/14)|(12982/700/441)-(12982/700/21)|(12982/700/561)-(12982/700/1)|(12982/700/636)-(12982/700/20)|(12982/700/50)-(12982/700/22)|(12982/700/102)-(12982/700/18)|(12982/700/184)-(12982/700/16)|(12982/700/178)-(12982/700/10)|(12982/700/337)-(12982/700/1)|(12982/700/533)-(12982/700/1)|(12982/700/30)-(12982/700/2)|(12982/700/716)-(12982/700/16)|(12982/700/391)-(12982/700/27)|(12982/700/609)-(12982/700/21)|(12982/700/356)-(12982/700/20)|(12982/700/715)-(12982/700/15)|(12982/700/680)-(12982/700/8)|(12982/700/303)-(12982/700/23)|(12982/700/257)-(12982/700/5)|(12982/700/722)-(12982/700/22)|(12982/700/639)-(12982/700/23)|(12982/700/125)-(12982/700/13)|(12982/700/689)-(12982/700/17)|(12982/700/470)-(12982/700/22)|(12982/700/218)-(12982/700/22)|(12982/700/175)-(12982/700/7)|(12982/700/605)-(12982/700/17)|(12982/700/190)-(12982/700/22)|(12982/700/495)-(12982/700/19)|(12982/700/422)-(12982/700/2)|(12982/700/447)-(12982/700/27)|(12982/700/476)-(12982/700/28)|(12982/700/43)-(12982/700/15)|(12982/700/259)-(12982/700/7)|(12982/700/132)-(12982/700/20)|(12982/700/575)-(12982/700/15)|(12982/700/304)-(12982/700/24)|(12982/700/350)-(12982/700/14)|(12982/700/381)-(12982/700/17)|(12982/700/389)-(12982/700/25)|(12982/700/392)-(12982/700/28)|(12982/700/464)-(12982/700/16)|(12982/700/341)-(12982/700/5)|(12982/700/355)-(12982/700/19)|(12982/700/211)-(12982/700/15)|(12982/700/452)-(12982/700/4)|(12982/700/572)-(12982/700/12)|(12982/700/463)-(12982/700/15)|(12982/700/567)-(12982/700/7)|(12982/700/72)-(12982/700/16)|(12982/700/668)-(12982/700/24)|(12982/700/87)-(12982/700/3)|(12982/700/368)-(12982/700/4)|(12982/700/479)-(12982/700/3)|(12982/700/62)-(12982/700/6)|(12982/700/111)-(12982/700/27)|(12982/700/354)-(12982/700/18)|(12982/700/34)-(12982/700/6)|(12982/700/742)-(12982/700/14)|(12982/700/754)-(12982/700/26)|(12982/700/465)-(12982/700/17)|(12982/700/287)-(12982/700/7)|(12982/700/265)-(12982/700/13)|(12982/700/154)-(12982/700/14)|(12982/700/250)-(12982/700/26)|(12982/700/432)-(12982/700/12)|(12982/700/369)-(12982/700/5)|(12982/700/152)-(12982/700/12)|(12982/700/141)-(12982/700/1)|(12982/700/186)-(12982/700/18)|(12982/700/393)-(12982/700/1)|(12982/700/358)-(12982/700/22)|(12982/700/683)-(12982/700/11)|(12982/700/723)-(12982/700/23)|(12982/700/512)-(12982/700/8)|(12982/700/176)-(12982/700/8)|(12982/700/79)-(12982/700/23)|(12982/700/661)-(12982/700/17)|(12982/700/693)-(12982/700/21)|(12982/700/238)-(12982/700/14)|(12982/700/665)-(12982/700/21)|(12982/700/672)-(12982/700/28)|(12982/700/114)-(12982/700/2)|(12982/700/261)-(12982/700/9)|(12982/700/508)-(12982/700/4)|(12982/700/245)-(12982/700/21)|(12982/700/712)-(12982/700/12)|(12982/700/297)-(12982/700/17)|(12982/700/562)-(12982/700/2)|(12982/700/656)-(12982/700/12)|(12982/700/276)-(12982/700/24)|(12982/700/480)-(12982/700/4)|(12982/700/352)-(12982/700/16)|(12982/700/563)-(12982/700/3)|(12982/700/554)-(12982/700/22)|(12982/700/599)-(12982/700/11)|(12982/700/600)-(12982/700/12)|(12982/700/490)-(12982/700/14)|(12982/700/671)-(12982/700/27)|(12982/700/95)-(12982/700/11)|(12982/700/157)-(12982/700/17)|(12982/700/198)-(12982/700/2)|(12982/700/622)-(12982/700/6)|(12982/700/319)-(12982/700/11)|(12982/700/283)-(12982/700/3)|(12982/700/271)-(12982/700/19)|(12982/700/568)-(12982/700/8)|(12982/700/119)-(12982/700/7)|(12982/700/555)-(12982/700/23)|(12982/700/744)-(12982/700/16)|(12982/700/401)-(12982/700/9)|(12982/700/580)-(12982/700/20)|(12982/700/697)-(12982/700/25)|(12982/700/404)-(12982/700/12)|(12982/700/673)-(12982/700/1)|(12982/700/288)-(12982/700/8)|(12982/700/559)-(12982/700/27)|(12982/700/108)-(12982/700/24)|(12982/700/229)-(12982/700/5)|(12982/700/344)-(12982/700/8)|(12982/700/504)-(12982/700/28)|(12982/700/418)-(12982/700/26)|(12982/700/158)-(12982/700/18)|(12982/700/437)-(12982/700/17)|(12982/700/96)-(12982/700/12)|(12982/700/326)-(12982/700/18)|(12982/700/97)-(12982/700/13)|(12982/700/63)-(12982/700/7)|(12982/700/336)-(12982/700/28)|(12982/700/163)-(12982/700/23)|(12982/700/367)-(12982/700/3)|(12982/700/148)-(12982/700/8)|(12982/700/31)-(12982/700/3)|(12982/700/267)-(12982/700/15)|(12982/700/484)-(12982/700/8)|(12982/700/174)-(12982/700/6)|(12982/700/576)-(12982/700/16)|(12982/700/569)-(12982/700/9)|(12982/700/256)-(12982/700/4)|(12982/700/749)-(12982/700/21)|(12982/700/362)-(12982/700/26)|(12982/700/38)-(12982/700/10)|(12982/700/618)-(12982/700/2)|(12982/700/55)-(12982/700/27)|(12982/700/145)-(12982/700/5)|(12982/700/415)-(12982/700/23)|(12982/700/604)-(12982/700/16)|(12982/700/614)-(12982/700/26)|(12982/700/703)-(12982/700/3)|(12982/700/60)-(12982/700/4)|(12982/700/570)-(12982/700/10)|(12982/700/37)-(12982/700/9)|(12982/700/634)-(12982/700/18)|(12982/700/727)-(12982/700/27)|(12982/700/445)-(12982/700/25)|(12982/700/625)-(12982/700/9)|(12982/700/99)-(12982/700/15)|(12982/700/423)-(12982/700/3)|(12982/700/710)-(12982/700/10)|(12982/700/231)-(12982/700/7)|(12982/700/395)-(12982/700/3)|(12982/700/511)-(12982/700/7)|(12982/700/442)-(12982/700/22)|(12982/700/75)-(12982/700/19)|(12982/700/121)-(12982/700/9)|(12982/700/530)-(12982/700/26)|(12982/700/243)-(12982/700/19)|(12982/700/330)-(12982/700/22)|(12982/700/586)-(12982/700/26)|(12982/700/688)-(12982/700/16)|(12982/700/704)-(12982/700/4)|(12982/700/162)-(12982/700/22)|(12982/700/262)-(12982/700/10)|(12982/700/221)-(12982/700/25)|(12982/700/370)-(12982/700/6)|(12982/700/320)-(12982/700/12)|(12982/700/482)-(12982/700/6)|(12982/700/667)-(12982/700/23)|(12982/700/556)-(12982/700/24)|(12982/700/753)-(12982/700/25)|(12982/700/400)-(12982/700/8)|(12982/700/510)-(12982/700/6)|(12982/700/248)-(12982/700/24)|(12982/700/552)-(12982/700/20)|(12982/700/140)-(12982/700/28)|(12982/700/655)-(12982/700/11)|(12982/700/189)-(12982/700/21)|(12982/700/339)-(12982/700/3)|(12982/700/57)-(12982/700/1)|(12982/700/384)-(12982/700/20)|(12982/700/89)-(12982/700/5)|(12982/700/106)-(12982/700/22)|(12982/700/302)-(12982/700/22)|(12982/700/340)-(12982/700/4)|(12982/700/318)-(12982/700/10)|(12982/700/678)-(12982/700/6)|(12982/700/755)-(12982/700/27)|(12982/700/478)-(12982/700/2)|(12982/700/488)-(12982/700/12)|(12982/700/266)-(12982/700/14)|(12982/700/730)-(12982/700/2)|(12982/700/298)-(12982/700/18)|(12982/700/707)-(12982/700/7)|(12982/700/444)-(12982/700/24)|(12982/700/246)-(12982/700/22)|(12982/700/416)-(12982/700/24)|(12982/700/213)-(12982/700/17)|(12982/700/159)-(12982/700/19)|(12982/700/372)-(12982/700/8)|(12982/700/142)-(12982/700/2)|(12982/700/635)-(12982/700/19)|(12982/700/687)-(12982/700/15)|(12982/700/131)-(12982/700/19)|(12982/700/173)-(12982/700/5)|(12982/700/528)-(12982/700/24)|(12982/700/359)-(12982/700/23)|(12982/700/128)-(12982/700/16)|(12982/700/733)-(12982/700/5)|(12982/700/752)-(12982/700/24)|(12982/700/90)-(12982/700/6)|(12982/700/587)-(12982/700/27)|(12982/700/46)-(12982/700/18)|(12982/700/120)-(12982/700/8)|(12982/700/603)-(12982/700/15)|(12982/700/583)-(12982/700/23)|(12982/700/747)-(12982/700/19)|(12982/700/483)-(12982/700/7)|(12982/700/284)-(12982/700/4)|(12982/700/545)-(12982/700/13)|(12982/700/708)-(12982/700/8)|(12982/700/51)-(12982/700/23)|(12982/700/260)-(12982/700/8)|(12982/700/183)-(12982/700/15)|(12982/700/451)-(12982/700/3)|(12982/700/453)-(12982/700/5)|(12982/700/48)-(12982/700/20)|(12982/700/373)-(12982/700/9)|(12982/700/521)-(12982/700/17)|(12982/700/232)-(12982/700/8)|(12982/700/210)-(12982/700/14)|(12982/700/597)-(12982/700/9)|(12982/700/694)-(12982/700/22)|(12982/700/405)-(12982/700/13)|(12982/700/296)-(12982/700/16)|(12982/700/177)-(12982/700/9)|(12982/700/740)-(12982/700/12)|(12982/700/602)-(12982/700/14)|(12982/700/717)-(12982/700/17)|(12982/700/64)-(12982/700/8)|(12982/700/301)-(12982/700/21)|(12982/700/281)-(12982/700/1)|(12982/700/68)-(12982/700/12)|(12982/700/628)-(12982/700/12)|(12982/700/473)-(12982/700/25)|(12982/700/692)-(12982/700/20)|(12982/700/329)-(12982/700/21)|(12982/700/756)-(12982/700/28)|(12982/700/498)-(12982/700/22)|(12982/700/59)-(12982/700/3)|(12982/700/549)-(12982/700/17)|(12982/700/161)-(12982/700/21)|(12982/700/201)-(12982/700/5)|(12982/700/651)-(12982/700/7)|(12982/700/269)-(12982/700/17)|(12982/700/638)-(12982/700/22)|(12982/700/345)-(12982/700/9)|(12982/700/129)-(12982/700/17)|(12982/700/725)-(12982/700/25)|(12982/700/251)-(12982/700/27)|(12982/700/459)-(12982/700/11)|(12982/700/720)-(12982/700/20)|(12982/700/323)-(12982/700/15)|(12982/700/640)-(12982/700/24)|(12982/700/477)-(12982/700/1)|(12982/700/167)-(12982/700/27)|(12982/700/520)-(12982/700/16)|(12982/700/696)-(12982/700/24)|(12982/700/247)-(12982/700/23)|(12982/700/74)-(12982/700/18)|(12982/700/579)-(12982/700/19)|(12982/700/736)-(12982/700/8)|(12982/700/39)-(12982/700/11)|(12982/700/466)-(12982/700/18)|(12982/700/613)-(12982/700/25)|(12982/700/82)-(12982/700/26)|(12982/700/65)-(12982/700/9)|(12982/700/493)-(12982/700/17)|(12982/700/312)-(12982/700/4)|(12982/700/375)-(12982/700/11)|(12982/700/460)-(12982/700/12)|(12982/700/467)-(12982/700/19)|(12982/700/124)-(12982/700/12)|(12982/700/584)-(12982/700/24)|(12982/700/585)-(12982/700/25)|(12982/700/616)-(12982/700/28)|(12982/700/331)-(12982/700/23)|(12982/700/402)-(12982/700/10)|(12982/700/279)-(12982/700/27)|(12982/700/380)-(12982/700/16)|(12982/700/601)-(12982/700/13)|(12982/700/363)-(12982/700/27)|(12982/700/695)-(12982/700/23)|(12982/700/630)-(12982/700/14)|(12982/700/438)-(12982/700/18)|(12982/700/739)-(12982/700/11)|(12982/700/657)-(12982/700/13)|(12982/700/670)-(12982/700/26)|(12982/700/195)-(12982/700/27)|(12982/700/574)-(12982/700/14)|(12982/700/411)-(12982/700/19)|(12982/700/107)-(12982/700/23)|(12982/700/197)-(12982/700/1)|(12982/700/539)-(12982/700/7)|(12982/700/242)-(12982/700/18)|(12982/700/685)-(12982/700/13)|(12982/700/194)-(12982/700/26)|(12982/700/382)-(12982/700/18)|(12982/700/185)-(12982/700/17)|(12982/700/223)-(12982/700/27)|(12982/700/691)-(12982/700/19)|(12982/700/743)-(12982/700/15)|(12982/700/58)-(12982/700/2)|(12982/700/118)-(12982/700/6)|(12982/700/435)-(12982/700/15)|(12982/700/506)-(12982/700/2)|(12982/700/409)-(12982/700/17)|(12982/700/274)-(12982/700/22)|(12982/700/408)-(12982/700/16)|(12982/700/275)-(12982/700/23)|(12982/700/44)-(12982/700/16)|(12982/700/553)-(12982/700/21)|(12982/700/649)-(12982/700/5)|(12982/700/316)-(12982/700/8)|(12982/700/385)-(12982/700/21)|(12982/700/505)-(12982/700/1)|(12982/700/439)-(12982/700/19)|(12982/700/310)-(12982/700/2)|(12982/700/192)-(12982/700/24)|(12982/700/390)-(12982/700/26)|(12982/700/285)-(12982/700/5)|(12982/700/33)-(12982/700/5)|(12982/700/126)-(12982/700/14)|(12982/700/621)-(12982/700/5)|(12982/700/431)-(12982/700/11)|(12982/700/78)-(12982/700/22)|(12982/700/426)-(12982/700/6)|(12982/700/413)-(12982/700/21)|(12982/700/626)-(12982/700/10)|(12982/700/737)-(12982/700/9)
+- mDIXON-W_dyn
+- T1 FS DYN GADO
+- 'FAT: 3D Ax DISCO Dyn'
+- Ph7/AX LAVA DYN
+- Ph4/AX LAVA DYN
+- Ph3/AX LAVA DYN
+- Ph5/AX LAVA DYN
+- Ph6/AX LAVA DYN
+- Ph1/AX LAVA DYN
+- Ax LAVA  DINAMICO
+- AXIAL VIBE T1 FS DINAMICO CAIPIRINHA
+- t1_vibe_tra_p4_dyn
+- 3D Ax Perfusao
+- t1_vibe_tra_fs_caipi_dinamico
+- AX LAVA Multiphase
+- e-THRIVE Ax + Gad
+- SUB_S17-S9_1
+- SUB_S13-S9_1
+- SUB_S18-S9_1
+- SUB_S12-S9_1
+- SUB_S16-S9_1
+- SUB_S14-S9_1
+- SUB_S10-S9_1
+- SUB_S11-S9_1
+- SUB_S15-S9_1
+- SUB_S22-S9_1
+- SUB_S23-S9_1
+- SUB_S19-S9_1
+- SUB_S20-S9_1
+- SUB_S21-S9_1
+- Ax fl3d_vibe_post_dynamic
+- +C PRO.DYN DISCO TRes <7Sec
+- SSh_T1W_TFE_27dyn
+- 'FAT: Ax DISCO Dyn (7s)'
+- 'WATER: Ax DISCO Flex Dyn'
+- 'InPhase: Ax LAVA-Flex Flip15'
+- QpDYNAMIC/30 SENSE
+- 'WATER: Ax DISCO Dyn'
+- 'WATER: 3D Ax LAVA Flex Dyn'
+- 'FAT: 3D Ax LAVA Flex Dyn'
+- t1_vibe_tra_dyn_post_SUB
+- t1_vibe_tra_dyn_post
+- t1_vibe_tra_15 degree
+- t1_vibe_tra_2 degree
+- t1_vibe_tra_pre
+- dinamica 13 secondi
+- Dinamica
+- T1 VIBE DYNA AXIAL
+- DYN E-THRIVE   GD test
+- sSOUSTRACTION
+- Permeability_dynamic_mDIXON
+- Ax DISCO FSp Dyn 7s/ph
+- Ax DINAMIC
+- Dinamico
+- DYNAMIC/30 SENSE
+- dinamico
+- DYN_mDIXON
+- SSh_T1W_TFE_25dyn
+- SSh_T1W_TFE_50dyn
+- fl3d_vibe_tra_post_dynamic
+- PU:AX LAVA DYN
+- t1_vibe_tra_dyn fs
+- fl3d_vibe_tra_
+- Ax FSPGR 3D Dynamic +C
+- Ph2/Ax 3DT1FSPre (Multi Phase)
+- Ph7/Ax 3DT1FS+C (Multi Phase)
+- Ph3/Ax 3DT1FS+C (Multi Phase)
+- Ph6/Ax 3DT1FS+C (Multi Phase)
+- Ph3/Ax 3DT1FSPre (Multi Phase)
+- Ph8/Ax 3DT1FS+C (Multi Phase)
+- Ph4/Ax 3DT1FS+C (Multi Phase)
+- Ph4/Ax 3DT1FSPre (Multi Phase)
+- Ph1/Ax 3DT1FS+C (Multi Phase)
+- Ph2/Ax 3DT1FS+C (Multi Phase)
+- Ph5/Ax 3DT1FS+C (Multi Phase)
+- Ph1/Ax 3DT1FSPre (Multi Phase)
+- t1_vibe_fs_tra(25 dynamic)
+- t1_vibe_fs_tra(25 dynamic pre)
+- 'FAT: Ph1/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph7/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph8/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph6/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph3/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph5/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph1/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph8/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph3/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph7/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph6/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph9/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph4/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph5/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph4/Ax LAVA-Flex DYNAMIQUE PI'
+- 'FAT: Ph9/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: 3D Ax LAVA Flex MPH'
+- 'FAT: Ph2/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ph2/Ax LAVA-Flex DYNAMIQUE PI'
+- 'WATER: Ax LAVA-Flex DYNAMIQUE PI'
+- Cal Body 24 AA1
+- dinamica 15 secondi
+- dinamica 12 secondi
+- Ax 3D dyn
+- 'WATER: DCE Lava-Flex+C'
+- 'FAT: DCE Lava-Flex+C'
+- 'WATER: DCE Lava test'
+- 'FAT: DCE Lava test'
+- 'WATER: Ax LAVA Flex Dynamic'
+- 'FAT: Ax LAVA Flex Dynamic'
+- 'FAT: Ax LAVA sfov 5minsDelayed'
+- 'WATER: Ax LAVA sfov 5minsDelayed'
+- Cal Body 36 AA2
+- Cal Body 24 AA2
+- 3D Ax DISCO Dyn
+- PRO DYN AX LAVA +GD
+- (21270/9/46)-(21270/9/2)
+- SSh_T1W_TFE_22dyn
+- Ax fov ampio
+- Dinamica v1
+- dyn_eTHRIVE ax CLEAR
+- 'WATER: SAG DISCO Dyn (7s)'
+- 'WATER: Ph19/AX LAVA-Flex DYN'
+- 'WATER: Ph10/AX LAVA-Flex DYN'
+- 'WATER: Ph17/AX LAVA-Flex DYN'
+- 'WATER: Ph12/AX LAVA-Flex DYN'
+- 'WATER: Ph5/AX LAVA-Flex DYN'
+- 'WATER: Ph4/AX LAVA-Flex DYN'
+- 'WATER: Ph3/AX LAVA-Flex DYN'
+- 'WATER: Ph11/AX LAVA-Flex DYN'
+- 'WATER: Ph6/AX LAVA-Flex DYN'
+- 'WATER: Ph2/AX LAVA-Flex DYN'
+- 'WATER: Ph20/AX LAVA-Flex DYN'
+- 'WATER: Ph16/AX LAVA-Flex DYN'
+- 'WATER: Ph8/AX LAVA-Flex DYN'
+- 'WATER: Ph13/AX LAVA-Flex DYN'
+- 'WATER: Ph18/AX LAVA-Flex DYN'
+- 'WATER: Ph9/AX LAVA-Flex DYN'
+- 'WATER: Ph15/AX LAVA-Flex DYN'
+- 'WATER: Ph1/AX LAVA-Flex DYN'
+- 'WATER: Ph14/AX LAVA-Flex DYN'
+- 'WATER: Ph7/AX LAVA-Flex DYN'
+- 'WATER: Ph12/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph9/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph23/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph4/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph1/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph14/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph25/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph17/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph19/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph18/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph26/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph27/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph33/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph24/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph3/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph10/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph29/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph16/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph11/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph15/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph5/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph22/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph13/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph31/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph8/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph6/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph30/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph28/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph32/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph7/Ax LAVA-Fl  Dyn Gado'
+- 'WATER: Ph20/Ax LAVA-Fl  Dyn Gado'
+- Ax DISCO Dyn SS FS
+- Ax LAVA (1+9)
+- T1 TRA GAD
+- 'WATER: +C Ax DISCO Flex Dyn Mph'
+- (10615/14/90)-(10615/14/2)
+- c.3.3 3D Ax DISCO Dyn Temp. Res. High
+- Pro.Dyn 3D T1 LAVA+C
+- t1_vibe_tra_dyn_SUB
+- dyn_THRIVE GAD
+- AX T1 PERFUSION
+- Pro.Dyn LAVA FS +C
+- t1_vibe_tra_fs_dyn
+- t1_vibe_tra_fs_PRE TEST
+- t1_vibe_fs_tra
+- (34069/9/45)-(34069/9/1)
+- 'FAT: Ax LAVA DYNAMIC FLEX'
+- 'WATER: Ax LAVA DYNAMIC FLEX'
+- (34069/900/45)-(34069/900/1)
+- Ph9Ax LAVA Multiphase
+- Ph6Ax LAVA Multiphase
+- Ph17Ax LAVA Multiphase
+- Ph14Ax LAVA Multiphase
+- Ph7Ax LAVA Multiphase
+- Ph16Ax LAVA Multiphase
+- Ph1Ax LAVA Multiphase
+- Ph4Ax LAVA Multiphase
+- Ph5Ax LAVA Multiphase
+- Ph19Ax LAVA Multiphase
+- Ph3Ax LAVA Multiphase
+- Ph12Ax LAVA Multiphase
+- Ph8Ax LAVA Multiphase
+- Ph10Ax LAVA Multiphase
+- Ph13Ax LAVA Multiphase
+- Ph2Ax LAVA Multiphase
+- Ph18Ax LAVA Multiphase
+- Ph15Ax LAVA Multiphase
+- Ph20Ax LAVA Multiphase
+- Ph11Ax LAVA Multiphase
+- Ax DISCO SE SmFOV Dyn
+- t1_vibe_tra_dyn_35measurements
+- 'WATER: 3D Ax LAVA FLEX Dyn'
+- (378/1000/47)-(378/1000/15)|(378/1000/77)-(378/1000/13)|(378/1000/626)-(378/1000/18)|(378/1000/57)-(378/1000/25)|(378/1000/595)-(378/1000/19)|(378/1000/404)-(378/1000/20)|(378/1000/379)-(378/1000/27)|(378/1000/350)-(378/1000/30)|(378/1000/364)-(378/1000/12)|(378/1000/56)-(378/1000/24)|(378/1000/343)-(378/1000/23)|(378/1000/50)-(378/1000/18)|(378/1000/611)-(378/1000/3)|(378/1000/548)-(378/1000/4)|(378/1000/668)-(378/1000/28)|(378/1000/598)-(378/1000/22)|(378/1000/315)-(378/1000/27)|(378/1000/188)-(378/1000/28)|(378/1000/194)-(378/1000/2)|(378/1000/76)-(378/1000/12)|(378/1000/95)-(378/1000/31)|(378/1000/491)-(378/1000/11)|(378/1000/488)-(378/1000/8)|(378/1000/206)-(378/1000/14)|(378/1000/603)-(378/1000/27)|(378/1000/355)-(378/1000/3)|(378/1000/109)-(378/1000/13)|(378/1000/386)-(378/1000/2)|(378/1000/544)-(378/1000/32)|(378/1000/218)-(378/1000/26)|(378/1000/436)-(378/1000/20)|(378/1000/535)-(378/1000/23)|(378/1000/44)-(378/1000/12)|(378/1000/399)-(378/1000/15)|(378/1000/186)-(378/1000/26)|(378/1000/418)-(378/1000/2)|(378/1000/97)-(378/1000/1)|(378/1000/559)-(378/1000/15)|(378/1000/619)-(378/1000/11)|(378/1000/511)-(378/1000/31)|(378/1000/662)-(378/1000/22)|(378/1000/601)-(378/1000/25)|(378/1000/468)-(378/1000/20)|(378/1000/449)-(378/1000/1)|(378/1000/220)-(378/1000/28)|(378/1000/613)-(378/1000/5)|(378/1000/278)-(378/1000/22)|(378/1000/191)-(378/1000/31)|(378/1000/608)-(378/1000/32)|(378/1000/259)-(378/1000/3)|(378/1000/232)-(378/1000/8)|(378/1000/510)-(378/1000/30)|(378/1000/360)-(378/1000/8)|(378/1000/520)-(378/1000/8)|(378/1000/459)-(378/1000/11)|(378/1000/139)-(378/1000/11)|(378/1000/148)-(378/1000/20)|(378/1000/502)-(378/1000/22)|(378/1000/408)-(378/1000/24)|(378/1000/85)-(378/1000/21)|(378/1000/125)-(378/1000/29)|(378/1000/348)-(378/1000/28)|(378/1000/380)-(378/1000/28)|(378/1000/479)-(378/1000/31)|(378/1000/263)-(378/1000/7)|(378/1000/330)-(378/1000/10)|(378/1000/614)-(378/1000/6)|(378/1000/113)-(378/1000/17)|(378/1000/582)-(378/1000/6)|(378/1000/89)-(378/1000/25)|(378/1000/222)-(378/1000/30)|(378/1000/105)-(378/1000/9)|(378/1000/578)-(378/1000/2)|(378/1000/133)-(378/1000/5)|(378/1000/646)-(378/1000/6)|(378/1000/195)-(378/1000/3)|(378/1000/469)-(378/1000/21)|(378/1000/494)-(378/1000/14)|(378/1000/402)-(378/1000/18)|(378/1000/381)-(378/1000/29)|(378/1000/120)-(378/1000/24)|(378/1000/161)-(378/1000/1)|(378/1000/150)-(378/1000/22)|(378/1000/69)-(378/1000/5)|(378/1000/274)-(378/1000/18)|(378/1000/156)-(378/1000/28)|(378/1000/490)-(378/1000/10)|(378/1000/124)-(378/1000/28)|(378/1000/477)-(378/1000/29)|(378/1000/425)-(378/1000/9)|(378/1000/178)-(378/1000/18)|(378/1000/526)-(378/1000/14)|(378/1000/558)-(378/1000/14)|(378/1000/501)-(378/1000/21)|(378/1000/62)-(378/1000/30)|(378/1000/303)-(378/1000/15)|(378/1000/539)-(378/1000/27)|(378/1000/64)-(378/1000/32)|(378/1000/419)-(378/1000/3)|(378/1000/292)-(378/1000/4)|(378/1000/516)-(378/1000/4)|(378/1000/157)-(378/1000/29)|(378/1000/398)-(378/1000/14)|(378/1000/309)-(378/1000/21)|(378/1000/83)-(378/1000/19)|(378/1000/98)-(378/1000/2)|(378/1000/238)-(378/1000/14)|(378/1000/630)-(378/1000/22)|(378/1000/243)-(378/1000/19)|(378/1000/205)-(378/1000/13)|(378/1000/550)-(378/1000/6)|(378/1000/304)-(378/1000/16)|(378/1000/293)-(378/1000/5)|(378/1000/545)-(378/1000/1)|(378/1000/78)-(378/1000/14)|(378/1000/302)-(378/1000/14)|(378/1000/129)-(378/1000/1)|(378/1000/505)-(378/1000/25)|(378/1000/493)-(378/1000/13)|(378/1000/158)-(378/1000/30)|(378/1000/122)-(378/1000/26)|(378/1000/63)-(378/1000/31)|(378/1000/241)-(378/1000/17)|(378/1000/55)-(378/1000/23)|(378/1000/509)-(378/1000/29)|(378/1000/397)-(378/1000/13)|(378/1000/453)-(378/1000/5)|(378/1000/368)-(378/1000/16)|(378/1000/235)-(378/1000/11)|(378/1000/111)-(378/1000/15)|(378/1000/187)-(378/1000/27)|(378/1000/432)-(378/1000/16)|(378/1000/591)-(378/1000/15)|(378/1000/151)-(378/1000/23)|(378/1000/401)-(378/1000/17)|(378/1000/137)-(378/1000/9)|(378/1000/500)-(378/1000/20)|(378/1000/279)-(378/1000/23)|(378/1000/268)-(378/1000/12)|(378/1000/307)-(378/1000/19)|(378/1000/524)-(378/1000/12)|(378/1000/225)-(378/1000/1)|(378/1000/147)-(378/1000/19)|(378/1000/154)-(378/1000/26)|(378/1000/189)-(378/1000/29)|(378/1000/127)-(378/1000/31)|(378/1000/622)-(378/1000/14)|(378/1000/653)-(378/1000/13)|(378/1000/480)-(378/1000/32)|(378/1000/478)-(378/1000/30)|(378/1000/192)-(378/1000/32)|(378/1000/456)-(378/1000/8)|(378/1000/571)-(378/1000/27)|(378/1000/594)-(378/1000/18)|(378/1000/451)-(378/1000/3)|(378/1000/135)-(378/1000/7)|(378/1000/576)-(378/1000/32)|(378/1000/504)-(378/1000/24)|(378/1000/91)-(378/1000/27)|(378/1000/498)-(378/1000/18)|(378/1000/575)-(378/1000/31)|(378/1000/165)-(378/1000/5)|(378/1000/126)-(378/1000/30)|(378/1000/438)-(378/1000/22)|(378/1000/492)-(378/1000/12)|(378/1000/331)-(378/1000/11)|(378/1000/255)-(378/1000/31)|(378/1000/250)-(378/1000/26)|(378/1000/584)-(378/1000/8)|(378/1000/369)-(378/1000/17)|(378/1000/666)-(378/1000/26)|(378/1000/633)-(378/1000/25)|(378/1000/482)-(378/1000/2)|(378/1000/515)-(378/1000/3)|(378/1000/262)-(378/1000/6)|(378/1000/556)-(378/1000/12)|(378/1000/119)-(378/1000/23)|(378/1000/372)-(378/1000/20)|(378/1000/325)-(378/1000/5)|(378/1000/362)-(378/1000/10)|(378/1000/457)-(378/1000/9)|(378/1000/531)-(378/1000/19)|(378/1000/600)-(378/1000/24)|(378/1000/322)-(378/1000/2)|(378/1000/629)-(378/1000/21)|(378/1000/287)-(378/1000/31)|(378/1000/346)-(378/1000/26)|(378/1000/261)-(378/1000/5)|(378/1000/75)-(378/1000/11)|(378/1000/45)-(378/1000/13)|(378/1000/427)-(378/1000/11)|(378/1000/589)-(378/1000/13)|(378/1000/377)-(378/1000/25)|(378/1000/407)-(378/1000/23)|(378/1000/349)-(378/1000/29)|(378/1000/564)-(378/1000/20)|(378/1000/634)-(378/1000/26)|(378/1000/155)-(378/1000/27)|(378/1000/635)-(378/1000/27)|(378/1000/553)-(378/1000/9)|(378/1000/326)-(378/1000/6)|(378/1000/641)-(378/1000/1)|(378/1000/472)-(378/1000/24)|(378/1000/281)-(378/1000/25)|(378/1000/102)-(378/1000/6)|(378/1000/344)-(378/1000/24)|(378/1000/394)-(378/1000/10)|(378/1000/132)-(378/1000/4)|(378/1000/484)-(378/1000/4)|(378/1000/489)-(378/1000/9)|(378/1000/72)-(378/1000/8)|(378/1000/110)-(378/1000/14)|(378/1000/305)-(378/1000/17)|(378/1000/654)-(378/1000/14)|(378/1000/231)-(378/1000/7)|(378/1000/90)-(378/1000/26)|(378/1000/169)-(378/1000/9)|(378/1000/128)-(378/1000/32)|(378/1000/458)-(378/1000/10)|(378/1000/414)-(378/1000/30)|(378/1000/422)-(378/1000/6)|(378/1000/314)-(378/1000/26)|(378/1000/230)-(378/1000/6)|(378/1000/606)-(378/1000/30)|(378/1000/605)-(378/1000/29)|(378/1000/396)-(378/1000/12)|(378/1000/461)-(378/1000/13)|(378/1000/254)-(378/1000/30)|(378/1000/623)-(378/1000/15)|(378/1000/651)-(378/1000/11)|(378/1000/383)-(378/1000/31)|(378/1000/229)-(378/1000/5)|(378/1000/337)-(378/1000/17)|(378/1000/227)-(378/1000/3)|(378/1000/143)-(378/1000/15)|(378/1000/276)-(378/1000/20)|(378/1000/233)-(378/1000/9)|(378/1000/130)-(378/1000/2)|(378/1000/624)-(378/1000/16)|(378/1000/329)-(378/1000/9)|(378/1000/667)-(378/1000/27)|(378/1000/562)-(378/1000/18)|(378/1000/533)-(378/1000/21)|(378/1000/204)-(378/1000/12)|(378/1000/561)-(378/1000/17)|(378/1000/588)-(378/1000/12)|(378/1000/373)-(378/1000/21)|(378/1000/117)-(378/1000/21)|(378/1000/240)-(378/1000/16)|(378/1000/415)-(378/1000/31)|(378/1000/423)-(378/1000/7)|(378/1000/664)-(378/1000/24)|(378/1000/506)-(378/1000/26)|(378/1000/596)-(378/1000/20)|(378/1000/374)-(378/1000/22)|(378/1000/450)-(378/1000/2)|(378/1000/184)-(378/1000/24)|(378/1000/295)-(378/1000/7)|(378/1000/167)-(378/1000/7)|(378/1000/444)-(378/1000/28)|(378/1000/121)-(378/1000/25)|(378/1000/557)-(378/1000/13)|(378/1000/503)-(378/1000/23)|(378/1000/296)-(378/1000/8)|(378/1000/443)-(378/1000/27)|(378/1000/193)-(378/1000/1)|(378/1000/625)-(378/1000/17)|(378/1000/176)-(378/1000/16)|(378/1000/335)-(378/1000/15)|(378/1000/321)-(378/1000/1)|(378/1000/487)-(378/1000/7)|(378/1000/202)-(378/1000/10)|(378/1000/336)-(378/1000/16)|(378/1000/440)-(378/1000/24)|(378/1000/163)-(378/1000/3)|(378/1000/290)-(378/1000/2)|(378/1000/116)-(378/1000/20)|(378/1000/395)-(378/1000/11)|(378/1000/162)-(378/1000/2)|(378/1000/146)-(378/1000/18)|(378/1000/285)-(378/1000/29)|(378/1000/592)-(378/1000/16)|(378/1000/586)-(378/1000/10)|(378/1000/441)-(378/1000/25)|(378/1000/88)-(378/1000/24)|(378/1000/299)-(378/1000/11)|(378/1000/508)-(378/1000/28)|(378/1000/131)-(378/1000/3)|(378/1000/58)-(378/1000/26)|(378/1000/528)-(378/1000/16)|(378/1000/568)-(378/1000/24)|(378/1000/495)-(378/1000/15)|(378/1000/391)-(378/1000/7)|(378/1000/648)-(378/1000/8)|(378/1000/638)-(378/1000/30)|(378/1000/670)-(378/1000/30)|(378/1000/579)-(378/1000/3)|(378/1000/103)-(378/1000/7)|(378/1000/573)-(378/1000/29)|(378/1000/301)-(378/1000/13)|(378/1000/53)-(378/1000/21)|(378/1000/463)-(378/1000/15)|(378/1000/294)-(378/1000/6)|(378/1000/340)-(378/1000/20)|(378/1000/33)-(378/1000/1)|(378/1000/59)-(378/1000/27)|(378/1000/269)-(378/1000/13)|(378/1000/71)-(378/1000/7)|(378/1000/39)-(378/1000/7)|(378/1000/637)-(378/1000/29)|(378/1000/621)-(378/1000/13)|(378/1000/665)-(378/1000/25)|(378/1000/367)-(378/1000/15)|(378/1000/652)-(378/1000/12)|(378/1000/65)-(378/1000/1)|(378/1000/114)-(378/1000/18)|(378/1000/627)-(378/1000/19)|(378/1000/328)-(378/1000/8)|(378/1000/430)-(378/1000/14)|(378/1000/200)-(378/1000/8)|(378/1000/390)-(378/1000/6)|(378/1000/41)-(378/1000/9)|(378/1000/332)-(378/1000/12)|(378/1000/597)-(378/1000/21)|(378/1000/518)-(378/1000/6)|(378/1000/499)-(378/1000/19)|(378/1000/512)-(378/1000/32)|(378/1000/115)-(378/1000/19)|(378/1000/68)-(378/1000/4)|(378/1000/267)-(378/1000/11)|(378/1000/426)-(378/1000/10)|(378/1000/645)-(378/1000/5)|(378/1000/308)-(378/1000/20)|(378/1000/358)-(378/1000/6)|(378/1000/177)-(378/1000/17)|(378/1000/356)-(378/1000/4)|(378/1000/541)-(378/1000/29)|(378/1000/253)-(378/1000/29)|(378/1000/445)-(378/1000/29)|(378/1000/353)-(378/1000/1)|(378/1000/197)-(378/1000/5)|(378/1000/316)-(378/1000/28)|(378/1000/211)-(378/1000/19)|(378/1000/529)-(378/1000/17)|(378/1000/371)-(378/1000/19)|(378/1000/142)-(378/1000/14)|(378/1000/266)-(378/1000/10)|(378/1000/257)-(378/1000/1)|(378/1000/173)-(378/1000/13)|(378/1000/507)-(378/1000/27)|(378/1000/656)-(378/1000/16)|(378/1000/447)-(378/1000/31)|(378/1000/282)-(378/1000/26)|(378/1000/313)-(378/1000/25)|(378/1000/81)-(378/1000/17)|(378/1000/439)-(378/1000/23)|(378/1000/35)-(378/1000/3)|(378/1000/647)-(378/1000/7)|(378/1000/514)-(378/1000/2)|(378/1000/213)-(378/1000/21)|(378/1000/324)-(378/1000/4)|(378/1000/99)-(378/1000/3)|(378/1000/209)-(378/1000/17)|(378/1000/37)-(378/1000/5)|(378/1000/96)-(378/1000/32)|(378/1000/470)-(378/1000/22)|(378/1000/319)-(378/1000/31)|(378/1000/237)-(378/1000/13)|(378/1000/286)-(378/1000/30)|(378/1000/462)-(378/1000/14)|(378/1000/190)-(378/1000/30)|(378/1000/452)-(378/1000/4)|(378/1000/333)-(378/1000/13)|(378/1000/145)-(378/1000/17)|(378/1000/389)-(378/1000/5)|(378/1000/342)-(378/1000/22)|(378/1000/320)-(378/1000/32)|(378/1000/164)-(378/1000/4)|(378/1000/234)-(378/1000/10)|(378/1000/431)-(378/1000/15)|(378/1000/420)-(378/1000/4)|(378/1000/256)-(378/1000/32)|(378/1000/655)-(378/1000/15)|(378/1000/49)-(378/1000/17)|(378/1000/273)-(378/1000/17)|(378/1000/140)-(378/1000/12)|(378/1000/632)-(378/1000/24)|(378/1000/542)-(378/1000/30)|(378/1000/455)-(378/1000/7)|(378/1000/540)-(378/1000/28)|(378/1000/416)-(378/1000/32)|(378/1000/497)-(378/1000/17)|(378/1000/521)-(378/1000/9)|(378/1000/537)-(378/1000/25)|(378/1000/300)-(378/1000/12)|(378/1000/669)-(378/1000/29)|(378/1000/580)-(378/1000/4)|(378/1000/607)-(378/1000/31)|(378/1000/79)-(378/1000/15)|(378/1000/486)-(378/1000/6)|(378/1000/384)-(378/1000/32)|(378/1000/365)-(378/1000/13)|(378/1000/338)-(378/1000/18)|(378/1000/182)-(378/1000/22)|(378/1000/40)-(378/1000/8)|(378/1000/513)-(378/1000/1)|(378/1000/51)-(378/1000/19)|(378/1000/657)-(378/1000/17)|(378/1000/547)-(378/1000/3)|(378/1000/80)-(378/1000/16)|(378/1000/207)-(378/1000/15)|(378/1000/412)-(378/1000/28)|(378/1000/475)-(378/1000/27)|(378/1000/465)-(378/1000/17)|(378/1000/272)-(378/1000/16)|(378/1000/42)-(378/1000/10)|(378/1000/318)-(378/1000/30)|(378/1000/215)-(378/1000/23)|(378/1000/82)-(378/1000/18)|(378/1000/671)-(378/1000/31)|(378/1000/617)-(378/1000/9)|(378/1000/43)-(378/1000/11)|(378/1000/52)-(378/1000/20)|(378/1000/378)-(378/1000/26)|(378/1000/636)-(378/1000/28)|(378/1000/530)-(378/1000/18)|(378/1000/153)-(378/1000/25)|(378/1000/543)-(378/1000/31)|(378/1000/334)-(378/1000/14)|(378/1000/551)-(378/1000/7)|(378/1000/248)-(378/1000/24)|(378/1000/258)-(378/1000/2)|(378/1000/36)-(378/1000/4)|(378/1000/172)-(378/1000/12)|(378/1000/289)-(378/1000/1)|(378/1000/60)-(378/1000/28)|(378/1000/388)-(378/1000/4)|(378/1000/214)-(378/1000/22)|(378/1000/644)-(378/1000/4)|(378/1000/212)-(378/1000/20)|(378/1000/317)-(378/1000/29)|(378/1000/620)-(378/1000/12)|(378/1000/352)-(378/1000/32)|(378/1000/219)-(378/1000/27)|(378/1000/210)-(378/1000/18)|(378/1000/387)-(378/1000/3)|(378/1000/574)-(378/1000/30)|(378/1000/244)-(378/1000/20)|(378/1000/385)-(378/1000/1)|(378/1000/375)-(378/1000/23)|(378/1000/604)-(378/1000/28)|(378/1000/615)-(378/1000/7)|(378/1000/270)-(378/1000/14)|(378/1000/361)-(378/1000/9)|(378/1000/628)-(378/1000/20)|(378/1000/264)-(378/1000/8)|(378/1000/659)-(378/1000/19)|(378/1000/428)-(378/1000/12)|(378/1000/442)-(378/1000/26)|(378/1000/532)-(378/1000/20)|(378/1000/649)-(378/1000/9)|(378/1000/260)-(378/1000/4)|(378/1000/563)-(378/1000/19)|(378/1000/84)-(378/1000/20)|(378/1000/467)-(378/1000/19)|(378/1000/271)-(378/1000/15)|(378/1000/393)-(378/1000/9)|(378/1000/141)-(378/1000/13)|(378/1000/357)-(378/1000/5)|(378/1000/48)-(378/1000/16)|(378/1000/376)-(378/1000/24)|(378/1000/291)-(378/1000/3)|(378/1000/549)-(378/1000/5)|(378/1000/251)-(378/1000/27)|(378/1000/536)-(378/1000/24)|(378/1000/345)-(378/1000/25)|(378/1000/228)-(378/1000/4)|(378/1000/448)-(378/1000/32)|(378/1000/216)-(378/1000/24)|(378/1000/180)-(378/1000/20)|(378/1000/66)-(378/1000/2)|(378/1000/569)-(378/1000/25)|(378/1000/587)-(378/1000/11)|(378/1000/198)-(378/1000/6)|(378/1000/410)-(378/1000/26)|(378/1000/640)-(378/1000/32)|(378/1000/201)-(378/1000/9)|(378/1000/466)-(378/1000/18)|(378/1000/327)-(378/1000/7)|(378/1000/196)-(378/1000/4)|(378/1000/650)-(378/1000/10)|(378/1000/363)-(378/1000/11)|(378/1000/560)-(378/1000/16)|(378/1000/280)-(378/1000/24)|(378/1000/382)-(378/1000/30)|(378/1000/312)-(378/1000/24)|(378/1000/138)-(378/1000/10)|(378/1000/572)-(378/1000/28)|(378/1000/92)-(378/1000/28)|(378/1000/411)-(378/1000/27)|(378/1000/565)-(378/1000/21)|(378/1000/460)-(378/1000/12)|(378/1000/581)-(378/1000/5)|(378/1000/552)-(378/1000/8)|(378/1000/471)-(378/1000/23)|(378/1000/252)-(378/1000/28)|(378/1000/166)-(378/1000/6)|(378/1000/310)-(378/1000/22)|(378/1000/406)-(378/1000/22)|(378/1000/347)-(378/1000/27)|(378/1000/643)-(378/1000/3)|(378/1000/476)-(378/1000/28)|(378/1000/208)-(378/1000/16)|(378/1000/400)-(378/1000/16)|(378/1000/283)-(378/1000/27)|(378/1000/73)-(378/1000/9)|(378/1000/485)-(378/1000/5)|(378/1000/123)-(378/1000/27)|(378/1000/149)-(378/1000/21)|(378/1000/464)-(378/1000/16)|(378/1000/523)-(378/1000/11)|(378/1000/226)-(378/1000/2)|(378/1000/405)-(378/1000/21)|(378/1000/660)-(378/1000/20)|(378/1000/522)-(378/1000/10)|(378/1000/555)-(378/1000/11)|(378/1000/409)-(378/1000/25)|(378/1000/639)-(378/1000/31)|(378/1000/87)-(378/1000/23)|(378/1000/249)-(378/1000/25)|(378/1000/534)-(378/1000/22)|(378/1000/599)-(378/1000/23)|(378/1000/609)-(378/1000/1)|(378/1000/306)-(378/1000/18)|(378/1000/152)-(378/1000/24)|(378/1000/590)-(378/1000/14)|(378/1000/136)-(378/1000/8)|(378/1000/203)-(378/1000/11)|(378/1000/46)-(378/1000/14)|(378/1000/570)-(378/1000/26)|(378/1000/527)-(378/1000/15)|(378/1000/275)-(378/1000/19)|(378/1000/107)-(378/1000/11)|(378/1000/323)-(378/1000/3)|(378/1000/567)-(378/1000/23)|(378/1000/185)-(378/1000/25)|(378/1000/297)-(378/1000/9)|(378/1000/174)-(378/1000/14)|(378/1000/224)-(378/1000/32)|(378/1000/618)-(378/1000/10)|(378/1000/217)-(378/1000/25)|(378/1000/104)-(378/1000/8)|(378/1000/481)-(378/1000/1)|(378/1000/247)-(378/1000/23)|(378/1000/602)-(378/1000/26)|(378/1000/517)-(378/1000/5)|(378/1000/245)-(378/1000/21)|(378/1000/413)-(378/1000/29)|(378/1000/54)-(378/1000/22)|(378/1000/663)-(378/1000/23)|(378/1000/100)-(378/1000/4)|(378/1000/496)-(378/1000/16)|(378/1000/585)-(378/1000/9)|(378/1000/538)-(378/1000/26)|(378/1000/612)-(378/1000/4)|(378/1000/239)-(378/1000/15)|(378/1000/583)-(378/1000/7)|(378/1000/288)-(378/1000/32)|(378/1000/236)-(378/1000/12)|(378/1000/392)-(378/1000/8)|(378/1000/159)-(378/1000/31)|(378/1000/433)-(378/1000/17)|(378/1000/417)-(378/1000/1)|(378/1000/424)-(378/1000/8)|(378/1000/437)-(378/1000/21)|(378/1000/265)-(378/1000/9)|(378/1000/421)-(378/1000/5)|(378/1000/631)-(378/1000/23)|(378/1000/473)-(378/1000/25)|(378/1000/672)-(378/1000/32)|(378/1000/86)-(378/1000/22)|(378/1000/610)-(378/1000/2)|(378/1000/38)-(378/1000/6)|(378/1000/179)-(378/1000/19)|(378/1000/446)-(378/1000/30)|(378/1000/593)-(378/1000/17)|(378/1000/298)-(378/1000/10)|(378/1000/566)-(378/1000/22)|(378/1000/106)-(378/1000/10)|(378/1000/144)-(378/1000/16)|(378/1000/94)-(378/1000/30)|(378/1000/246)-(378/1000/22)|(378/1000/354)-(378/1000/2)|(378/1000/70)-(378/1000/6)|(378/1000/483)-(378/1000/3)|(378/1000/74)-(378/1000/10)|(378/1000/242)-(378/1000/18)|(378/1000/223)-(378/1000/31)|(378/1000/34)-(378/1000/2)|(378/1000/366)-(378/1000/14)|(378/1000/642)-(378/1000/2)|(378/1000/525)-(378/1000/13)|(378/1000/435)-(378/1000/19)|(378/1000/67)-(378/1000/3)|(378/1000/359)-(378/1000/7)|(378/1000/61)-(378/1000/29)|(378/1000/370)-(378/1000/18)|(378/1000/454)-(378/1000/6)|(378/1000/577)-(378/1000/1)|(378/1000/546)-(378/1000/2)|(378/1000/101)-(378/1000/5)|(378/1000/661)-(378/1000/21)|(378/1000/199)-(378/1000/7)|(378/1000/277)-(378/1000/21)|(378/1000/429)-(378/1000/13)|(378/1000/181)-(378/1000/21)|(378/1000/221)-(378/1000/29)|(378/1000/658)-(378/1000/18)|(378/1000/183)-(378/1000/23)|(378/1000/554)-(378/1000/10)|(378/1000/134)-(378/1000/6)|(378/1000/519)-(378/1000/7)|(378/1000/311)-(378/1000/23)|(378/1000/93)-(378/1000/29)|(378/1000/160)-(378/1000/32)|(378/1000/112)-(378/1000/16)|(378/1000/168)-(378/1000/8)|(378/1000/118)-(378/1000/22)|(378/1000/170)-(378/1000/10)|(378/1000/108)-(378/1000/12)|(378/1000/616)-(378/1000/8)|(378/1000/339)-(378/1000/19)|(378/1000/403)-(378/1000/19)|(378/1000/474)-(378/1000/26)|(378/1000/171)-(378/1000/11)|(378/1000/341)-(378/1000/21)|(378/1000/284)-(378/1000/28)|(378/1000/434)-(378/1000/18)|(378/1000/175)-(378/1000/15)|(378/1000/351)-(378/1000/31)
+- (378/10/359)-(378/10/7)|(378/10/261)-(378/10/5)|(378/10/558)-(378/10/14)|(378/10/549)-(378/10/5)|(378/10/482)-(378/10/2)|(378/10/87)-(378/10/23)|(378/10/427)-(378/10/11)|(378/10/590)-(378/10/14)|(378/10/363)-(378/10/11)|(378/10/555)-(378/10/11)|(378/10/230)-(378/10/6)|(378/10/254)-(378/10/30)|(378/10/241)-(378/10/17)|(378/10/495)-(378/10/15)|(378/10/84)-(378/10/20)|(378/10/565)-(378/10/21)|(378/10/557)-(378/10/13)|(378/10/451)-(378/10/3)|(378/10/203)-(378/10/11)|(378/10/112)-(378/10/16)|(378/10/663)-(378/10/23)|(378/10/411)-(378/10/27)|(378/10/665)-(378/10/25)|(378/10/129)-(378/10/1)|(378/10/324)-(378/10/4)|(378/10/85)-(378/10/21)|(378/10/314)-(378/10/26)|(378/10/351)-(378/10/31)|(378/10/632)-(378/10/24)|(378/10/280)-(378/10/24)|(378/10/273)-(378/10/17)|(378/10/287)-(378/10/31)|(378/10/353)-(378/10/1)|(378/10/526)-(378/10/14)|(378/10/326)-(378/10/6)|(378/10/213)-(378/10/21)|(378/10/446)-(378/10/30)|(378/10/449)-(378/10/1)|(378/10/193)-(378/10/1)|(378/10/656)-(378/10/16)|(378/10/194)-(378/10/2)|(378/10/652)-(378/10/12)|(378/10/568)-(378/10/24)|(378/10/631)-(378/10/23)|(378/10/122)-(378/10/26)|(378/10/92)-(378/10/28)|(378/10/161)-(378/10/1)|(378/10/236)-(378/10/12)|(378/10/156)-(378/10/28)|(378/10/136)-(378/10/8)|(378/10/626)-(378/10/18)|(378/10/43)-(378/10/11)|(378/10/55)-(378/10/23)|(378/10/624)-(378/10/16)|(378/10/174)-(378/10/14)|(378/10/214)-(378/10/22)|(378/10/465)-(378/10/17)|(378/10/406)-(378/10/22)|(378/10/235)-(378/10/11)|(378/10/649)-(378/10/9)|(378/10/352)-(378/10/32)|(378/10/402)-(378/10/18)|(378/10/245)-(378/10/21)|(378/10/288)-(378/10/32)|(378/10/282)-(378/10/26)|(378/10/386)-(378/10/2)|(378/10/619)-(378/10/11)|(378/10/340)-(378/10/20)|(378/10/640)-(378/10/32)|(378/10/361)-(378/10/9)|(378/10/620)-(378/10/12)|(378/10/496)-(378/10/16)|(378/10/474)-(378/10/26)|(378/10/90)-(378/10/26)|(378/10/612)-(378/10/4)|(378/10/594)-(378/10/18)|(378/10/215)-(378/10/23)|(378/10/284)-(378/10/28)|(378/10/333)-(378/10/13)|(378/10/387)-(378/10/3)|(378/10/279)-(378/10/23)|(378/10/397)-(378/10/13)|(378/10/231)-(378/10/7)|(378/10/153)-(378/10/25)|(378/10/556)-(378/10/12)|(378/10/584)-(378/10/8)|(378/10/570)-(378/10/26)|(378/10/458)-(378/10/10)|(378/10/137)-(378/10/9)|(378/10/628)-(378/10/20)|(378/10/667)-(378/10/27)|(378/10/521)-(378/10/9)|(378/10/358)-(378/10/6)|(378/10/608)-(378/10/32)|(378/10/238)-(378/10/14)|(378/10/206)-(378/10/14)|(378/10/88)-(378/10/24)|(378/10/467)-(378/10/19)|(378/10/278)-(378/10/22)|(378/10/176)-(378/10/16)|(378/10/587)-(378/10/11)|(378/10/550)-(378/10/6)|(378/10/202)-(378/10/10)|(378/10/366)-(378/10/14)|(378/10/477)-(378/10/29)|(378/10/57)-(378/10/25)|(378/10/195)-(378/10/3)|(378/10/577)-(378/10/1)|(378/10/40)-(378/10/8)|(378/10/507)-(378/10/27)|(378/10/651)-(378/10/11)|(378/10/162)-(378/10/2)|(378/10/611)-(378/10/3)|(378/10/528)-(378/10/16)|(378/10/39)-(378/10/7)|(378/10/639)-(378/10/31)|(378/10/268)-(378/10/12)|(378/10/296)-(378/10/8)|(378/10/115)-(378/10/19)|(378/10/566)-(378/10/22)|(378/10/345)-(378/10/25)|(378/10/226)-(378/10/2)|(378/10/530)-(378/10/18)|(378/10/515)-(378/10/3)|(378/10/227)-(378/10/3)|(378/10/46)-(378/10/14)|(378/10/124)-(378/10/28)|(378/10/668)-(378/10/28)|(378/10/105)-(378/10/9)|(378/10/454)-(378/10/6)|(378/10/595)-(378/10/19)|(378/10/292)-(378/10/4)|(378/10/181)-(378/10/21)|(378/10/75)-(378/10/11)|(378/10/48)-(378/10/16)|(378/10/541)-(378/10/29)|(378/10/297)-(378/10/9)|(378/10/537)-(378/10/25)|(378/10/107)-(378/10/11)|(378/10/151)-(378/10/23)|(378/10/37)-(378/10/5)|(378/10/201)-(378/10/9)|(378/10/242)-(378/10/18)|(378/10/220)-(378/10/28)|(378/10/166)-(378/10/6)|(378/10/653)-(378/10/13)|(378/10/259)-(378/10/3)|(378/10/205)-(378/10/13)|(378/10/500)-(378/10/20)|(378/10/648)-(378/10/8)|(378/10/116)-(378/10/20)|(378/10/424)-(378/10/8)|(378/10/98)-(378/10/2)|(378/10/634)-(378/10/26)|(378/10/508)-(378/10/28)|(378/10/480)-(378/10/32)|(378/10/623)-(378/10/15)|(378/10/283)-(378/10/27)|(378/10/419)-(378/10/3)|(378/10/442)-(378/10/26)|(378/10/493)-(378/10/13)|(378/10/505)-(378/10/25)|(378/10/251)-(378/10/27)|(378/10/563)-(378/10/19)|(378/10/380)-(378/10/28)|(378/10/132)-(378/10/4)|(378/10/312)-(378/10/24)|(378/10/294)-(378/10/6)|(378/10/650)-(378/10/10)|(378/10/114)-(378/10/18)|(378/10/478)-(378/10/30)|(378/10/439)-(378/10/23)|(378/10/670)-(378/10/30)|(378/10/128)-(378/10/32)|(378/10/165)-(378/10/5)|(378/10/234)-(378/10/10)|(378/10/598)-(378/10/22)|(378/10/460)-(378/10/12)|(378/10/436)-(378/10/20)|(378/10/606)-(378/10/30)|(378/10/409)-(378/10/25)|(378/10/485)-(378/10/5)|(378/10/35)-(378/10/3)|(378/10/331)-(378/10/11)|(378/10/381)-(378/10/29)|(378/10/243)-(378/10/19)|(378/10/462)-(378/10/14)|(378/10/212)-(378/10/20)|(378/10/302)-(378/10/14)|(378/10/405)-(378/10/21)|(378/10/164)-(378/10/4)|(378/10/73)-(378/10/9)|(378/10/120)-(378/10/24)|(378/10/592)-(378/10/16)|(378/10/111)-(378/10/15)|(378/10/269)-(378/10/13)|(378/10/141)-(378/10/13)|(378/10/339)-(378/10/19)|(378/10/325)-(378/10/5)|(378/10/501)-(378/10/21)|(378/10/512)-(378/10/32)|(378/10/603)-(378/10/27)|(378/10/452)-(378/10/4)|(378/10/472)-(378/10/24)|(378/10/615)-(378/10/7)|(378/10/224)-(378/10/32)|(378/10/671)-(378/10/31)|(378/10/655)-(378/10/15)|(378/10/514)-(378/10/2)|(378/10/483)-(378/10/3)|(378/10/101)-(378/10/5)|(378/10/423)-(378/10/7)|(378/10/494)-(378/10/14)|(378/10/77)-(378/10/13)|(378/10/246)-(378/10/22)|(378/10/401)-(378/10/17)|(378/10/218)-(378/10/26)|(378/10/585)-(378/10/9)|(378/10/328)-(378/10/8)|(378/10/609)-(378/10/1)|(378/10/285)-(378/10/29)|(378/10/572)-(378/10/28)|(378/10/186)-(378/10/26)|(378/10/102)-(378/10/6)|(378/10/126)-(378/10/30)|(378/10/56)-(378/10/24)|(378/10/106)-(378/10/10)|(378/10/34)-(378/10/2)|(378/10/527)-(378/10/15)|(378/10/54)-(378/10/22)|(378/10/630)-(378/10/22)|(378/10/403)-(378/10/19)|(378/10/389)-(378/10/5)|(378/10/256)-(378/10/32)|(378/10/633)-(378/10/25)|(378/10/277)-(378/10/21)|(378/10/613)-(378/10/5)|(378/10/313)-(378/10/25)|(378/10/316)-(378/10/28)|(378/10/301)-(378/10/13)|(378/10/310)-(378/10/22)|(378/10/571)-(378/10/27)|(378/10/390)-(378/10/6)|(378/10/291)-(378/10/3)|(378/10/33)-(378/10/1)|(378/10/65)-(378/10/1)|(378/10/149)-(378/10/21)|(378/10/487)-(378/10/7)|(378/10/383)-(378/10/31)|(378/10/334)-(378/10/14)|(378/10/368)-(378/10/16)|(378/10/518)-(378/10/6)|(378/10/58)-(378/10/26)|(378/10/152)-(378/10/24)|(378/10/417)-(378/10/1)|(378/10/392)-(378/10/8)|(378/10/180)-(378/10/20)|(378/10/41)-(378/10/9)|(378/10/303)-(378/10/15)|(378/10/336)-(378/10/16)|(378/10/522)-(378/10/10)|(378/10/448)-(378/10/32)|(378/10/244)-(378/10/20)|(378/10/371)-(378/10/19)|(378/10/635)-(378/10/27)|(378/10/534)-(378/10/22)|(378/10/342)-(378/10/22)|(378/10/258)-(378/10/2)|(378/10/544)-(378/10/32)|(378/10/306)-(378/10/18)|(378/10/625)-(378/10/17)|(378/10/357)-(378/10/5)|(378/10/596)-(378/10/20)|(378/10/575)-(378/10/31)|(378/10/560)-(378/10/16)|(378/10/223)-(378/10/31)|(378/10/636)-(378/10/28)|(378/10/168)-(378/10/8)|(378/10/546)-(378/10/2)|(378/10/610)-(378/10/2)|(378/10/365)-(378/10/13)|(378/10/191)-(378/10/31)|(378/10/260)-(378/10/4)|(378/10/335)-(378/10/15)|(378/10/293)-(378/10/5)|(378/10/669)-(378/10/29)|(378/10/396)-(378/10/12)|(378/10/453)-(378/10/5)|(378/10/601)-(378/10/25)|(378/10/100)-(378/10/4)|(378/10/173)-(378/10/13)|(378/10/44)-(378/10/12)|(378/10/275)-(378/10/19)|(378/10/370)-(378/10/18)|(378/10/198)-(378/10/6)|(378/10/589)-(378/10/13)|(378/10/573)-(378/10/29)|(378/10/178)-(378/10/18)|(378/10/506)-(378/10/26)|(378/10/71)-(378/10/7)|(378/10/142)-(378/10/14)|(378/10/543)-(378/10/31)|(378/10/155)-(378/10/27)|(378/10/410)-(378/10/26)|(378/10/263)-(378/10/7)|(378/10/605)-(378/10/29)|(378/10/53)-(378/10/21)|(378/10/476)-(378/10/28)|(378/10/564)-(378/10/20)|(378/10/219)-(378/10/27)|(378/10/433)-(378/10/17)|(378/10/672)-(378/10/32)|(378/10/393)-(378/10/9)|(378/10/562)-(378/10/18)|(378/10/374)-(378/10/22)|(378/10/184)-(378/10/24)|(378/10/450)-(378/10/2)|(378/10/266)-(378/10/10)|(378/10/188)-(378/10/28)|(378/10/68)-(378/10/4)|(378/10/554)-(378/10/10)|(378/10/249)-(378/10/25)|(378/10/108)-(378/10/12)|(378/10/377)-(378/10/25)|(378/10/216)-(378/10/24)|(378/10/583)-(378/10/7)|(378/10/338)-(378/10/18)|(378/10/497)-(378/10/17)|(378/10/645)-(378/10/5)|(378/10/511)-(378/10/31)|(378/10/503)-(378/10/23)|(378/10/469)-(378/10/21)|(378/10/319)-(378/10/31)|(378/10/355)-(378/10/3)|(378/10/529)-(378/10/17)|(378/10/264)-(378/10/8)|(378/10/307)-(378/10/19)|(378/10/229)-(378/10/5)|(378/10/91)-(378/10/27)|(378/10/76)-(378/10/12)|(378/10/138)-(378/10/10)|(378/10/308)-(378/10/20)|(378/10/657)-(378/10/17)|(378/10/517)-(378/10/5)|(378/10/232)-(378/10/8)|(378/10/309)-(378/10/21)|(378/10/210)-(378/10/18)|(378/10/618)-(378/10/10)|(378/10/356)-(378/10/4)|(378/10/395)-(378/10/11)|(378/10/429)-(378/10/13)|(378/10/510)-(378/10/30)|(378/10/376)-(378/10/24)|(378/10/172)-(378/10/12)|(378/10/659)-(378/10/19)|(378/10/400)-(378/10/16)|(378/10/123)-(378/10/27)|(378/10/471)-(378/10/23)|(378/10/491)-(378/10/11)|(378/10/185)-(378/10/25)|(378/10/169)-(378/10/9)|(378/10/315)-(378/10/27)|(378/10/146)-(378/10/18)|(378/10/519)-(378/10/7)|(378/10/470)-(378/10/22)|(378/10/60)-(378/10/28)|(378/10/440)-(378/10/24)|(378/10/435)-(378/10/19)|(378/10/486)-(378/10/6)|(378/10/504)-(378/10/24)|(378/10/143)-(378/10/15)|(378/10/463)-(378/10/15)|(378/10/551)-(378/10/7)|(378/10/47)-(378/10/15)|(378/10/82)-(378/10/18)|(378/10/233)-(378/10/9)|(378/10/252)-(378/10/28)|(378/10/209)-(378/10/17)|(378/10/579)-(378/10/3)|(378/10/330)-(378/10/10)|(378/10/276)-(378/10/20)|(378/10/369)-(378/10/17)|(378/10/247)-(378/10/23)|(378/10/461)-(378/10/13)|(378/10/578)-(378/10/2)|(378/10/217)-(378/10/25)|(378/10/457)-(378/10/9)|(378/10/337)-(378/10/17)|(378/10/420)-(378/10/4)|(378/10/299)-(378/10/11)|(378/10/600)-(378/10/24)|(378/10/36)-(378/10/4)|(378/10/204)-(378/10/12)|(378/10/255)-(378/10/31)|(378/10/385)-(378/10/1)|(378/10/343)-(378/10/23)|(378/10/144)-(378/10/16)|(378/10/135)-(378/10/7)|(378/10/49)-(378/10/17)|(378/10/189)-(378/10/29)|(378/10/588)-(378/10/12)|(378/10/70)-(378/10/6)|(378/10/79)-(378/10/15)|(378/10/311)-(378/10/23)|(378/10/222)-(378/10/30)|(378/10/93)-(378/10/29)|(378/10/621)-(378/10/13)|(378/10/484)-(378/10/4)|(378/10/441)-(378/10/25)|(378/10/604)-(378/10/28)|(378/10/78)-(378/10/14)|(378/10/131)-(378/10/3)|(378/10/666)-(378/10/26)|(378/10/94)-(378/10/30)|(378/10/271)-(378/10/15)|(378/10/637)-(378/10/29)|(378/10/561)-(378/10/17)|(378/10/190)-(378/10/30)|(378/10/237)-(378/10/13)|(378/10/346)-(378/10/26)|(378/10/286)-(378/10/30)|(378/10/567)-(378/10/23)|(378/10/616)-(378/10/8)|(378/10/413)-(378/10/29)|(378/10/96)-(378/10/32)|(378/10/412)-(378/10/28)|(378/10/473)-(378/10/25)|(378/10/475)-(378/10/27)|(378/10/362)-(378/10/10)|(378/10/438)-(378/10/22)|(378/10/274)-(378/10/18)|(378/10/341)-(378/10/21)|(378/10/545)-(378/10/1)|(378/10/388)-(378/10/4)|(378/10/97)-(378/10/1)|(378/10/375)-(378/10/23)|(378/10/464)-(378/10/16)|(378/10/99)-(378/10/3)|(378/10/327)-(378/10/7)|(378/10/179)-(378/10/19)|(378/10/582)-(378/10/6)|(378/10/109)-(378/10/13)|(378/10/394)-(378/10/10)|(378/10/348)-(378/10/28)|(378/10/499)-(378/10/19)|(378/10/431)-(378/10/15)|(378/10/240)-(378/10/16)|(378/10/196)-(378/10/4)|(378/10/414)-(378/10/30)|(378/10/523)-(378/10/11)|(378/10/430)-(378/10/14)|(378/10/159)-(378/10/31)|(378/10/332)-(378/10/12)|(378/10/119)-(378/10/23)|(378/10/416)-(378/10/32)|(378/10/160)-(378/10/32)|(378/10/581)-(378/10/5)|(378/10/422)-(378/10/6)|(378/10/597)-(378/10/21)|(378/10/103)-(378/10/7)|(378/10/456)-(378/10/8)|(378/10/513)-(378/10/1)|(378/10/289)-(378/10/1)|(378/10/398)-(378/10/14)|(378/10/468)-(378/10/20)|(378/10/364)-(378/10/12)|(378/10/295)-(378/10/7)|(378/10/602)-(378/10/26)|(378/10/661)-(378/10/21)|(378/10/228)-(378/10/4)|(378/10/45)-(378/10/13)|(378/10/61)-(378/10/29)|(378/10/662)-(378/10/22)|(378/10/211)-(378/10/19)|(378/10/117)-(378/10/21)|(378/10/548)-(378/10/4)|(378/10/113)-(378/10/17)|(378/10/300)-(378/10/12)|(378/10/72)-(378/10/8)|(378/10/192)-(378/10/32)|(378/10/455)-(378/10/7)|(378/10/182)-(378/10/22)|(378/10/552)-(378/10/8)|(378/10/253)-(378/10/29)|(378/10/502)-(378/10/22)|(378/10/262)-(378/10/6)|(378/10/664)-(378/10/24)|(378/10/154)-(378/10/26)|(378/10/267)-(378/10/11)|(378/10/80)-(378/10/16)|(378/10/225)-(378/10/1)|(378/10/580)-(378/10/4)|(378/10/627)-(378/10/19)|(378/10/407)-(378/10/23)|(378/10/516)-(378/10/4)|(378/10/426)-(378/10/10)|(378/10/399)-(378/10/15)|(378/10/134)-(378/10/6)|(378/10/298)-(378/10/10)|(378/10/344)-(378/10/24)|(378/10/305)-(378/10/17)|(378/10/148)-(378/10/20)|(378/10/121)-(378/10/25)|(378/10/445)-(378/10/29)|(378/10/599)-(378/10/23)|(378/10/542)-(378/10/30)|(378/10/86)-(378/10/22)|(378/10/531)-(378/10/19)|(378/10/524)-(378/10/12)|(378/10/536)-(378/10/24)|(378/10/498)-(378/10/18)|(378/10/62)-(378/10/30)|(378/10/322)-(378/10/2)|(378/10/167)-(378/10/7)|(378/10/367)-(378/10/15)|(378/10/127)-(378/10/31)|(378/10/593)-(378/10/17)|(378/10/540)-(378/10/28)|(378/10/323)-(378/10/3)|(378/10/629)-(378/10/21)|(378/10/360)-(378/10/8)|(378/10/660)-(378/10/20)|(378/10/150)-(378/10/22)|(378/10/415)-(378/10/31)|(378/10/158)-(378/10/30)|(378/10/329)-(378/10/9)|(378/10/586)-(378/10/10)|(378/10/130)-(378/10/2)|(378/10/133)-(378/10/5)|(378/10/208)-(378/10/16)|(378/10/490)-(378/10/10)|(378/10/643)-(378/10/3)|(378/10/492)-(378/10/12)|(378/10/157)-(378/10/29)|(378/10/547)-(378/10/3)|(378/10/459)-(378/10/11)|(378/10/350)-(378/10/30)|(378/10/428)-(378/10/12)|(378/10/52)-(378/10/20)|(378/10/147)-(378/10/19)|(378/10/320)-(378/10/32)|(378/10/432)-(378/10/16)|(378/10/239)-(378/10/15)|(378/10/418)-(378/10/2)|(378/10/617)-(378/10/9)|(378/10/304)-(378/10/16)|(378/10/425)-(378/10/9)|(378/10/382)-(378/10/30)|(378/10/250)-(378/10/26)|(378/10/110)-(378/10/14)|(378/10/421)-(378/10/5)|(378/10/384)-(378/10/32)|(378/10/248)-(378/10/24)|(378/10/270)-(378/10/14)|(378/10/591)-(378/10/15)|(378/10/118)-(378/10/22)|(378/10/83)-(378/10/19)|(378/10/481)-(378/10/1)|(378/10/42)-(378/10/10)|(378/10/434)-(378/10/18)|(378/10/89)-(378/10/25)|(378/10/489)-(378/10/9)|(378/10/221)-(378/10/29)|(378/10/378)-(378/10/26)|(378/10/81)-(378/10/17)|(378/10/379)-(378/10/27)|(378/10/647)-(378/10/7)|(378/10/349)-(378/10/29)|(378/10/200)-(378/10/8)|(378/10/559)-(378/10/15)|(378/10/520)-(378/10/8)|(378/10/59)-(378/10/27)|(378/10/533)-(378/10/21)|(378/10/638)-(378/10/30)|(378/10/183)-(378/10/23)|(378/10/644)-(378/10/4)|(378/10/553)-(378/10/9)|(378/10/408)-(378/10/24)|(378/10/199)-(378/10/7)|(378/10/104)-(378/10/8)|(378/10/74)-(378/10/10)|(378/10/290)-(378/10/2)|(378/10/642)-(378/10/2)|(378/10/391)-(378/10/7)|(378/10/641)-(378/10/1)|(378/10/488)-(378/10/8)|(378/10/622)-(378/10/14)|(378/10/317)-(378/10/29)|(378/10/281)-(378/10/25)|(378/10/177)-(378/10/17)|(378/10/569)-(378/10/25)|(378/10/50)-(378/10/18)|(378/10/67)-(378/10/3)|(378/10/257)-(378/10/1)|(378/10/535)-(378/10/23)|(378/10/614)-(378/10/6)|(378/10/175)-(378/10/15)|(378/10/318)-(378/10/30)|(378/10/646)-(378/10/6)|(378/10/69)-(378/10/5)|(378/10/145)-(378/10/17)|(378/10/207)-(378/10/15)|(378/10/654)-(378/10/14)|(378/10/63)-(378/10/31)|(378/10/272)-(378/10/16)|(378/10/373)-(378/10/21)|(378/10/447)-(378/10/31)|(378/10/404)-(378/10/20)|(378/10/95)-(378/10/31)|(378/10/347)-(378/10/27)|(378/10/479)-(378/10/31)|(378/10/532)-(378/10/20)|(378/10/38)-(378/10/6)|(378/10/658)-(378/10/18)|(378/10/444)-(378/10/28)|(378/10/187)-(378/10/27)|(378/10/321)-(378/10/1)|(378/10/466)-(378/10/18)|(378/10/538)-(378/10/26)|(378/10/354)-(378/10/2)|(378/10/576)-(378/10/32)|(378/10/139)-(378/10/11)|(378/10/171)-(378/10/11)|(378/10/163)-(378/10/3)|(378/10/66)-(378/10/2)|(378/10/170)-(378/10/10)|(378/10/509)-(378/10/29)|(378/10/443)-(378/10/27)|(378/10/525)-(378/10/13)|(378/10/125)-(378/10/29)|(378/10/140)-(378/10/12)|(378/10/607)-(378/10/31)|(378/10/372)-(378/10/20)|(378/10/539)-(378/10/27)|(378/10/64)-(378/10/32)|(378/10/574)-(378/10/30)|(378/10/197)-(378/10/5)|(378/10/437)-(378/10/21)|(378/10/51)-(378/10/19)|(378/10/265)-(378/10/9)
+- 'FAT: 3D Ax DISCO Dyn Temp. Res. Low'
+- 'WATER: 3D Ax DISCO Dyn Temp. Res. Low'
+- Dynamic
+- 'WATER: 3D Ax LAVA Flex DYN'
+- (18668/9/193)-(18668/9/11)|(18668/9/284)-(18668/9/24)|(18668/9/50)-(18668/9/24)|(18668/9/160)-(18668/9/4)|(18668/9/278)-(18668/9/18)|(18668/9/294)-(18668/9/8)|(18668/9/174)-(18668/9/18)|(18668/9/224)-(18668/9/16)|(18668/9/312)-(18668/9/26)|(18668/9/282)-(18668/9/22)|(18668/9/318)-(18668/9/6)|(18668/9/122)-(18668/9/18)|(18668/9/56)-(18668/9/4)|(18668/9/139)-(18668/9/9)|(18668/9/249)-(18668/9/15)|(18668/9/330)-(18668/9/18)|(18668/9/255)-(18668/9/21)|(18668/9/110)-(18668/9/6)|(18668/9/276)-(18668/9/16)|(18668/9/68)-(18668/9/16)|(18668/9/319)-(18668/9/7)|(18668/9/250)-(18668/9/16)|(18668/9/161)-(18668/9/5)|(18668/9/80)-(18668/9/2)|(18668/9/210)-(18668/9/2)|(18668/9/75)-(18668/9/23)|(18668/9/94)-(18668/9/16)|(18668/9/198)-(18668/9/16)|(18668/9/168)-(18668/9/12)|(18668/9/233)-(18668/9/25)|(18668/9/103)-(18668/9/25)|(18668/9/34)-(18668/9/8)|(18668/9/71)-(18668/9/19)|(18668/9/62)-(18668/9/10)|(18668/9/41)-(18668/9/15)|(18668/9/297)-(18668/9/11)|(18668/9/307)-(18668/9/21)|(18668/9/87)-(18668/9/9)|(18668/9/130)-(18668/9/26)|(18668/9/212)-(18668/9/4)|(18668/9/151)-(18668/9/21)|(18668/9/256)-(18668/9/22)|(18668/9/70)-(18668/9/18)|(18668/9/58)-(18668/9/6)|(18668/9/247)-(18668/9/13)|(18668/9/40)-(18668/9/14)|(18668/9/196)-(18668/9/14)|(18668/9/28)-(18668/9/2)|(18668/9/219)-(18668/9/11)|(18668/9/141)-(18668/9/11)|(18668/9/186)-(18668/9/4)|(18668/9/148)-(18668/9/18)|(18668/9/199)-(18668/9/17)|(18668/9/310)-(18668/9/24)|(18668/9/164)-(18668/9/8)|(18668/9/146)-(18668/9/16)|(18668/9/205)-(18668/9/23)|(18668/9/37)-(18668/9/11)|(18668/9/257)-(18668/9/23)|(18668/9/105)-(18668/9/1)|(18668/9/187)-(18668/9/5)|(18668/9/116)-(18668/9/12)|(18668/9/124)-(18668/9/20)|(18668/9/111)-(18668/9/7)|(18668/9/107)-(18668/9/3)|(18668/9/228)-(18668/9/20)|(18668/9/245)-(18668/9/11)|(18668/9/102)-(18668/9/24)|(18668/9/328)-(18668/9/16)|(18668/9/65)-(18668/9/13)|(18668/9/96)-(18668/9/18)|(18668/9/169)-(18668/9/13)|(18668/9/326)-(18668/9/14)|(18668/9/261)-(18668/9/1)|(18668/9/115)-(18668/9/11)|(18668/9/147)-(18668/9/17)|(18668/9/298)-(18668/9/12)|(18668/9/238)-(18668/9/4)|(18668/9/288)-(18668/9/2)|(18668/9/133)-(18668/9/3)|(18668/9/277)-(18668/9/17)|(18668/9/227)-(18668/9/19)|(18668/9/242)-(18668/9/8)|(18668/9/95)-(18668/9/17)|(18668/9/246)-(18668/9/12)|(18668/9/74)-(18668/9/22)|(18668/9/153)-(18668/9/23)|(18668/9/45)-(18668/9/19)|(18668/9/85)-(18668/9/7)|(18668/9/162)-(18668/9/6)|(18668/9/67)-(18668/9/15)|(18668/9/215)-(18668/9/7)|(18668/9/144)-(18668/9/14)|(18668/9/254)-(18668/9/20)|(18668/9/43)-(18668/9/17)|(18668/9/129)-(18668/9/25)|(18668/9/272)-(18668/9/12)|(18668/9/35)-(18668/9/9)|(18668/9/27)-(18668/9/1)|(18668/9/262)-(18668/9/2)|(18668/9/177)-(18668/9/21)|(18668/9/286)-(18668/9/26)|(18668/9/181)-(18668/9/25)|(18668/9/61)-(18668/9/9)|(18668/9/109)-(18668/9/5)|(18668/9/235)-(18668/9/1)|(18668/9/77)-(18668/9/25)|(18668/9/158)-(18668/9/2)|(18668/9/197)-(18668/9/15)|(18668/9/154)-(18668/9/24)|(18668/9/336)-(18668/9/24)|(18668/9/218)-(18668/9/10)|(18668/9/173)-(18668/9/17)|(18668/9/57)-(18668/9/5)|(18668/9/188)-(18668/9/6)|(18668/9/263)-(18668/9/3)|(18668/9/134)-(18668/9/4)|(18668/9/324)-(18668/9/12)|(18668/9/241)-(18668/9/7)|(18668/9/136)-(18668/9/6)|(18668/9/121)-(18668/9/17)|(18668/9/156)-(18668/9/26)|(18668/9/47)-(18668/9/21)|(18668/9/166)-(18668/9/10)|(18668/9/90)-(18668/9/12)|(18668/9/293)-(18668/9/7)|(18668/9/214)-(18668/9/6)|(18668/9/55)-(18668/9/3)|(18668/9/172)-(18668/9/16)|(18668/9/143)-(18668/9/13)|(18668/9/280)-(18668/9/20)|(18668/9/305)-(18668/9/19)|(18668/9/140)-(18668/9/10)|(18668/9/258)-(18668/9/24)|(18668/9/33)-(18668/9/7)|(18668/9/275)-(18668/9/15)|(18668/9/281)-(18668/9/21)|(18668/9/299)-(18668/9/13)|(18668/9/88)-(18668/9/10)|(18668/9/64)-(18668/9/12)|(18668/9/46)-(18668/9/20)|(18668/9/289)-(18668/9/3)|(18668/9/145)-(18668/9/15)|(18668/9/29)-(18668/9/3)|(18668/9/30)-(18668/9/4)|(18668/9/222)-(18668/9/14)|(18668/9/170)-(18668/9/14)|(18668/9/91)-(18668/9/13)|(18668/9/313)-(18668/9/1)|(18668/9/192)-(18668/9/10)|(18668/9/79)-(18668/9/1)|(18668/9/155)-(18668/9/25)|(18668/9/309)-(18668/9/23)|(18668/9/208)-(18668/9/26)|(18668/9/152)-(18668/9/22)|(18668/9/100)-(18668/9/22)|(18668/9/86)-(18668/9/8)|(18668/9/92)-(18668/9/14)|(18668/9/89)-(18668/9/11)|(18668/9/265)-(18668/9/5)|(18668/9/229)-(18668/9/21)|(18668/9/104)-(18668/9/26)|(18668/9/248)-(18668/9/14)|(18668/9/259)-(18668/9/25)|(18668/9/311)-(18668/9/25)|(18668/9/320)-(18668/9/8)|(18668/9/44)-(18668/9/18)|(18668/9/337)-(18668/9/25)|(18668/9/268)-(18668/9/8)|(18668/9/51)-(18668/9/25)|(18668/9/38)-(18668/9/12)|(18668/9/213)-(18668/9/5)|(18668/9/304)-(18668/9/18)|(18668/9/204)-(18668/9/22)|(18668/9/60)-(18668/9/8)|(18668/9/264)-(18668/9/4)|(18668/9/176)-(18668/9/20)|(18668/9/179)-(18668/9/23)|(18668/9/283)-(18668/9/23)|(18668/9/114)-(18668/9/10)|(18668/9/335)-(18668/9/23)|(18668/9/231)-(18668/9/23)|(18668/9/306)-(18668/9/20)|(18668/9/73)-(18668/9/21)|(18668/9/202)-(18668/9/20)|(18668/9/200)-(18668/9/18)|(18668/9/223)-(18668/9/15)|(18668/9/266)-(18668/9/6)|(18668/9/32)-(18668/9/6)|(18668/9/167)-(18668/9/11)|(18668/9/315)-(18668/9/3)|(18668/9/332)-(18668/9/20)|(18668/9/171)-(18668/9/15)|(18668/9/113)-(18668/9/9)|(18668/9/211)-(18668/9/3)|(18668/9/123)-(18668/9/19)|(18668/9/243)-(18668/9/9)|(18668/9/99)-(18668/9/21)|(18668/9/48)-(18668/9/22)|(18668/9/159)-(18668/9/3)|(18668/9/185)-(18668/9/3)|(18668/9/135)-(18668/9/5)|(18668/9/323)-(18668/9/11)|(18668/9/338)-(18668/9/26)|(18668/9/132)-(18668/9/2)|(18668/9/31)-(18668/9/5)|(18668/9/291)-(18668/9/5)|(18668/9/331)-(18668/9/19)|(18668/9/163)-(18668/9/7)|(18668/9/93)-(18668/9/15)|(18668/9/321)-(18668/9/9)|(18668/9/236)-(18668/9/2)|(18668/9/76)-(18668/9/24)|(18668/9/300)-(18668/9/14)|(18668/9/101)-(18668/9/23)|(18668/9/273)-(18668/9/13)|(18668/9/184)-(18668/9/2)|(18668/9/253)-(18668/9/19)|(18668/9/69)-(18668/9/17)|(18668/9/98)-(18668/9/20)|(18668/9/108)-(18668/9/4)|(18668/9/125)-(18668/9/21)|(18668/9/66)-(18668/9/14)|(18668/9/83)-(18668/9/5)|(18668/9/285)-(18668/9/25)|(18668/9/327)-(18668/9/15)|(18668/9/53)-(18668/9/1)|(18668/9/240)-(18668/9/6)|(18668/9/251)-(18668/9/17)|(18668/9/54)-(18668/9/2)|(18668/9/314)-(18668/9/2)|(18668/9/137)-(18668/9/7)|(18668/9/36)-(18668/9/10)|(18668/9/239)-(18668/9/5)|(18668/9/78)-(18668/9/26)|(18668/9/84)-(18668/9/6)|(18668/9/252)-(18668/9/18)|(18668/9/220)-(18668/9/12)|(18668/9/225)-(18668/9/17)|(18668/9/63)-(18668/9/11)|(18668/9/191)-(18668/9/9)|(18668/9/81)-(18668/9/3)|(18668/9/279)-(18668/9/19)|(18668/9/180)-(18668/9/24)|(18668/9/316)-(18668/9/4)|(18668/9/260)-(18668/9/26)|(18668/9/333)-(18668/9/21)|(18668/9/127)-(18668/9/23)|(18668/9/232)-(18668/9/24)|(18668/9/175)-(18668/9/19)|(18668/9/201)-(18668/9/19)|(18668/9/117)-(18668/9/13)|(18668/9/302)-(18668/9/16)|(18668/9/267)-(18668/9/7)|(18668/9/269)-(18668/9/9)|(18668/9/72)-(18668/9/20)|(18668/9/126)-(18668/9/22)|(18668/9/230)-(18668/9/22)|(18668/9/226)-(18668/9/18)|(18668/9/39)-(18668/9/13)|(18668/9/138)-(18668/9/8)|(18668/9/322)-(18668/9/10)|(18668/9/296)-(18668/9/10)|(18668/9/303)-(18668/9/17)|(18668/9/274)-(18668/9/14)|(18668/9/325)-(18668/9/13)|(18668/9/292)-(18668/9/6)|(18668/9/128)-(18668/9/24)|(18668/9/149)-(18668/9/19)|(18668/9/97)-(18668/9/19)|(18668/9/271)-(18668/9/11)|(18668/9/157)-(18668/9/1)|(18668/9/42)-(18668/9/16)|(18668/9/118)-(18668/9/14)|(18668/9/270)-(18668/9/10)|(18668/9/207)-(18668/9/25)|(18668/9/131)-(18668/9/1)|(18668/9/216)-(18668/9/8)|(18668/9/195)-(18668/9/13)|(18668/9/194)-(18668/9/12)|(18668/9/82)-(18668/9/4)|(18668/9/244)-(18668/9/10)|(18668/9/182)-(18668/9/26)|(18668/9/183)-(18668/9/1)|(18668/9/112)-(18668/9/8)|(18668/9/237)-(18668/9/3)|(18668/9/329)-(18668/9/17)|(18668/9/150)-(18668/9/20)|(18668/9/290)-(18668/9/4)|(18668/9/52)-(18668/9/26)|(18668/9/301)-(18668/9/15)|(18668/9/120)-(18668/9/16)|(18668/9/317)-(18668/9/5)|(18668/9/189)-(18668/9/7)|(18668/9/178)-(18668/9/22)|(18668/9/165)-(18668/9/9)|(18668/9/287)-(18668/9/1)|(18668/9/106)-(18668/9/2)|(18668/9/308)-(18668/9/22)|(18668/9/203)-(18668/9/21)|(18668/9/334)-(18668/9/22)|(18668/9/49)-(18668/9/23)|(18668/9/217)-(18668/9/9)|(18668/9/190)-(18668/9/8)|(18668/9/221)-(18668/9/13)|(18668/9/142)-(18668/9/12)|(18668/9/206)-(18668/9/24)|(18668/9/119)-(18668/9/15)|(18668/9/209)-(18668/9/1)|(18668/9/234)-(18668/9/26)|(18668/9/295)-(18668/9/9)|(18668/9/59)-(18668/9/7)
+- (18668/900/320)-(18668/900/8)|(18668/900/273)-(18668/900/13)|(18668/900/190)-(18668/900/8)|(18668/900/285)-(18668/900/25)|(18668/900/47)-(18668/900/21)|(18668/900/68)-(18668/900/16)|(18668/900/195)-(18668/900/13)|(18668/900/291)-(18668/900/5)|(18668/900/81)-(18668/900/3)|(18668/900/145)-(18668/900/15)|(18668/900/40)-(18668/900/14)|(18668/900/258)-(18668/900/24)|(18668/900/181)-(18668/900/25)|(18668/900/265)-(18668/900/5)|(18668/900/304)-(18668/900/18)|(18668/900/184)-(18668/900/2)|(18668/900/180)-(18668/900/24)|(18668/900/314)-(18668/900/2)|(18668/900/92)-(18668/900/14)|(18668/900/86)-(18668/900/8)|(18668/900/238)-(18668/900/4)|(18668/900/73)-(18668/900/21)|(18668/900/186)-(18668/900/4)|(18668/900/244)-(18668/900/10)|(18668/900/174)-(18668/900/18)|(18668/900/179)-(18668/900/23)|(18668/900/65)-(18668/900/13)|(18668/900/76)-(18668/900/24)|(18668/900/70)-(18668/900/18)|(18668/900/185)-(18668/900/3)|(18668/900/55)-(18668/900/3)|(18668/900/315)-(18668/900/3)|(18668/900/160)-(18668/900/4)|(18668/900/37)-(18668/900/11)|(18668/900/51)-(18668/900/25)|(18668/900/196)-(18668/900/14)|(18668/900/200)-(18668/900/18)|(18668/900/49)-(18668/900/23)|(18668/900/133)-(18668/900/3)|(18668/900/220)-(18668/900/12)|(18668/900/217)-(18668/900/9)|(18668/900/289)-(18668/900/3)|(18668/900/253)-(18668/900/19)|(18668/900/249)-(18668/900/15)|(18668/900/175)-(18668/900/19)|(18668/900/231)-(18668/900/23)|(18668/900/105)-(18668/900/1)|(18668/900/199)-(18668/900/17)|(18668/900/38)-(18668/900/12)|(18668/900/172)-(18668/900/16)|(18668/900/158)-(18668/900/2)|(18668/900/277)-(18668/900/17)|(18668/900/109)-(18668/900/5)|(18668/900/167)-(18668/900/11)|(18668/900/52)-(18668/900/26)|(18668/900/279)-(18668/900/19)|(18668/900/305)-(18668/900/19)|(18668/900/98)-(18668/900/20)|(18668/900/275)-(18668/900/15)|(18668/900/45)-(18668/900/19)|(18668/900/135)-(18668/900/5)|(18668/900/254)-(18668/900/20)|(18668/900/263)-(18668/900/3)|(18668/900/182)-(18668/900/26)|(18668/900/63)-(18668/900/11)|(18668/900/143)-(18668/900/13)|(18668/900/78)-(18668/900/26)|(18668/900/178)-(18668/900/22)|(18668/900/110)-(18668/900/6)|(18668/900/255)-(18668/900/21)|(18668/900/269)-(18668/900/9)|(18668/900/67)-(18668/900/15)|(18668/900/64)-(18668/900/12)|(18668/900/299)-(18668/900/13)|(18668/900/267)-(18668/900/7)|(18668/900/307)-(18668/900/21)|(18668/900/272)-(18668/900/12)|(18668/900/251)-(18668/900/17)|(18668/900/319)-(18668/900/7)|(18668/900/128)-(18668/900/24)|(18668/900/193)-(18668/900/11)|(18668/900/246)-(18668/900/12)|(18668/900/282)-(18668/900/22)|(18668/900/129)-(18668/900/25)|(18668/900/84)-(18668/900/6)|(18668/900/256)-(18668/900/22)|(18668/900/331)-(18668/900/19)|(18668/900/311)-(18668/900/25)|(18668/900/32)-(18668/900/6)|(18668/900/211)-(18668/900/3)|(18668/900/259)-(18668/900/25)|(18668/900/144)-(18668/900/14)|(18668/900/138)-(18668/900/8)|(18668/900/318)-(18668/900/6)|(18668/900/146)-(18668/900/16)|(18668/900/294)-(18668/900/8)|(18668/900/88)-(18668/900/10)|(18668/900/333)-(18668/900/21)|(18668/900/155)-(18668/900/25)|(18668/900/90)-(18668/900/12)|(18668/900/85)-(18668/900/7)|(18668/900/159)-(18668/900/3)|(18668/900/306)-(18668/900/20)|(18668/900/154)-(18668/900/24)|(18668/900/287)-(18668/900/1)|(18668/900/328)-(18668/900/16)|(18668/900/33)-(18668/900/7)|(18668/900/335)-(18668/900/23)|(18668/900/224)-(18668/900/16)|(18668/900/203)-(18668/900/21)|(18668/900/194)-(18668/900/12)|(18668/900/71)-(18668/900/19)|(18668/900/284)-(18668/900/24)|(18668/900/227)-(18668/900/19)|(18668/900/191)-(18668/900/9)|(18668/900/338)-(18668/900/26)|(18668/900/95)-(18668/900/17)|(18668/900/317)-(18668/900/5)|(18668/900/125)-(18668/900/21)|(18668/900/222)-(18668/900/14)|(18668/900/176)-(18668/900/20)|(18668/900/41)-(18668/900/15)|(18668/900/286)-(18668/900/26)|(18668/900/130)-(18668/900/26)|(18668/900/93)-(18668/900/15)|(18668/900/209)-(18668/900/1)|(18668/900/53)-(18668/900/1)|(18668/900/75)-(18668/900/23)|(18668/900/281)-(18668/900/21)|(18668/900/54)-(18668/900/2)|(18668/900/288)-(18668/900/2)|(18668/900/169)-(18668/900/13)|(18668/900/118)-(18668/900/14)|(18668/900/119)-(18668/900/15)|(18668/900/162)-(18668/900/6)|(18668/900/313)-(18668/900/1)|(18668/900/252)-(18668/900/18)|(18668/900/136)-(18668/900/6)|(18668/900/316)-(18668/900/4)|(18668/900/300)-(18668/900/14)|(18668/900/262)-(18668/900/2)|(18668/900/72)-(18668/900/20)|(18668/900/242)-(18668/900/8)|(18668/900/332)-(18668/900/20)|(18668/900/42)-(18668/900/16)|(18668/900/280)-(18668/900/20)|(18668/900/213)-(18668/900/5)|(18668/900/309)-(18668/900/23)|(18668/900/46)-(18668/900/20)|(18668/900/268)-(18668/900/8)|(18668/900/127)-(18668/900/23)|(18668/900/232)-(18668/900/24)|(18668/900/207)-(18668/900/25)|(18668/900/298)-(18668/900/12)|(18668/900/61)-(18668/900/9)|(18668/900/134)-(18668/900/4)|(18668/900/97)-(18668/900/19)|(18668/900/108)-(18668/900/4)|(18668/900/28)-(18668/900/2)|(18668/900/229)-(18668/900/21)|(18668/900/30)-(18668/900/4)|(18668/900/308)-(18668/900/22)|(18668/900/91)-(18668/900/13)|(18668/900/310)-(18668/900/24)|(18668/900/57)-(18668/900/5)|(18668/900/221)-(18668/900/13)|(18668/900/312)-(18668/900/26)|(18668/900/241)-(18668/900/7)|(18668/900/202)-(18668/900/20)|(18668/900/260)-(18668/900/26)|(18668/900/243)-(18668/900/9)|(18668/900/219)-(18668/900/11)|(18668/900/303)-(18668/900/17)|(18668/900/31)-(18668/900/5)|(18668/900/83)-(18668/900/5)|(18668/900/59)-(18668/900/7)|(18668/900/225)-(18668/900/17)|(18668/900/216)-(18668/900/8)|(18668/900/274)-(18668/900/14)|(18668/900/80)-(18668/900/2)|(18668/900/131)-(18668/900/1)|(18668/900/152)-(18668/900/22)|(18668/900/290)-(18668/900/4)|(18668/900/218)-(18668/900/10)|(18668/900/327)-(18668/900/15)|(18668/900/173)-(18668/900/17)|(18668/900/66)-(18668/900/14)|(18668/900/116)-(18668/900/12)|(18668/900/337)-(18668/900/25)|(18668/900/325)-(18668/900/13)|(18668/900/156)-(18668/900/26)|(18668/900/235)-(18668/900/1)|(18668/900/161)-(18668/900/5)|(18668/900/147)-(18668/900/17)|(18668/900/126)-(18668/900/22)|(18668/900/124)-(18668/900/20)|(18668/900/29)-(18668/900/3)|(18668/900/248)-(18668/900/14)|(18668/900/149)-(18668/900/19)|(18668/900/245)-(18668/900/11)|(18668/900/104)-(18668/900/26)|(18668/900/94)-(18668/900/16)|(18668/900/112)-(18668/900/8)|(18668/900/165)-(18668/900/9)|(18668/900/148)-(18668/900/18)|(18668/900/330)-(18668/900/18)|(18668/900/228)-(18668/900/20)|(18668/900/117)-(18668/900/13)|(18668/900/36)-(18668/900/10)|(18668/900/326)-(18668/900/14)|(18668/900/44)-(18668/900/18)|(18668/900/266)-(18668/900/6)|(18668/900/271)-(18668/900/11)|(18668/900/142)-(18668/900/12)|(18668/900/324)-(18668/900/12)|(18668/900/111)-(18668/900/7)|(18668/900/96)-(18668/900/18)|(18668/900/69)-(18668/900/17)|(18668/900/188)-(18668/900/6)|(18668/900/226)-(18668/900/18)|(18668/900/82)-(18668/900/4)|(18668/900/123)-(18668/900/19)|(18668/900/292)-(18668/900/6)|(18668/900/295)-(18668/900/9)|(18668/900/101)-(18668/900/23)|(18668/900/106)-(18668/900/2)|(18668/900/278)-(18668/900/18)|(18668/900/114)-(18668/900/10)|(18668/900/270)-(18668/900/10)|(18668/900/212)-(18668/900/4)|(18668/900/168)-(18668/900/12)|(18668/900/302)-(18668/900/16)|(18668/900/77)-(18668/900/25)|(18668/900/205)-(18668/900/23)|(18668/900/214)-(18668/900/6)|(18668/900/276)-(18668/900/16)|(18668/900/102)-(18668/900/24)|(18668/900/99)-(18668/900/21)|(18668/900/121)-(18668/900/17)|(18668/900/35)-(18668/900/9)|(18668/900/183)-(18668/900/1)|(18668/900/250)-(18668/900/16)|(18668/900/247)-(18668/900/13)|(18668/900/163)-(18668/900/7)|(18668/900/177)-(18668/900/21)|(18668/900/170)-(18668/900/14)|(18668/900/192)-(18668/900/10)|(18668/900/87)-(18668/900/9)|(18668/900/56)-(18668/900/4)|(18668/900/261)-(18668/900/1)|(18668/900/164)-(18668/900/8)|(18668/900/139)-(18668/900/9)|(18668/900/264)-(18668/900/4)|(18668/900/336)-(18668/900/24)|(18668/900/240)-(18668/900/6)|(18668/900/283)-(18668/900/23)|(18668/900/237)-(18668/900/3)|(18668/900/166)-(18668/900/10)|(18668/900/334)-(18668/900/22)|(18668/900/107)-(18668/900/3)|(18668/900/140)-(18668/900/10)|(18668/900/60)-(18668/900/8)|(18668/900/48)-(18668/900/22)|(18668/900/234)-(18668/900/26)|(18668/900/257)-(18668/900/23)|(18668/900/233)-(18668/900/25)|(18668/900/323)-(18668/900/11)|(18668/900/189)-(18668/900/7)|(18668/900/208)-(18668/900/26)|(18668/900/141)-(18668/900/11)|(18668/900/34)-(18668/900/8)|(18668/900/230)-(18668/900/22)|(18668/900/43)-(18668/900/17)|(18668/900/296)-(18668/900/10)|(18668/900/321)-(18668/900/9)|(18668/900/39)-(18668/900/13)|(18668/900/89)-(18668/900/11)|(18668/900/206)-(18668/900/24)|(18668/900/201)-(18668/900/19)|(18668/900/293)-(18668/900/7)|(18668/900/122)-(18668/900/18)|(18668/900/301)-(18668/900/15)|(18668/900/187)-(18668/900/5)|(18668/900/239)-(18668/900/5)|(18668/900/113)-(18668/900/9)|(18668/900/62)-(18668/900/10)|(18668/900/151)-(18668/900/21)|(18668/900/171)-(18668/900/15)|(18668/900/215)-(18668/900/7)|(18668/900/153)-(18668/900/23)|(18668/900/79)-(18668/900/1)|(18668/900/150)-(18668/900/20)|(18668/900/50)-(18668/900/24)|(18668/900/297)-(18668/900/11)|(18668/900/115)-(18668/900/11)|(18668/900/198)-(18668/900/16)|(18668/900/100)-(18668/900/22)|(18668/900/120)-(18668/900/16)|(18668/900/132)-(18668/900/2)|(18668/900/157)-(18668/900/1)|(18668/900/137)-(18668/900/7)|(18668/900/210)-(18668/900/2)|(18668/900/58)-(18668/900/6)|(18668/900/27)-(18668/900/1)|(18668/900/223)-(18668/900/15)|(18668/900/322)-(18668/900/10)|(18668/900/204)-(18668/900/22)|(18668/900/329)-(18668/900/17)|(18668/900/103)-(18668/900/25)|(18668/900/74)-(18668/900/22)|(18668/900/197)-(18668/900/15)|(18668/900/236)-(18668/900/2)
+- Ax 3D FSPGR Prostate
+- Ax 3D FSPGR+C Prostate
+- Ax FSPGR 3D Pre
+- Ph5/Ax 3D FSPGR+C Prostate
+- Ph1/Ax 3D FSPGR+C Prostate
+- Ph7/Ax 3D FSPGR+C Prostate
+- Ph3/Ax 3D FSPGR+C Prostate
+- Ph9/Ax 3D FSPGR+C Prostate
+- Ph6/Ax 3D FSPGR+C Prostate
+- Ph2/Ax 3D FSPGR+C Prostate
+- Ph8/Ax 3D FSPGR+C Prostate
+- Ph10/Ax 3D FSPGR+C Prostate
+- Ph4/Ax 3D FSPGR+C Prostate
+- 'WATER: AX LAVA FLEX Dynamic +C'
+- 3D Ax LAVA Dyn Temp.Res.Medium
+- sSubtraction
+- Dynamic 15 Ax with pause
+- 'FAT: Ph20/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph9/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph18/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph12/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph11/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph17/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph20/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph13/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph7/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph6/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph1/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph4/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph16/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph15/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph19/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph3/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph8/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph10/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph2/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph5/Ax LAVA-Flex + C (dyn)'
+- 'WATER: Ph14/Ax LAVA-Flex + C (dyn)'
+- t1_vibe_tra_pre check
+- mDIXON-W_dyn3mm
+- 'InPhase: Ax LAVA-Flex'
+- 'FAT: Ax LAVA-Flex'
+- 'OutPhase: Ax LAVA-Flex'
+- 'WATER: Ax LAVA-Flex'
+- THRIVE SENSE(opcional)
+- Cal Body E24 AA2
+- Cal Body E24 AA3
+- 'FAT: Ax DISCO Perf 6.3sec'
+- 'WATER: Ax DISCO Perf 6.3sec'
+- Ax DISCO SE SmFOV Dyn (3sec)
+- 'InPhase: Ax DISCO Perf 6.3sec'
+- 'FAT: Ax DISCO Perf 8.9sec'
+- 'WATER: Ax DISCO Perf 8.9sec'
+- 'InPhase: Ax DISCO Perf 8.9sec'
+- DCE 5.7s 4xSOVS P3p4 +C
+- Ax DINAMICO
+- Ax DISCO SE SmFOV Dyn (6.8sec)
+- 'InPhase: Ax DISCO Perf 6.8sec'
+- 'WATER: Ax DISCO Perf 6.8sec'
+- 'WATER: Ax DISCO Perf 9,1 sec'
+- 'InPhase: Ax DISCO Perf 9,1 sec'
+- 'InPhase: AX LAVA Flex Dyn Gado'
+- 'FAT: AX LAVA Flex Dyn Gado'
+- 'WATER: AX LAVA Flex Dyn Gado'
+- Ax DISCO SE SmFOV Dyn (9sec)
+- 'FAT: Ax DISCO Perf 9,7sec'
+- 'InPhase: Ax DISCO Perf 9,7sec'
+- 'WATER: Ax DISCO Perf 9,7sec'
+OTHER: []\
+'''
+with open('series_description.yaml', 'w') as file:
+
+    file.write(series_description)
