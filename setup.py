@@ -18,6 +18,8 @@ setup(
     install_requires=[
         'simpleitk>=2.1',
         'pydicom',
-        'tqdm'
+        'tqdm',
+        'pandas',
+        'fastparquet'
     ]
 )
