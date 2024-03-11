@@ -94,7 +94,7 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
 
     dir_list = get_directories(image_repository, filetype)
     file_list = get_dcm_file(dir_list = dir_list)
-
+    create_series_yaml()
     series_yaml = yaml.safe_load(open('series_description.yaml','r'))
 
     default_ecrfs = {
@@ -190,7 +190,8 @@ ReadMeta(path2images) # Now, will work for dcm files !
 Loader = ImageLoader(path2images,'ecrfs.parquet','segments.parquet',extract_nii=True)
 Loader.GetImageLoader()
 '''
-series_description = '''\
+def create_series_yaml():
+    series_description = '''\
 T2:
 - Ax T2 FSE 703
 - Ax T2 frFSE
@@ -3360,6 +3361,6 @@ DCE:
 - 'WATER: Ax DISCO Perf 9,7sec'
 OTHER: []\
 '''
-with open('series_description.yaml', 'w') as file:
-
-    file.write(series_description)
+    with open('series_description.yaml', 'w') as file:
+    
+        file.write(series_description)
