@@ -13,14 +13,15 @@ from .utils import GetDirectionDict
 from .pydicom_utils import DCMUtils
 from .sitk_utils import SitkUtils
 from .IssueLogger import IssueLogger
+from typing import Union
 
 
 class ImageLoader:
 
     def __init__(self,  images_directory_path: Path,
-                        parquet_series: Path or pd.DataFrame,
-                        parquet_segmentations: Path or pd.DataFrame = None,
-                        add_columns: list or str = None,
+                        parquet_series: Union[Path, pd.DataFrame],
+                        parquet_segmentations: Union[Path, pd.DataFrame] = None,
+                        add_columns: Union[list, str] = None,
                         reset_logger: bool = True,
                         extract_nii: bool = False
     ) -> None:
@@ -570,7 +571,7 @@ class ImageLoader:
 class DICOM2NII():
         
     def __init__(self, 
-                    image_loader: str or dict,
+                    image_loader: Union[str, dict],
                     keep_max_bvalue:bool = True,
     ) -> None:
         

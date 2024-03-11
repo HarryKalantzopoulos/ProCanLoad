@@ -3,9 +3,9 @@ from setuptools import setup
 setup(
     name='ProCanLoad',
     
-    version='1.1-beta',
+    version='0.0.1-dev',
     
-    description='ProCAncer-I image loading tool',
+    description='ProCAncer-I image loading tool - no parquet',
     
     authors= "Kalantzopoulos Charalampos",
 
