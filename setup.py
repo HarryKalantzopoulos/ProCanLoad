@@ -20,6 +20,7 @@ setup(
         'pydicom',
         'tqdm',
         'pandas',
-        'fastparquet'
+        'fastparquet',
+        'pyyaml'
     ]
 )
