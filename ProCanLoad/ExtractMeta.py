@@ -3361,6 +3361,6 @@ DCE:
 - 'WATER: Ax DISCO Perf 9,7sec'
 OTHER: []\
 '''
-    with open('series_description.yaml', 'w') as file:
+    with open('series_description.yaml', 'w', encoding='utf-8') as file:
     
         file.write(series_description)
