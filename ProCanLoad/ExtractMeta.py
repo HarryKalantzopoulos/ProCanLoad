@@ -148,14 +148,35 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
                 elif value is None:
                     series_description = sitk_image.GetMetaData('0008|103e')
                     find_value = False
+                    # IF DESCRIPTION GIVEN IN FOLDER
+                    dir_description = os.path.basename(file).split( os.sep() )[-1].upper().strip()
+
+                    if 'T2' in dir_description:
+                        ecrfs[key].append('T2')
+                        find_value = True
+
+                    elif 'ADC' in dir_description:
+                        ecrfs[key].append('ADC')
+                        find_value = True
+
+                    elif 'DWI' in dir_description:
+                        ecrfs[key].append('DWI')
+                        find_value = True
+
+                    elif 'DCE' in dir_description:
+                        ecrfs[key].append('DCE')
+                        find_value = True
+
+                    # if series does not exist in folder, find from series description and ecrfs dictionary
+                    if not find_value:
+                        for k,v in series_yaml.items():
+                            
+                            if series_description in v:
+                                ecrfs[key].append(k)
+                                find_value = True
+                                break
                     
-                    for k,v in series_yaml.items():
-                        
-                        if series_description in v:
-                            ecrfs[key].append(k)
-                            find_value = True
-                            break
-                        
+                    # if all fails, check for these keywords.
                     if not find_value:
                         series_description = series_description.upper().strip()
                         if 'T2' in series_description:
