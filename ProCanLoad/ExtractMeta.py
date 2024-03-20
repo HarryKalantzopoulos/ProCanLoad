@@ -48,6 +48,7 @@ import pandas as pd
 import yaml
 from pathlib import Path
 import os
+import yaml
 
 def get_directories (path:Path, filetype:str = '.dcm') -> list:
 
@@ -102,6 +103,7 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
                                 'patient_id':'0010|0020', 
                                 'study_uid':'0020|000d', 
                                 'series_uid':'0020|000e',
+                                'normal_series_uid':'0020|000e',
                                 'series_description':'0008|103e',  
                                 'user_series_type':None,
                                 'catboost_series_type_heuristics':None,
@@ -153,22 +155,26 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
 
                     if 'T2' in dir_description:
                         ecrfs[key].append('T2')
-                        ecrfs['series_uid'] = os.path.dirname(file).split( os.sep )[-1]
+                        ecrfs['series_uid'].pop()
+                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     elif 'ADC' in dir_description:
                         ecrfs[key].append('ADC')
-                        ecrfs['series_uid'] = os.path.dirname(file).split( os.sep )[-1]
+                        ecrfs['series_uid'].pop()
+                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     elif 'DWI' in dir_description:
                         ecrfs[key].append('DWI')
-                        ecrfs['series_uid'] = os.path.dirname(file).split( os.sep )[-1]
+                        ecrfs['series_uid'].pop()
+                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     elif 'DCE' in dir_description:
                         ecrfs[key].append('DCE')
-                        ecrfs['series_uid'] = os.path.dirname(file).split( os.sep )[-1]
+                        ecrfs['series_uid'].pop()
+                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     # if series does not exist in folder, find from series description and ecrfs dictionary
@@ -192,7 +198,21 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
                         else:
                             ecrfs[key].append(series_description)
 
+    with open('ecrfs.yaml','w') as f:
+        yaml.safe_dump(ecrfs,f,indent=4)
+
+    with open('segm.yaml','w') as f:
+        yaml.safe_dump(segments,f,indent=4)
+
     # return ecrfs, segments
+    for series,desc in zip( ecrfs['normal_series_uid'], ecrfs['series_uid']):
+        
+        if series in segments['source_series_uid']:
+            loc = segments['source_series_uid'].index(series)
+            segments['source_series_uid'][loc] = desc
+
+    with open('segm2.yaml','w') as f:
+        yaml.safe_dump(segments,f,indent=4)
 
     ecrfs_df = pd.DataFrame.from_dict(ecrfs)
     segments_df = pd.DataFrame.from_dict(segments)
