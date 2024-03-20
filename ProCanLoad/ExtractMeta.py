@@ -198,21 +198,12 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
                         else:
                             ecrfs[key].append(series_description)
 
-    with open('ecrfs.yaml','w') as f:
-        yaml.safe_dump(ecrfs,f,indent=4)
-
-    with open('segm.yaml','w') as f:
-        yaml.safe_dump(segments,f,indent=4)
-
     # return ecrfs, segments
     for series,desc in zip( ecrfs['normal_series_uid'], ecrfs['series_uid']):
         
         if series in segments['source_series_uid']:
             loc = segments['source_series_uid'].index(series)
             segments['source_series_uid'][loc] = desc
-
-    with open('segm2.yaml','w') as f:
-        yaml.safe_dump(segments,f,indent=4)
 
     ecrfs_df = pd.DataFrame.from_dict(ecrfs)
     segments_df = pd.DataFrame.from_dict(segments)
