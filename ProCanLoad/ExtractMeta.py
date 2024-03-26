@@ -41,16 +41,17 @@
 # with open('series_description.yaml','w') as f:
 
 #     yaml.dump(my_dict,f,indent=4,sort_keys=False)
-
+import os
+from pathlib import Path
 import SimpleITK as sitk
 import pydicom
 import pandas as pd
 import yaml
-from pathlib import Path
-import os
-import yaml
 
 def get_directories (path:Path, filetype:str = '.dcm') -> list:
+    '''
+    Gets parent folder of dcm files.
+    '''
 
     path_list = []
     for dirpath,_,files in os.walk(path):
@@ -65,6 +66,9 @@ def get_directories (path:Path, filetype:str = '.dcm') -> list:
     return list(set(path_list))
 
 def get_dcm_file(dir_list:list) -> list:
+    '''
+    Gets first dcm file from a DICOM directory.
+    '''
 
     sample_list = []
     for dirpath in dir_list:
@@ -79,6 +83,9 @@ def get_dcm_file(dir_list:list) -> list:
     return sample_list
 
 def read_file_image(dcm_path: Path) -> tuple[sitk.Image, pydicom.Dataset]:
+    '''
+    Read a dcm file, returns a sitk object and a dataframe metadata.
+    '''
 
     try:
         sitk_image = sitk.ReadImage(dcm_path)
@@ -92,6 +99,9 @@ def read_file_image(dcm_path: Path) -> tuple[sitk.Image, pydicom.Dataset]:
 
 # First 2D Image
 def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
+    '''
+    Reads metadata from dcm file.
+    '''
 
     dir_list = get_directories(image_repository, filetype)
     file_list = get_dcm_file(dir_list = dir_list)
@@ -110,7 +120,8 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
                                 'diffusion_bvalue': 0, # Not searching, done after
                                 'manufacturer':'0008|0070',
                                 'manufacturer_model_name':'0008|1090',
-                                'use_case_form':'0008|1030'
+                                'use_case_form':'0008|1030',
+                                'dcm_directory_path':'path'
     }
 
     ecrfs = { key: [] for key in default_ecrfs }
@@ -118,11 +129,13 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
     segments = {    'source_series_uid':[],
                     'study_uid':[],
                     'derived_series_uid':[],
+                    'dcm_directory_path':[],
     }
 
     for file in file_list:
-        
+
         sitk_image, dcm_image = read_file_image(file)
+        path2file = os.path.dirname(file).replace('\\','/')
         #seg
         if isinstance(sitk_image, sitk.Image):
             statement = sitk_image.GetMetaData("0008|0060").upper().strip()
@@ -133,17 +146,20 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
         if statement == 'SEG':
 
             source_series = dcm_image[0x0008,0x1115][0][0x0020, 0x000e].value
-            
+
             segments['study_uid'].append(dcm_image.StudyInstanceUID.strip())
             segments['source_series_uid'].append(source_series.strip())
             segments['derived_series_uid'].append(dcm_image.SeriesInstanceUID.strip())
+            segments['dcm_directory_path'].append(path2file)
 
-        #ecrfs 
+        #ecrfs
         else:
             # available_keys = img.GetMetaDataKeys()
 
             for key,value in default_ecrfs.items():
-                if value:
+                if value == 'path':
+                    ecrfs[key].append(path2file)
+                elif value:
                     ecrfs[key].append(sitk_image.GetMetaData(value).strip())
                 elif value == 0:
                     ecrfs[key].append('0')
@@ -155,26 +171,26 @@ def ReadMeta(image_repository:Path,filetype:str = '.dcm') -> pd.DataFrame:
 
                     if 'T2' in dir_description:
                         ecrfs[key].append('T2')
-                        ecrfs['series_uid'].pop()
-                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
+                        # ecrfs['series_uid'].pop()
+                        # ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     elif 'ADC' in dir_description:
                         ecrfs[key].append('ADC')
-                        ecrfs['series_uid'].pop()
-                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
+                        # ecrfs['series_uid'].pop()
+                        # ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     elif 'DWI' in dir_description:
                         ecrfs[key].append('DWI')
-                        ecrfs['series_uid'].pop()
-                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
+                        # ecrfs['series_uid'].pop()
+                        # ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     elif 'DCE' in dir_description:
                         ecrfs[key].append('DCE')
-                        ecrfs['series_uid'].pop()
-                        ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
+                        # ecrfs['series_uid'].pop()
+                        # ecrfs['series_uid'].append(os.path.dirname(file).split( os.sep )[-1])
                         find_value = True
 
                     # if series does not exist in folder, find from series description and ecrfs dictionary

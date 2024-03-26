@@ -163,3 +163,6 @@ cython_debug/
 test.ipynb
 nii_files
 seg_files
+segments.parquet
+ecrfs.parquet
+series_description.yaml

@@ -95,8 +95,13 @@ class SegmentationLoader():
         xysize = list(image.GetSize()[::-1][1:3]) # Only x,y needed
         xyzsize.extend(xysize) 
 
-        #Load segmentation
-        segmentation_path = os.path.join(self.images_directory_path, self.patient, self.study, self.seg_series, 'image-001.dcm')
+        #Load segmentation                 
+        if 'dcm_directory_path' in self.df_seg:
+            segmentation_path = self.df_seg[ self.df_seg.source_series_uid == self.series].dcm_directory_path.iloc[0]
+            files = [file for file in os.listdir(segmentation_path) if file.endswith('.dcm')]
+            segmentation_path = os.path.join(segmentation_path,files[0])
+        else:
+            segmentation_path = os.path.join(self.images_directory_path, self.patient, self.study, self.seg_series, 'image-001.dcm')
         seg = pydicom.dcmread(segmentation_path)
         seg_im = seg.pixel_array
 

@@ -3,9 +3,9 @@ import pandas as pd
 from pathlib import Path
 
 class DataFrameUtils:
-    
+
     @staticmethod
-    def Read(file: str or pd.DataFrame) -> pd.DataFrame:
+    def Read(file: str | pd.DataFrame) -> pd.DataFrame:
 
         PandasLoaderDict = {    '.csv':     pd.read_csv,
                                 '.xlsx':    pd.read_excel,

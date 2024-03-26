@@ -543,7 +543,16 @@ class ImageLoader:
                 for series in self.pat_dict[patient][study]:
                     
                     self.series_uid = series
-                    self.series_path = os.path.join(self.images_directory_path,patient,study,series).replace('\\','/')
+                    
+                    # Check if in branch (unknown path to file, must be collected)
+                    df_ecrfs = DataFrameUtils.Read(self.parquet_series)
+                    
+                    if 'dcm_directory_path' in df_ecrfs:
+                        path2file = df_ecrfs[ df_ecrfs.series_uid == self.series_uid].dcm_directory_path.iloc[0]
+                        # files = [file for file in os.listdir(path2file) if file.endswith('.dcm')]
+                        self.series_path = os.path.join(path2file)
+                    else:
+                        self.series_path = os.path.join(self.images_directory_path,patient,study,series).replace('\\','/')
                     
                     if not self.__CheckPathExist():
                         continue
