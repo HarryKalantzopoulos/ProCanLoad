@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import numpy as np
 import SimpleITK as sitk
+from typing import Union
 
 class SitkUtils():
 
@@ -13,7 +14,7 @@ class SitkUtils():
 
     #%% dcm image related process
     @staticmethod
-    def LoadImageByFolder(image_list: list or tuple, orientation:str = None) -> sitk.Image:
+    def LoadImageByFolder(image_list: Union[list, tuple], orientation:str = None) -> sitk.Image:
         '''
         Load ITK image from the directory and filter itk paths not in  list of paths
         '''
@@ -101,7 +102,7 @@ class SitkUtils():
         return image.GetMetaData(tag)
     
     @staticmethod
-    def WriteDICOM2Nifti(image: sitk.Image or list,path2save: Path, sequence: str) -> None:
+    def WriteDICOM2Nifti(image: Union[sitk.Image, list],path2save: Path, sequence: str) -> None:
 
         os.makedirs(path2save, exist_ok=True)
 
