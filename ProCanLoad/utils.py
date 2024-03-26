@@ -1,11 +1,12 @@
 import json
 import pandas as pd
 from pathlib import Path
+from typing import Union
 
 class DataFrameUtils:
 
     @staticmethod
-    def Read(file: str | pd.DataFrame) -> pd.DataFrame:
+    def Read(file: Union[str, pd.DataFrame]) -> pd.DataFrame:
 
         PandasLoaderDict = {    '.csv':     pd.read_csv,
                                 '.xlsx':    pd.read_excel,
