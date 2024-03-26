@@ -160,6 +160,6 @@ cython_debug/
 #.idea/
 
 # Custom
-
+test.ipynb
 nii_files
 seg_files
