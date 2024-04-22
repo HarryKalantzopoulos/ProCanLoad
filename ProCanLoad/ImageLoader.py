@@ -784,13 +784,7 @@ class DICOM2NII():
                 if 'DCE' in stval:
 
                     DCEdict = stval['DCE']['N/A']['dcm_path']
-                    ADCseries = stval['DCE']['N/A']['meta']['series_uid']
-
-                    rescale_type = None
-                    if 'rescale_type' in stval['DCE']['N/A']['meta']:
-                        rescale_type = stval['DCE']['N/A']['meta']['rescale_type']
-                        
-
+                    DCEseries = stval['DCE']['N/A']['meta']['series_uid']
                     
                     DCE_list_path = [DCEdict[pos]['path'] for pos in DCEdict]
 
@@ -817,7 +811,7 @@ class DICOM2NII():
 
                 if DCEdict:
 
-                    for bval,DWIval in DWIdict.items():
+                    for bval,DCEval in DCEdict.items():
                         SitkUtils.WriteDICOM2Niifty(DCEdict['image'], export_path, f'DCE')
                         nii_dict[patient][study][f'DCE'] = os.path.join(export_path,f'DCE.nii.gz').replace('\\','/')
 
